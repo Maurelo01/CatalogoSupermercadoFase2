@@ -11,14 +11,16 @@ public class GestionInventario
     private ArbolAVL avlNombres;
     private ArbolB arbolFechas;
     private ArbolBMas arbolCategoria;
+    private TablaHash tablaHash;
 
     public GestionInventario()
     {
         listaNoOrdenada = new ListaEnlazada(false);
-        listaOrdenada   = new ListaEnlazada(true);
-        avlNombres      = new ArbolAVL();
-        arbolFechas     = new ArbolB();
-        arbolCategoria  = new ArbolBMas();
+        listaOrdenada = new ListaEnlazada(true);
+        avlNombres = new ArbolAVL();
+        arbolFechas = new ArbolB();
+        arbolCategoria = new ArbolBMas();
+        tablaHash = new TablaHash(503);
     }
     
     public void cargarDesdeCSV(String ruta)
@@ -89,10 +91,11 @@ public class GestionInventario
     
     public boolean agregarProducto(Producto nuevo)
     {
-        if (listaNoOrdenada.buscarPorCodigo(nuevo.getCodigoBarra()) != null)
+        if (tablaHash.buscarPorCodigo(nuevo.getCodigoBarra()) != null)
         {
             return false;
         }
+        tablaHash.insertar(nuevo);
         listaNoOrdenada.insertar(nuevo);
         listaOrdenada.insertar(nuevo);
         avlNombres.insertar(nuevo);
@@ -103,11 +106,12 @@ public class GestionInventario
 
     public boolean eliminarProducto(String codigo)
     {
-        Producto prod = listaNoOrdenada.buscarPorCodigo(codigo);
+        Producto prod = tablaHash.buscarPorCodigo(codigo);
         if (prod == null) return false;
         avlNombres.eliminar(prod.getNombre());
         arbolFechas.eliminar(prod);
         arbolCategoria.eliminarProducto(prod.getCategoria(), codigo);
+        tablaHash.eliminar(codigo);
         boolean e1 = listaNoOrdenada.eliminar(codigo);
         boolean e2 = listaOrdenada.eliminar(codigo);
         return e1 && e2;
@@ -125,7 +129,7 @@ public class GestionInventario
 
     public Producto buscarPorCodigo(String codigo)
     {
-        return listaNoOrdenada.buscarPorCodigo(codigo);
+        return tablaHash.buscarPorCodigo(codigo);
     }
 
     public void buscarPorCategoria(String categoria)
@@ -292,6 +296,22 @@ public class GestionInventario
         final String dot = "arbolBMas.dot";
         final String png = "arbolBMas.png";
         arbolCategoria.crearGrafico(dot);
+        System.out.println("Archivo '" + dot + "' generado correctamente.");
+        if (generarPNG(dot, png))
+        {
+            System.out.println("Archivo '" + png + "' generado exitosamente.");
+        }
+        else
+        {
+            System.err.println("Error al generar el PNG.");
+        }
+    }
+    
+    public void generarGraficoHash()
+    {
+        final String dot = "tabla_hash.dot";
+        final String png = "tabla_hash.png";
+        tablaHash.crearGrafico(dot);
         System.out.println("Archivo '" + dot + "' generado correctamente.");
         if (generarPNG(dot, png))
         {
