@@ -93,9 +93,7 @@ public class CatalogoSupermercado
                     long inicio = System.nanoTime();
                     boolean exito = inventario.agregarProducto(nuevo);
                     long duracion = (System.nanoTime() - inicio) / 1000;
-                    System.out.println(exito
-                            ? "Producto agregado correctamente a todas las estructuras."
-                            : "Error: El producto con codigo " + codigo + " ya existe.");
+                    System.out.println(exito ? "Producto agregado correctamente a todas las estructuras." : "Error: El producto con codigo " + codigo + " ya existe.");
                     System.out.println("Tiempo de insercion: " + duracion + " microsegundos.");
                     break;
                 }
@@ -186,9 +184,7 @@ public class CatalogoSupermercado
                     long inicio = System.nanoTime();
                     boolean eliminado = inventario.eliminarProducto(codigo);
                     long duracion = (System.nanoTime() - inicio) / 1000;
-                    System.out.println(eliminado
-                            ? "Producto eliminado de todas las estructuras."
-                            : "No se encontro el producto con ese codigo.");
+                    System.out.println(eliminado ? "Producto eliminado de todas las estructuras." : "No se encontro el producto con ese codigo.");
                     System.out.println("Tiempo de eliminacion: " + duracion + " us.");
                     break;
                 }
