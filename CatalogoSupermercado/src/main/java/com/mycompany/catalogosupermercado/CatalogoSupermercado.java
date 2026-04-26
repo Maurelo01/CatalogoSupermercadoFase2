@@ -1,92 +1,285 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.catalogosupermercado;
+import java.io.*;
+import java.util.Scanner;
 
-/**
- *
- * @author mauricio
- */
 public class CatalogoSupermercado {
 
-    public static void main(String[] args) {
-        System.out.println("==================================================");
-        System.out.println("      PRUEBA DE INTEGRACION - FASE 1 MIGRADA      ");
-        System.out.println("==================================================\n");
-
-        // 1. Crear productos de prueba variados
-        Producto p1 = new Producto("Leche Entera", "1001", "Lacteos", "2026-10-15", "Dos Pinos", 15.50, 50);
-        Producto p2 = new Producto("Queso Kraft", "1002", "Lacteos", "2026-05-10", "Kraft", 25.00, 30);
-        Producto p3 = new Producto("Manzana Gala", "1003", "Frutas", "2026-04-30", "Importada", 5.00, 100);
-        Producto p4 = new Producto("Pan de Caja", "1004", "Panaderia", "2026-05-05", "Bimbo", 22.50, 20);
-        Producto p5 = new Producto("Yogurt Fresa", "1005", "Lacteos", "2026-05-20", "Yoplait", 12.00, 40);
-        Producto p6 = new Producto("Cereal Miel", "1006", "Abarrotes", "2027-01-15", "Kelloggs", 35.00, 15);
-
-        // --- INICIALIZAR ESTRUCTURAS ---
-        ListaEnlazada listaNoOrdenada = new ListaEnlazada(false);
-        ListaEnlazada listaOrdenada = new ListaEnlazada(true);
-        ArbolAVL arbolAVL = new ArbolAVL();
-        ArbolB arbolB = new ArbolB();
-        ArbolBMas arbolBMas = new ArbolBMas();
-
-        // --- INSERCIONES ---
-        System.out.println("[*] Insertando productos en las estructuras...");
-        Producto[] productos = {p1, p2, p3, p4, p5, p6};
-        
-        for (Producto p : productos) {
-            listaNoOrdenada.insertar(p);
-            listaOrdenada.insertar(p);
-            arbolAVL.insertar(p);
-            arbolB.insertar(p);
-            arbolBMas.insertar(p);
+    private static void mostrarMenu()
+    {
+        System.out.println("-----------------------------------------");
+        System.out.println("   SISTEMA DE CATALOGO DE SUPERMERCADO   ");
+        System.out.println("-----------------------------------------");
+        System.out.println(" 1) Cargar catalogo desde CSV");
+        System.out.println(" 2) Agregar producto manualmente");
+        System.out.println(" 3) Buscar por nombre - Lista Enlazada");
+        System.out.println(" 4) Buscar por nombre - Arbol AVL");
+        System.out.println(" 5) Buscar por codigo - Lista Enlazada");
+        System.out.println(" 6) Buscar por rango de fechas - Arbol B");
+        System.out.println(" 7) Buscar por categoria - Arbol B+");
+        System.out.println(" 8) Eliminar producto");
+        System.out.println(" 9) Listar productos en orden alfabetico (AVL in-order)");
+        System.out.println("10) Comparar busquedas: Lista - AVL");
+        System.out.println("11) Ver errores de carga");
+        System.out.println("12) Salir");
+        System.out.print("Seleccione una opcion: ");
+    }
+ 
+    public static void main(String[] args)
+    {
+        GestionInventario inventario = new GestionInventario();
+        Scanner scanner = new Scanner(System.in);
+        int opcion = 0;
+ 
+        do
+        {
+            mostrarMenu();
+ 
+            try
+            {
+                opcion = Integer.parseInt(scanner.nextLine().trim());
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Opcion no valida.");
+                continue;
+            }
+ 
+            switch (opcion)
+            {
+                case 1:
+                {
+                    System.out.print("Ingrese la ruta del archivo CSV: ");
+                    String ruta = scanner.nextLine().trim();
+                    System.out.println("Cargando datos...");
+                    long inicio = System.currentTimeMillis();
+                    inventario.cargarDesdeCSV(ruta);
+                    long duracion = System.currentTimeMillis() - inicio;
+                    System.out.println("Carga completada en " + duracion + " ms.");
+                    System.out.println("Revise errors.log para obtener detalles.");
+                    break;
+                }
+                case 2:
+                {
+                    System.out.println(" NUEVO PRODUCTO ");
+                    System.out.print("Nombre: ");
+                    String nombre = scanner.nextLine().trim();
+                    System.out.print("Codigo de barras: ");
+                    String codigo = scanner.nextLine().trim();
+                    System.out.print("Categoria: ");
+                    String categoria = scanner.nextLine().trim();
+                    System.out.print("Fecha de caducidad (Año-Mes-Día): ");
+                    String fecha = scanner.nextLine().trim();
+                    System.out.print("Marca: ");
+                    String marca = scanner.nextLine().trim();
+                    double precio = 0;
+                    int stock = 0;
+                    try
+                    {
+                        System.out.print("Precio: Q");
+                        precio = Double.parseDouble(scanner.nextLine().trim());
+                        System.out.print("Stock: ");
+                        stock = Integer.parseInt(scanner.nextLine().trim());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        System.out.println("Error: precio o stock con formato incorrecto.");
+                        break;
+                    }
+ 
+                    Producto nuevo = new Producto(nombre, codigo, categoria, fecha, marca, precio, stock);
+                    long inicio = System.nanoTime();
+                    boolean exito = inventario.agregarProducto(nuevo);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+ 
+                    if (exito)
+                    {
+                        System.out.println("Producto agregado correctamente a todas las estructuras.");
+                    }
+                    else
+                    {
+                        System.out.println("Error: El producto con codigo " + codigo + " ya existe.");
+                    }
+                    System.out.println("Tiempo de insercion: " + duracion + " microsegundos.");
+                    break;
+                }
+                case 3:
+                {
+                    System.out.print("Ingrese el nombre exacto del producto: ");
+                    String nombre = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    Producto producto = inventario.buscarPorNombreSecuencial(nombre);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+ 
+                    if (producto != null)
+                    {
+                        System.out.println(" - Lista Enlazada -");
+                        System.out.println("PRODUCTO ENCONTRADO:");
+                        System.out.println(" - Codigo: "   + producto.getCodigoBarra());
+                        System.out.println(" - Precio: Q"  + producto.getPrecio());
+                        System.out.println(" - Stock: "    + producto.getStock());
+                    }
+                    else
+                    {
+                        System.out.println("Producto no encontrado.");
+                    }
+                    System.out.println("Tiempo de busqueda secuencial: " + duracion + " us.");
+                    break;
+                }
+                case 4:
+                {
+                    System.out.print("Ingrese el nombre exacto del producto: ");
+                    String nombre = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    Producto producto = inventario.buscarPorNombreAVL(nombre);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+ 
+                    if (producto != null)
+                    {
+                        System.out.println(" - Arbol AVL -");
+                        System.out.println("PRODUCTO ENCONTRADO:");
+                        System.out.println(" - Codigo: "  + producto.getCodigoBarra());
+                        System.out.println(" - Precio: Q" + producto.getPrecio());
+                        System.out.println(" - Stock: "   + producto.getStock());
+                    }
+                    else
+                    {
+                        System.out.println("Producto no encontrado.");
+                    }
+                    System.out.println("Tiempo de busqueda en AVL: " + duracion + " us.");
+                    break;
+                }
+                case 5:
+                {
+                    System.out.print("Ingrese el codigo de barras: ");
+                    String codigo = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    Producto producto = inventario.buscarPorCodigo(codigo);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+ 
+                    if (producto != null)
+                    {
+                        System.out.println(" - Lista Enlazada -");
+                        System.out.println("PRODUCTO ENCONTRADO:");
+                        System.out.println(" - Nombre: "     + producto.getNombre());
+                        System.out.println(" - Categoria: "  + producto.getCategoria());
+                        System.out.println(" - Precio: Q"    + producto.getPrecio());
+                        System.out.println(" - Stock: "      + producto.getStock());
+                    }
+                    else
+                    {
+                        System.out.println("Producto no encontrado en la Lista Enlazada.");
+                    }
+                    System.out.println("Tiempo de busqueda por codigo: " + duracion + " us.");
+                    break;
+                }
+                case 6:
+                {
+                    System.out.print("Ingrese la fecha de inicio (Año-Mes-Día): ");
+                    String fechaInicio = scanner.nextLine().trim();
+                    System.out.print("Ingrese la fecha de fin   (Año-Mes-Día): ");
+                    String fechaFin = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    inventario.buscarPorRangoFechas(fechaInicio, fechaFin);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+                    System.out.println("Tiempo de busqueda en Arbol B: " + duracion + " us.");
+                    break;
+                }
+                case 7:
+                {
+                    System.out.print("Ingrese la categoria a buscar: ");
+                    String categoria = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    inventario.buscarPorCategoria(categoria);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+                    System.out.println("Tiempo de busqueda en Arbol B+: " + duracion + " us.");
+                    break;
+                }
+                case 8:
+                {
+                    System.out.print("Ingrese el codigo de barras a eliminar: ");
+                    String codigo = scanner.nextLine().trim();
+                    long inicio = System.nanoTime();
+                    boolean eliminado = inventario.eliminarProducto(codigo);
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+ 
+                    if (eliminado)
+                    {
+                        System.out.println("Producto eliminado de todas las estructuras.");
+                    }
+                    else
+                    {
+                        System.out.println("No se encontro el producto con ese codigo.");
+                    }
+                    System.out.println("Tiempo de eliminacion: " + duracion + " us.");
+                    break;
+                }
+                case 9:
+                {
+                    long inicio = System.nanoTime();
+                    inventario.listarPorNombre();
+                    long duracion = (System.nanoTime() - inicio) / 1000;
+                    System.out.println("Tiempo de recorrido in-order: " + duracion + " us.");
+                    break;
+                }
+                case 10:
+                {
+                    int m = 0, j = 0;
+                    try
+                    {
+                        System.out.print("Numero de busquedas por repeticion (m): ");
+                        m = Integer.parseInt(scanner.nextLine().trim());
+                        System.out.print("Numero de repeticiones (j): ");
+                        j = Integer.parseInt(scanner.nextLine().trim());
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        System.out.println("Error: ingrese numeros enteros validos.");
+                        break;
+                    }
+ 
+                    if (m <= 0 || j <= 0)
+                    {
+                        System.out.println("m y j deben ser positivos.");
+                        break;
+                    }
+                    inventario.compararBusquedas(m, j);
+                    break;
+                }
+                case 11:
+                {
+                    System.out.println("ULTIMOS ERRORES REGISTRADOS");
+                    File logFile = new File("errors.log");
+                    if (!logFile.exists())
+                    {
+                        System.out.println("El archivo errors.log no existe o esta vacio.");
+                        break;
+                    }
+                    try (BufferedReader br = new BufferedReader(new FileReader(logFile)))
+                    {
+                        java.util.Deque<String> ultimas = new java.util.ArrayDeque<>();
+                        String linea;
+                        while ((linea = br.readLine()) != null)
+                        {
+                            if (ultimas.size() == 15) ultimas.pollFirst();
+                            ultimas.addLast(linea);
+                        }
+                        for (String l : ultimas) System.out.println(l);
+                    }
+                    catch (IOException e)
+                    {
+                        System.out.println("Error al leer errors.log: " + e.getMessage());
+                    }
+                    break;
+                }
+                case 12:
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opcion no valida.");
+            }
         }
-        System.out.println("[+] Inserciones completadas con éxito.\n");
-
-        // --- PRUEBAS DE LISTAS ENLAZADAS ---
-        System.out.println("--- 1. LISTA ENLAZADA (Búsqueda por código) ---");
-        Producto buscadoLista = listaNoOrdenada.buscarPorCodigo("1003");
-        if (buscadoLista != null) {
-            System.out.println("Encontrado: " + buscadoLista.getNombre() + " (Esperado: Manzana Gala)");
-        }
-
-        // --- PRUEBAS DE ÁRBOL AVL ---
-        System.out.println("\n--- 2. ARBOL AVL (Listado Alfabético e In-Order) ---");
-        arbolAVL.listarEnOrden(); // Debería salir: Cereal, Leche, Manzana, Pan, Queso, Yogurt
-        
-        System.out.println("\nBuscando 'Pan de Caja' en AVL...");
-        Producto buscadoAVL = arbolAVL.buscarPorNombre("Pan de Caja");
-        if (buscadoAVL != null) {
-            System.out.println("Encontrado en AVL con precio: Q" + buscadoAVL.getPrecio());
-        }
-
-        // --- PRUEBAS DE ÁRBOL B ---
-        System.out.println("\n--- 3. ARBOL B (Búsqueda por Rango de Fechas) ---");
-        // Rango de mayo 2026: Deberían salir Pan (05-05), Queso (05-10) y Yogurt (05-20)
-        arbolB.mostrarEnRango("2026-05-01", "2026-05-31"); 
-
-        // --- PRUEBAS DE ÁRBOL B+ ---
-        System.out.println("\n--- 4. ARBOL B+ (Búsqueda por Categoría) ---");
-        // Deberían salir Leche, Queso y Yogurt
-        arbolBMas.buscarPorCategoria("Lacteos");
-        
-        System.out.println("\n--- 5. PRUEBA DE ELIMINACIÓN ---");
-        System.out.println("Eliminando 'Queso Kraft' (Código 1002)...");
-        
-        // Simular lógica de eliminación de GestionInventario
-        boolean eliminadoLista = listaNoOrdenada.eliminar("1002");
-        arbolB.eliminar(p2);
-        arbolBMas.eliminarProducto("Lacteos", "1002");
-        
-        if (eliminadoLista) {
-            System.out.println("[+] Eliminado de la lista correctamente.");
-        }
-        
-        System.out.println("Verificando Árbol B+ tras eliminación de Lacteos:");
-        arbolBMas.buscarPorCategoria("Lacteos"); // Ya no debería mostrar Queso Kraft
-
-        System.out.println("\n==================================================");
-        System.out.println("         PRUEBAS FINALIZADAS CORRECTAMENTE        ");
-        System.out.println("==================================================");
+        while (opcion != 12);
+ 
+        scanner.close();
     }
 }

@@ -1,10 +1,12 @@
 package com.mycompany.catalogosupermercado;
 import com.mycompany.catalogosupermercado.Nodos.NodoAVL;
+import java.util.List;
 
 public class ArbolAVL
 {
     private NodoAVL raiz;
     private int contadorNodos;
+
     public ArbolAVL()
     {
         this.raiz = null;
@@ -30,7 +32,7 @@ public class ArbolAVL
 
     private NodoAVL rotacionDerecha(NodoAVL y)
     {
-        NodoAVL x = y.getIzquierdo();
+        NodoAVL x  = y.getIzquierdo();
         NodoAVL T2 = x.getDerecho();
         x.setDerecho(y);
         y.setIzquierdo(T2);
@@ -41,7 +43,7 @@ public class ArbolAVL
 
     private NodoAVL rotacionIzquierda(NodoAVL x)
     {
-        NodoAVL y = x.getDerecho();
+        NodoAVL y  = x.getDerecho();
         NodoAVL T2 = y.getIzquierdo();
         y.setIzquierdo(x);
         x.setDerecho(T2);
@@ -62,12 +64,13 @@ public class ArbolAVL
             contadorNodos++;
             return new NodoAVL(producto);
         }
-        int comparacion = producto.getNombre().compareToIgnoreCase(nodo.getProducto().getNombre());
-        if (comparacion < 0)
+
+        int cmp = producto.getNombre().compareToIgnoreCase(nodo.getProducto().getNombre());
+        if (cmp < 0)
         {
             nodo.setIzquierdo(insertarRecursivo(nodo.getIzquierdo(), producto));
         }
-        else if (comparacion > 0)
+        else if (cmp > 0)
         {
             nodo.setDerecho(insertarRecursivo(nodo.getDerecho(), producto));
         }
@@ -75,21 +78,23 @@ public class ArbolAVL
         {
             return nodo;
         }
+
         nodo.setAltura(1 + max(altura(nodo.getIzquierdo()), altura(nodo.getDerecho())));
         int balance = obtenerBalance(nodo);
+
+        // LL
         if (balance > 1 && producto.getNombre().compareToIgnoreCase(nodo.getIzquierdo().getProducto().getNombre()) < 0)
-        {
             return rotacionDerecha(nodo);
-        }
+        // RR
         if (balance < -1 && producto.getNombre().compareToIgnoreCase(nodo.getDerecho().getProducto().getNombre()) > 0)
-        {
             return rotacionIzquierda(nodo);
-        }
+        // LR
         if (balance > 1 && producto.getNombre().compareToIgnoreCase(nodo.getIzquierdo().getProducto().getNombre()) > 0)
         {
             nodo.setIzquierdo(rotacionIzquierda(nodo.getIzquierdo()));
             return rotacionDerecha(nodo);
         }
+        // RL
         if (balance < -1 && producto.getNombre().compareToIgnoreCase(nodo.getDerecho().getProducto().getNombre()) < 0)
         {
             nodo.setDerecho(rotacionDerecha(nodo.getDerecho()));
@@ -104,17 +109,15 @@ public class ArbolAVL
         return (resultado != null) ? resultado.getProducto() : null;
     }
 
-    private NodoAVL buscarRecursivo(NodoAVL raiz, String nombre)
+    private NodoAVL buscarRecursivo(NodoAVL nodo, String nombre)
     {
-        if (raiz == null || raiz.getProducto().getNombre().equalsIgnoreCase(nombre))
-        {
-            return raiz;
-        }
-        if (raiz.getProducto().getNombre().compareToIgnoreCase(nombre) > 0)
-        {
-            return buscarRecursivo(raiz.getIzquierdo(), nombre);
-        }
-        return buscarRecursivo(raiz.getDerecho(), nombre);
+        if (nodo == null || nodo.getProducto().getNombre().equalsIgnoreCase(nombre))
+            return nodo;
+
+        if (nodo.getProducto().getNombre().compareToIgnoreCase(nombre) > 0)
+            return buscarRecursivo(nodo.getIzquierdo(), nombre);
+
+        return buscarRecursivo(nodo.getDerecho(), nombre);
     }
 
     public void listarEnOrden()
@@ -129,11 +132,27 @@ public class ArbolAVL
         if (nodo != null)
         {
             listarInOrdenRecursivo(nodo.getIzquierdo());
-            System.out.println(nodo.getProducto().getNombre() + " | Stock: " + nodo.getProducto().getStock() + " | Q" + nodo.getProducto().getPrecio());
+            System.out.println(nodo.getProducto().getNombre() + " | Stock: " + nodo.getProducto().getStock() + " | Q"      + nodo.getProducto().getPrecio());
             listarInOrdenRecursivo(nodo.getDerecho());
         }
     }
     
+    public void obtenerNombres(List<String> lista, int limite)
+    {
+        recolectarNombres(raiz, lista, limite);
+    }
+
+    private void recolectarNombres(NodoAVL nodo, List<String> lista, int limite)
+    {
+        if (nodo == null || lista.size() >= limite) return;
+        recolectarNombres(nodo.getIzquierdo(), lista, limite);
+        if (lista.size() < limite)
+        {
+            lista.add(nodo.getProducto().getNombre());
+        }
+        recolectarNombres(nodo.getDerecho(), lista, limite);
+    }
+
     public int getContadorNodos()
     {
         return contadorNodos;
