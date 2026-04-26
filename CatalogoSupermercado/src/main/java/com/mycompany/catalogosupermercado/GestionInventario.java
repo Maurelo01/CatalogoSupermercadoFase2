@@ -105,6 +105,7 @@ public class GestionInventario
     {
         Producto prod = listaNoOrdenada.buscarPorCodigo(codigo);
         if (prod == null) return false;
+        avlNombres.eliminar(prod.getNombre());
         arbolFechas.eliminar(prod);
         arbolCategoria.eliminarProducto(prod.getCategoria(), codigo);
         boolean e1 = listaNoOrdenada.eliminar(codigo);
@@ -220,5 +221,85 @@ public class GestionInventario
         System.out.println("  Lista Enlazada: O(n)");
         System.out.println("  Arbol AVL: O(log n)");
         System.out.println(separador);
+    }
+    
+    private boolean generarPNG(String archivoDot, String archivoPng)
+    {
+        try
+        {
+            ProcessBuilder pb = new ProcessBuilder("dot", "-Tpng", archivoDot, "-o", archivoPng);
+            pb.redirectErrorStream(true);
+            Process proceso = pb.start();
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(proceso.getInputStream())))
+            {
+                String linea;
+                while ((linea = br.readLine()) != null)
+                {
+                    System.out.println("[graphviz] " + linea);
+                }
+            }
+            int resultado = proceso.waitFor();
+            return resultado == 0;
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error: Graphviz no está instalado o no se encuentra en el PATH.");
+            System.err.println(" Detalle: " + e.getMessage());
+            return false;
+        }
+        catch (InterruptedException e)
+        {
+            Thread.currentThread().interrupt();
+            System.err.println("La generación del PNG fue interrumpida.");
+            return false;
+        }
+    }
+ 
+    public void generarGraficoAVL()
+    {
+        final String dot = "arbol_avl.dot";
+        final String png = "arbol_avl.png";
+        avlNombres.crearGrafico(dot);
+        System.out.println("Archivo '" + dot + "' generado correctamente.");
+        if (generarPNG(dot, png))
+        {
+            System.out.println("Archivo '" + png + "' generado exitosamente.");
+        }
+        else
+        {
+            System.err.println("Error al generar el PNG.");
+        }
+    }
+ 
+    public void generarGraficoB()
+    {
+        final String dot = "arbolB.dot";
+        final String png = "arbolB.png";
+        arbolFechas.crearGrafico(dot);
+        System.out.println("Archivo '" + dot + "' generado correctamente.");
+        if (generarPNG(dot, png))
+        {
+            System.out.println("Archivo '" + png + "' generado exitosamente.");
+        }
+        else
+        {
+            System.err.println("Error al generar el PNG.");
+        }
+    }
+ 
+    public void generarGraficoBMas()
+    {
+        final String dot = "arbolBMas.dot";
+        final String png = "arbolBMas.png";
+        arbolCategoria.crearGrafico(dot);
+        System.out.println("Archivo '" + dot + "' generado correctamente.");
+        if (generarPNG(dot, png))
+        {
+            System.out.println("Archivo '" + png + "' generado exitosamente.");
+        }
+        else
+        {
+            System.err.println("Error al generar el PNG.");
+        }
     }
 }
