@@ -1,5 +1,8 @@
 package com.mycompany.catalogosupermercado;
 import com.mycompany.catalogosupermercado.Nodos.NodoB;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -173,6 +176,47 @@ public class ArbolB
             if (indice != -1)
             {
                 nodo.getListasProductos().get(indice).removeIf(p -> p.getCodigoBarra().equals(producto.getCodigoBarra()));
+            }
+        }
+    }
+    
+    public void crearGrafico(String nombreArchivo)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))
+        {
+            bw.write("digraph ArbolB {\n");
+            bw.write("  node [shape=record];\n");
+            if (raiz != null)
+            {
+                int[] contador = {0};
+                generarDot(raiz, bw, contador, 0);
+            }
+            bw.write("}\n");
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error al escribir el .dot del Árbol B: " + e.getMessage());
+        }
+    }
+    
+    private void generarDot(NodoB nodo, BufferedWriter bw, int[] contador, int idActual) throws IOException
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nodo.getFechas().size(); i++)
+        {
+            sb.append(nodo.getFechas().get(i));
+            if (i < nodo.getFechas().size() - 1)
+                sb.append(" | ");
+        }
+        bw.write("  node" + idActual + " [label=\"" + sb + "\"];\n");
+ 
+        if (!nodo.isHoja())
+        {
+            for (int i = 0; i <= nodo.getFechas().size(); i++)
+            {
+                int idHijo = ++contador[0];
+                bw.write("  node" + idActual + " -> node" + idHijo + ";\n");
+                generarDot(nodo.getHijos().get(i), bw, contador, idHijo);
             }
         }
     }

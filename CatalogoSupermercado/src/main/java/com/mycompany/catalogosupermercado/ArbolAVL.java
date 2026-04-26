@@ -1,5 +1,8 @@
 package com.mycompany.catalogosupermercado;
 import com.mycompany.catalogosupermercado.Nodos.NodoAVL;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class ArbolAVL
@@ -152,9 +155,130 @@ public class ArbolAVL
         }
         recolectarNombres(nodo.getDerecho(), lista, limite);
     }
+    
+    public void eliminar(String nombre) 
+    {
+        raiz = eliminarRecursivo(raiz, nombre);
+    }
+
+    private NodoAVL eliminarRecursivo(NodoAVL nodo, String nombre)
+    {
+        if (nodo == null) return nodo;
+        int comparacion = nombre.compareToIgnoreCase(nodo.getProducto().getNombre());
+        if (comparacion < 0)
+        {
+            nodo.setIzquierdo(eliminarRecursivo(nodo.getIzquierdo(), nombre));
+        }
+        else if (comparacion > 0)
+        {
+            nodo.setDerecho(eliminarRecursivo(nodo.getDerecho(), nombre));
+        }
+        else
+        {
+            if ((nodo.getIzquierdo() == null) || (nodo.getDerecho() == null))
+            {
+                NodoAVL temp = (nodo.getIzquierdo() != null) ? nodo.getIzquierdo() : nodo.getDerecho();
+                if (temp == null)
+                {
+                    temp = nodo;
+                    nodo = null;
+                }
+                else
+                { 
+                    nodo = temp; 
+                }
+                contadorNodos--;
+            }
+            else
+            {
+                NodoAVL temp = nodoConValorMinimo(nodo.getDerecho());
+                nodo.setProducto(temp.getProducto());
+                nodo.setDerecho(eliminarRecursivo(nodo.getDerecho(), temp.getProducto().getNombre()));
+            }
+        }
+        if (nodo == null) return nodo;
+        nodo.setAltura(max(altura(nodo.getIzquierdo()), altura(nodo.getDerecho())) + 1);
+        int balance = obtenerBalance(nodo);
+        // LL
+        if (balance > 1 && obtenerBalance(nodo.getIzquierdo()) >= 0)
+        {
+            return rotacionDerecha(nodo);
+        }
+        // LR
+        if (balance > 1 && obtenerBalance(nodo.getIzquierdo()) < 0)
+        {
+            nodo.setIzquierdo(rotacionIzquierda(nodo.getIzquierdo()));
+            return rotacionDerecha(nodo);
+        }
+        // RR
+        if (balance < -1 && obtenerBalance(nodo.getDerecho()) <= 0)
+        {
+            return rotacionIzquierda(nodo);
+        }
+        // RL
+        if (balance < -1 && obtenerBalance(nodo.getDerecho()) > 0)
+        {
+            nodo.setDerecho(rotacionDerecha(nodo.getDerecho()));
+            return rotacionIzquierda(nodo);
+        }
+
+        return nodo;
+    }
+
+    private NodoAVL nodoConValorMinimo(NodoAVL nodo)
+    {
+        NodoAVL actual = nodo;
+        while (actual.getIzquierdo() != null)
+        {
+            actual = actual.getIzquierdo();
+        }
+        return actual;
+    }
 
     public int getContadorNodos()
     {
         return contadorNodos;
+    }
+    
+     public void crearGrafico(String nombreArchivo)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))
+        {
+            bw.write("digraph G {\n");
+            bw.write("  node [shape=record];\n");
+            generarDot(raiz, bw);
+            bw.write("}\n");
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error al escribir el .dot del AVL: " + e.getMessage());
+        }
+    }
+ 
+    private void generarDot(NodoAVL nodo, BufferedWriter bw) throws IOException
+    {
+        if (nodo == null) return;
+ 
+        String nombre = escaparDot(nodo.getProducto().getNombre());
+        String codigo = nodo.getProducto().getCodigoBarra();
+ 
+        bw.write("  \"" + nombre + "\" [label=\"Nombre: " + nombre + "\\nCódigo: " + codigo + "\"];\n");
+        if (nodo.getIzquierdo() != null)
+        {
+            String izqNombre = escaparDot(nodo.getIzquierdo().getProducto().getNombre());
+            bw.write("  \"" + nombre + "\" -> \"" + izqNombre + "\" [label=\"L\"];\n");
+            generarDot(nodo.getIzquierdo(), bw);
+        }
+        if (nodo.getDerecho() != null)
+        {
+            String derNombre = escaparDot(nodo.getDerecho().getProducto().getNombre());
+            bw.write("  \"" + nombre + "\" -> \"" + derNombre + "\" [label=\"R\"];\n");
+            generarDot(nodo.getDerecho(), bw);
+        }
+    }
+ 
+    private String escaparDot(String texto)
+    {
+        return texto.replace("\"", "\\\"");
     }
 }

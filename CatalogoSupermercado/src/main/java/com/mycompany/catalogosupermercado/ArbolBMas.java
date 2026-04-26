@@ -1,8 +1,13 @@
 package com.mycompany.catalogosupermercado;
 
 import com.mycompany.catalogosupermercado.Nodos.NodoBMas;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ArbolBMas
 {
@@ -146,5 +151,79 @@ public class ArbolBMas
         {
             hoja.getListasProductos().get(indice).removeIf(p -> p.getCodigoBarra().equals(codigoBarra));
         }
+    }
+    
+    public void crearGrafico(String nombreArchivo)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))
+        {
+            bw.write("digraph ArbolBMas {\n");
+            bw.write(" rankdir=TB;\n");
+            bw.write(" node [shape=plaintext];\n");
+            if (raiz != null)
+            {
+                int[] contador = {0};
+                Map<NodoBMas, Integer> mapaIds = new HashMap<>();
+                generarDot(raiz, bw, contador, 0, mapaIds);
+                NodoBMas hoja = raiz;
+                while (!hoja.isEsHoja()) hoja = hoja.getHijos().get(0);
+                while (hoja != null && hoja.getSiguiente() != null)
+                {
+                    Integer idActual = mapaIds.get(hoja);
+                    Integer idSig    = mapaIds.get(hoja.getSiguiente());
+                    if (idActual != null && idSig != null)
+                    {
+                        bw.write("  node" + idActual + " -> node" + idSig
+                                + " [color=red, constraint=false];\n");
+                    }
+                    hoja = hoja.getSiguiente();
+                }
+            }
+            bw.write("}\n");
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error al escribir el .dot del Árbol B+: " + e.getMessage());
+        }
+    }
+    
+    private void generarDot(NodoBMas nodo, BufferedWriter bw,
+                             int[] contador, int idActual,
+                             Map<NodoBMas, Integer> mapaIds) throws IOException
+    {
+        // Etiqueta como tabla HTML (idéntica al C++)
+        StringBuilder sb = new StringBuilder();
+        sb.append("  node").append(idActual)
+          .append(" [label=<<TABLE BORDER=\"1\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
+        for (String clave : nodo.getCategorias())
+            sb.append("<TD>").append(escaparHtml(clave)).append("</TD>");
+        sb.append("</TR></TABLE>>];\n");
+        bw.write(sb.toString());
+ 
+        if (!nodo.isEsHoja())
+        {
+            for (int i = 0; i < nodo.getHijos().size(); i++)
+            {
+                NodoBMas hijo = nodo.getHijos().get(i);
+                if (hijo != null)
+                {
+                    int idHijo = ++contador[0];
+                    bw.write("  node" + idActual + " -> node" + idHijo + ";\n");
+                    generarDot(hijo, bw, contador, idHijo, mapaIds);
+                }
+            }
+        }
+        else
+        {
+            mapaIds.put(nodo, idActual);
+        }
+    }
+ 
+    private String escaparHtml(String texto)
+    {
+        return texto.replace("&", "&amp;")
+                    .replace("<", "&lt;")
+                    .replace(">", "&gt;")
+                    .replace("\"", "&quot;");
     }
 }

@@ -1,9 +1,10 @@
 package com.mycompany.catalogosupermercado;
+
 import java.io.*;
 import java.util.Scanner;
 
-public class CatalogoSupermercado {
-
+public class CatalogoSupermercado
+{
     private static void mostrarMenu()
     {
         System.out.println("-----------------------------------------");
@@ -20,20 +21,23 @@ public class CatalogoSupermercado {
         System.out.println(" 9) Listar productos en orden alfabetico (AVL in-order)");
         System.out.println("10) Comparar busquedas: Lista - AVL");
         System.out.println("11) Ver errores de carga");
-        System.out.println("12) Salir");
+        System.out.println("12) Generar grafico del Arbol B  (.dot / .png)");
+        System.out.println("13) Generar grafico del Arbol B+ (.dot / .png)");
+        System.out.println("14) Generar grafico del Arbol AVL (.dot / .png)");
+        System.out.println("15) Salir");
         System.out.print("Seleccione una opcion: ");
     }
- 
+
     public static void main(String[] args)
     {
         GestionInventario inventario = new GestionInventario();
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
- 
+
         do
         {
             mostrarMenu();
- 
+
             try
             {
                 opcion = Integer.parseInt(scanner.nextLine().trim());
@@ -43,7 +47,7 @@ public class CatalogoSupermercado {
                 System.out.println("Opcion no valida.");
                 continue;
             }
- 
+
             switch (opcion)
             {
                 case 1:
@@ -85,20 +89,13 @@ public class CatalogoSupermercado {
                         System.out.println("Error: precio o stock con formato incorrecto.");
                         break;
                     }
- 
                     Producto nuevo = new Producto(nombre, codigo, categoria, fecha, marca, precio, stock);
                     long inicio = System.nanoTime();
                     boolean exito = inventario.agregarProducto(nuevo);
                     long duracion = (System.nanoTime() - inicio) / 1000;
- 
-                    if (exito)
-                    {
-                        System.out.println("Producto agregado correctamente a todas las estructuras.");
-                    }
-                    else
-                    {
-                        System.out.println("Error: El producto con codigo " + codigo + " ya existe.");
-                    }
+                    System.out.println(exito
+                            ? "Producto agregado correctamente a todas las estructuras."
+                            : "Error: El producto con codigo " + codigo + " ya existe.");
                     System.out.println("Tiempo de insercion: " + duracion + " microsegundos.");
                     break;
                 }
@@ -109,19 +106,15 @@ public class CatalogoSupermercado {
                     long inicio = System.nanoTime();
                     Producto producto = inventario.buscarPorNombreSecuencial(nombre);
                     long duracion = (System.nanoTime() - inicio) / 1000;
- 
                     if (producto != null)
                     {
                         System.out.println(" - Lista Enlazada -");
                         System.out.println("PRODUCTO ENCONTRADO:");
-                        System.out.println(" - Codigo: "   + producto.getCodigoBarra());
-                        System.out.println(" - Precio: Q"  + producto.getPrecio());
-                        System.out.println(" - Stock: "    + producto.getStock());
+                        System.out.println(" - Codigo: "  + producto.getCodigoBarra());
+                        System.out.println(" - Precio: Q" + producto.getPrecio());
+                        System.out.println(" - Stock: "   + producto.getStock());
                     }
-                    else
-                    {
-                        System.out.println("Producto no encontrado.");
-                    }
+                    else System.out.println("Producto no encontrado.");
                     System.out.println("Tiempo de busqueda secuencial: " + duracion + " us.");
                     break;
                 }
@@ -132,7 +125,6 @@ public class CatalogoSupermercado {
                     long inicio = System.nanoTime();
                     Producto producto = inventario.buscarPorNombreAVL(nombre);
                     long duracion = (System.nanoTime() - inicio) / 1000;
- 
                     if (producto != null)
                     {
                         System.out.println(" - Arbol AVL -");
@@ -141,10 +133,7 @@ public class CatalogoSupermercado {
                         System.out.println(" - Precio: Q" + producto.getPrecio());
                         System.out.println(" - Stock: "   + producto.getStock());
                     }
-                    else
-                    {
-                        System.out.println("Producto no encontrado.");
-                    }
+                    else System.out.println("Producto no encontrado.");
                     System.out.println("Tiempo de busqueda en AVL: " + duracion + " us.");
                     break;
                 }
@@ -155,20 +144,16 @@ public class CatalogoSupermercado {
                     long inicio = System.nanoTime();
                     Producto producto = inventario.buscarPorCodigo(codigo);
                     long duracion = (System.nanoTime() - inicio) / 1000;
- 
                     if (producto != null)
                     {
                         System.out.println(" - Lista Enlazada -");
                         System.out.println("PRODUCTO ENCONTRADO:");
-                        System.out.println(" - Nombre: "     + producto.getNombre());
-                        System.out.println(" - Categoria: "  + producto.getCategoria());
-                        System.out.println(" - Precio: Q"    + producto.getPrecio());
-                        System.out.println(" - Stock: "      + producto.getStock());
+                        System.out.println(" - Nombre: "    + producto.getNombre());
+                        System.out.println(" - Categoria: " + producto.getCategoria());
+                        System.out.println(" - Precio: Q"   + producto.getPrecio());
+                        System.out.println(" - Stock: "     + producto.getStock());
                     }
-                    else
-                    {
-                        System.out.println("Producto no encontrado en la Lista Enlazada.");
-                    }
+                    else System.out.println("Producto no encontrado en la Lista Enlazada.");
                     System.out.println("Tiempo de busqueda por codigo: " + duracion + " us.");
                     break;
                 }
@@ -201,15 +186,9 @@ public class CatalogoSupermercado {
                     long inicio = System.nanoTime();
                     boolean eliminado = inventario.eliminarProducto(codigo);
                     long duracion = (System.nanoTime() - inicio) / 1000;
- 
-                    if (eliminado)
-                    {
-                        System.out.println("Producto eliminado de todas las estructuras.");
-                    }
-                    else
-                    {
-                        System.out.println("No se encontro el producto con ese codigo.");
-                    }
+                    System.out.println(eliminado
+                            ? "Producto eliminado de todas las estructuras."
+                            : "No se encontro el producto con ese codigo.");
                     System.out.println("Tiempo de eliminacion: " + duracion + " us.");
                     break;
                 }
@@ -236,12 +215,7 @@ public class CatalogoSupermercado {
                         System.out.println("Error: ingrese numeros enteros validos.");
                         break;
                     }
- 
-                    if (m <= 0 || j <= 0)
-                    {
-                        System.out.println("m y j deben ser positivos.");
-                        break;
-                    }
+                    if (m <= 0 || j <= 0) { System.out.println("m y j deben ser positivos."); break; }
                     inventario.compararBusquedas(m, j);
                     break;
                 }
@@ -272,14 +246,23 @@ public class CatalogoSupermercado {
                     break;
                 }
                 case 12:
+                    inventario.generarGraficoB();
+                    break;
+                case 13:
+                    inventario.generarGraficoBMas();
+                    break;
+                case 14:
+                    inventario.generarGraficoAVL();
+                    break;
+                case 15:
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
                     System.out.println("Opcion no valida.");
             }
         }
-        while (opcion != 12);
- 
+        while (opcion != 15);
+
         scanner.close();
     }
 }
