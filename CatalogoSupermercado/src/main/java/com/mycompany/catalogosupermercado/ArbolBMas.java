@@ -187,16 +187,14 @@ public class ArbolBMas
         }
     }
     
-    private void generarDot(NodoBMas nodo, BufferedWriter bw,
-                             int[] contador, int idActual,
-                             Map<NodoBMas, Integer> mapaIds) throws IOException
+    private void generarDot(NodoBMas nodo, BufferedWriter bw, int[] contador, int idActual, Map<NodoBMas, Integer> mapaIds) throws IOException
     {
-        // Etiqueta como tabla HTML (idéntica al C++)
         StringBuilder sb = new StringBuilder();
-        sb.append("  node").append(idActual)
-          .append(" [label=<<TABLE BORDER=\"1\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
+        sb.append(" node").append(idActual).append(" [label=<<TABLE BORDER=\"1\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
         for (String clave : nodo.getCategorias())
+        {
             sb.append("<TD>").append(escaparHtml(clave)).append("</TD>");
+        }
         sb.append("</TR></TABLE>>];\n");
         bw.write(sb.toString());
  
