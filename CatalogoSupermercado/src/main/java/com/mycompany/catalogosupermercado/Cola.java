@@ -14,6 +14,7 @@ public class Cola<T>
         this.tamaño = 0;
     }
 
+    
     public void encolar(T dato)
     {
         NodoSimple<T> nuevoNodo = new NodoSimple<>(dato);
@@ -29,7 +30,7 @@ public class Cola<T>
         }
         tamaño++;
     }
-
+    
     public T desencolar()
     {
         if (estaVacia())
@@ -45,7 +46,7 @@ public class Cola<T>
         tamaño--;
         return dato;
     }
-
+    
     public T peek()
     {
         if (estaVacia()) return null;
@@ -56,7 +57,7 @@ public class Cola<T>
     {
         return frente == null;
     }
-
+    
     public int getTamaño()
     {
         return tamaño;

@@ -1,5 +1,10 @@
 package com.mycompany.catalogosupermercado;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,24 +33,14 @@ public class Grafo
         return null;
     }
     
-    public void agregarArista(int idOrigen, int idDestino, double tiempo, double costo)
+    public Pila<Sucursal> encontrarRutaMasCorta(int origenId, int destinoId, boolean esPorTiempo)
     {
-        Sucursal origen = buscarSucursal(idOrigen);
-        Sucursal destino = buscarSucursal(idDestino);
-        if (origen != null && destino!= null)
-        {
-            origen.agregarArista(tiempo, costo, destino);
-        }
-    }
-    
-    public void encontrarRutaMasCorta(int idOrigen, int idDestino, boolean esPorTiempo)
-    {
-        Sucursal origen = buscarSucursal(idOrigen);
-        Sucursal destino = buscarSucursal(idDestino);
+        Sucursal origen = buscarSucursal(origenId);
+        Sucursal destino = buscarSucursal(destinoId);
         if (origen == null || destino == null)
         {
             System.out.println("Error: Sucursal de origen o destino no encontrados.");
-            return;
+            return null;
         }
         int n = sucursales.size();
         double[] distanciasAcumuladas = new double[n];
@@ -74,7 +69,7 @@ public class Grafo
             if (m == -1) break;
             nodosPermanentes[m] = true;
             Sucursal sucursalActual = sucursales.get(m);
-            if (sucursalActual.getId() == idDestino) break;
+            if (sucursalActual.getId() == destinoId) break;
             for (Arista aristas : sucursalActual.getAristas())
             {
                 Sucursal cercano = aristas.getDestino();
@@ -95,25 +90,201 @@ public class Grafo
         if (distanciasAcumuladas[indiceDestino] == Double.MAX_VALUE)
         {
             System.out.println("No hay ruta posible entre " + origen.getNombre() + " y " + destino.getNombre());
-            return;
+            return null;
         }
         Pila<Sucursal> ruta = new Pila<>();
         Sucursal actual = destino;
         while (actual != null)
         {
             ruta.push(actual);
-            int idx = sucursales.indexOf(actual);
-            actual = predecesores[idx];
+            int indice = sucursales.indexOf(actual);
+            actual = predecesores[indice];
         }
-        System.out.println("--- RUTA ÓPTIMA POR " + (esPorTiempo ? "TIEMPO" : "COSTO") + " ---");
-        System.out.println("De: " + origen.getNombre() + " ---> " + destino.getNombre());
-        System.out.println("Total (" + (esPorTiempo ? "Tiempo" : "Costo") + "): " + distanciasAcumuladas[indiceDestino]);
-        System.out.print("Camino a seguir: ");
-        while (!ruta.estaVacia())
+        return ruta;
+    }
+    
+    
+    public void agregarArista(int idOrigen, int idDestino, double tiempo, double costo)
+    {
+        Sucursal origen = buscarSucursal(idOrigen);
+        Sucursal destino = buscarSucursal(idDestino);
+        if (origen != null && destino!= null)
         {
-            Sucursal s = ruta.pop();
-            System.out.print(s.getNombre() + (ruta.estaVacia() ? "" : " ---> "));
+            origen.agregarArista(tiempo, costo, destino);
+        }
+    }
+    
+    public void realizarTransferencia(Producto producto, int origenId, int destinoId, boolean esPorTiempo)
+    {
+        Pila<Sucursal> pilaRuta = encontrarRutaMasCorta(origenId, destinoId, esPorTiempo);
+        if (pilaRuta == null || pilaRuta.estaVacia())
+        {
+            System.out.println("No se encontró ruta, transferencia no realizada");
+            return;
+        }
+        List<Sucursal> ruta = new ArrayList<>();
+        while (!pilaRuta.estaVacia())
+        {
+            ruta.add(pilaRuta.pop());
+        }
+        System.out.println("-------------------------------------------------------");
+        System.out.println("Transfiriendo: " + producto.getNombre());
+        System.out.print("Ruta por " + (esPorTiempo ? "Tiempo" : "Costo") + ": ");
+        for (int i = 0; i < ruta.size(); i++) {
+            System.out.print("[" + ruta.get(i).getNombre() + "]" + (i == ruta.size() - 1 ? "" : " -> "));
+        }
+        System.out.println("\n-------------------------------------------------------");
+        for (int i = 0; i < ruta.size(); i++)
+        {
+            Sucursal sucursal = ruta.get(i);
+            boolean esOrigen = (i == 0);
+            boolean esDestinoFinal = (i == ruta.size() - 1);
+            sucursal.getColaIngreso().encolar(producto);
+            System.out.println(" + [" + sucursal.getNombre() + "] Cola de Ingreso: Procesando (" + sucursal.getTiempoIngreso() + "s)");
+            sucursal.getColaIngreso().desencolar();
+            if (esDestinoFinal)
+            {
+                sucursal.getInventarioSucursal().agregarProducto(producto);
+                System.out.println("El producto se guardo exitosamente en el inventario de " + sucursal.getNombre());
+            }
+            else
+            {
+                if (!esOrigen)
+                {
+                    sucursal.getColaTraspaso().encolar(producto);
+                    System.out.println(sucursal.getNombre() + " - Cola de Traspaso: reenviando (" + sucursal.getTiempoTraspaso() + "s)");
+                    sucursal.getColaTraspaso().desencolar();
+                }
+                sucursal.getColaSalida().encolar(producto);
+                System.out.println( sucursal.getNombre() + " - Cola de Salida: Enviando producto (" + sucursal.getTiempoEntrega()+ "s)");
+                sucursal.getColaSalida().desencolar();
+                System.out.println("Entrando a " + ruta.get(i + 1).getNombre());
+            }
+        }
+        System.out.println("¡¡¡TRANSFERENCIA COMPLETADA!!!");
+    }
+    
+    public void cargarCSVSucursales(String ruta)
+    {
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta)); BufferedWriter errorLog = new BufferedWriter(new FileWriter("errors.log", true)))
+        { 
+                String linea = br.readLine();
+                while ((linea = br.readLine()) != null)
+                {
+                    if (linea.trim().isEmpty()) continue;
+                    String[] partes = linea.split(",", -1);
+                    if (partes.length < 6)
+                    {
+                        errorLog.write("No se definó correctamente la sucursal: " + linea + "\n");
+                        continue;
+                    }
+                    try
+                    {
+                        int id = Integer.parseInt(partes[0].trim());
+                        String nombre = partes[1].trim();
+                        String ubicacion = partes[2].trim();
+                        int tiempoIngreso = Integer.parseInt(partes[3].trim());
+                        int tiempoTraspaso = Integer.parseInt(partes[4].trim());
+                        int tiempoEntrega = Integer.parseInt(partes[5].trim());
+                        if (buscarSucursal(id) == null)
+                        {
+                            agregarSucursal(new Sucursal(id, nombre, ubicacion, tiempoIngreso, tiempoTraspaso, tiempoEntrega));
+                        }
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        errorLog.write("Error de número en la sucursal: " + linea + "\n");
+                    }
+                }
+                System.out.println(" Las sucursales fueron cargadas exitosamente.");
+            }
+        catch(IOException e)
+        {
+            System.err.println("Error de lectura de CSV de sucursales: " + e.getMessage());
+        }
+    }
+    
+    public void cargarCSVAristas(String ruta)
+    {
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta)); BufferedWriter errorLog = new BufferedWriter(new FileWriter("errors.log", true)))
+        {
+            String linea = br.readLine();
+                while ((linea = br.readLine()) != null)
+                {
+                    if (linea.trim().isEmpty()) continue;
+                    String[] partes = linea.split(",", -1);
+                    if (partes.length < 4)
+                    {
+                        errorLog.write("No se definó correctamente la arista: " + linea + "\n");
+                        continue;
+                    }
+                    try
+                    {
+                        int origenId = Integer.parseInt(partes[0].trim());
+                        int destinoId = Integer.parseInt(partes[1].trim());
+                        double tiempo = Double.parseDouble(partes[2].trim());
+                        double costo = Double.parseDouble(partes[3].trim());
+                        agregarArista(origenId, destinoId, tiempo, costo);
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        errorLog.write("Error de número en la arista: " + linea + "\n");
+                    }
+                }
+                System.out.println(" Las aristas fueron cargadas exitosamente.");
+        }
+        catch(IOException e)
+        {
+            System.err.println("Error de lectura de CSV de Aristas: " + e.getMessage());
+        }
+    }
+    
+    public void cargarCSVProductos(String ruta)
+    {
+        int cargados = 0;
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta)); BufferedWriter errorLog = new BufferedWriter(new FileWriter("errors.log", true)))
+        {
+            String linea = br.readLine();
+                while ((linea = br.readLine()) != null)
+                {
+                    if (linea.trim().isEmpty()) continue;
+                    String[] partes = linea.split(",", -1);
+                    if (partes.length < 8)
+                    {
+                        errorLog.write("No se definó correctamente el producto: " + linea + "\n");
+                        continue;
+                    }
+                    try
+                    {
+                        int sucursalId = Integer.parseInt(partes[0].trim());
+                        Producto producto = new Producto(partes[1].trim(), partes[2].trim(), partes[3].trim(), partes[4].trim(), partes[5].trim(), Double.parseDouble(partes[6].trim()), Integer.parseInt(partes[7].trim()));
+                        Sucursal sucursal = buscarSucursal(sucursalId);
+                        if (sucursal != null)
+                        {
+                            if (sucursal.getInventarioSucursal().agregarProducto(producto))
+                            {
+                                cargados++;
+                            }
+                            else
+                            {
+                                errorLog.write("Codigo duplicado en la sucursal " + sucursalId + ": " + producto.getCodigoBarra() + "\n");
+                            }
+                        }
+                        else 
+                        {
+                            errorLog.write("No existe la sucursal con id " + sucursalId + " para el producto: " + producto.getNombre() + "\n");
+                        }
+                    }
+                    catch(NumberFormatException e)
+                    {
+                        errorLog.write("Error de número en el producto: " + linea + "\n");
+                    }
+                }
+                System.out.println("Productos cargados. (" + cargados + " insertados)");
+        }
+        catch(IOException e)
+        {
+            System.err.println("Error de lectura de CSV de Productos: " + e.getMessage());
         }
     }
 }
-

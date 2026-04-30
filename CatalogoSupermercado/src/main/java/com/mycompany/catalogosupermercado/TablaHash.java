@@ -23,9 +23,9 @@ public class TablaHash
         long hash = 0;
         for (int i = 0; i < clave.length(); i++)
         {
-            hash += (long) clave.charAt(i) * (i + 1);
+            hash = (hash * 128 + clave.charAt(i)) % capacidad;
         }
-        return (int) (hash % capacidad);
+        return (int) hash;
     }
     
     public void insertar(Producto producto)
