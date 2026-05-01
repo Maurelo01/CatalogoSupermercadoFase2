@@ -4,6 +4,8 @@
  */
 package com.mycompany.catalogosupermercado.frontend;
 import com.mycompany.catalogosupermercado.estructuras.Grafo;
+import com.mycompany.catalogosupermercado.modelos.Producto;
+import com.mycompany.catalogosupermercado.modelos.Sucursal;
 import javax.swing.JFileChooser;
 
 /**
@@ -36,9 +38,22 @@ public class PestañaInicio extends javax.swing.JFrame
         btnCargarSucursales = new javax.swing.JButton();
         btnCargarAristas = new javax.swing.JButton();
         btnCargarProductos = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCodigoProducto = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtOrigen = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtDestino = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        cbxCriterio = new javax.swing.JComboBox<>();
+        btnTransferir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtConsolaTransferencia = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cargar datos desde CSV");
 
         btnCargarSucursales.setText("Cargar Sucursales");
@@ -54,17 +69,17 @@ public class PestañaInicio extends javax.swing.JFrame
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(121, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(116, 116, 116))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCargarSucursales)
-                    .addComponent(btnCargarAristas)
-                    .addComponent(btnCargarProductos))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCargarSucursales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCargarAristas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCargarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,10 +92,89 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addComponent(btnCargarAristas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCargarProductos)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cargar CSV", jPanel1);
+
+        jLabel2.setText("Codigo del producto a transferir:");
+
+        jLabel3.setText("ID de la Sucursal de origen:");
+
+        jLabel4.setText("ID de la Sucursal de destino:");
+
+        jLabel5.setText("Criterio de transferencia:");
+
+        cbxCriterio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tiempo", "Costo" }));
+        cbxCriterio.addActionListener(this::cbxCriterioActionPerformed);
+
+        btnTransferir.setText("Realizar Transferencia");
+        btnTransferir.addActionListener(this::btnTransferirActionPerformed);
+
+        txtConsolaTransferencia.setEditable(false);
+        txtConsolaTransferencia.setColumns(20);
+        txtConsolaTransferencia.setRows(5);
+        jScrollPane1.setViewportView(txtConsolaTransferencia);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDestino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxCriterio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnTransferir)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 53, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addComponent(btnTransferir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Transferir", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,6 +253,44 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnCargarProductosActionPerformed
 
+    private void cbxCriterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCriterioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxCriterioActionPerformed
+
+    private void btnTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirActionPerformed
+        try
+        {
+            String codigo = txtCodigoProducto.getText().trim();
+            int idOrigen = Integer.parseInt(txtOrigen.getText().trim());
+            int idDestino = Integer.parseInt(txtDestino.getText().trim());
+            boolean esPorTiempo = cbxCriterio.getSelectedItem().toString().equals("Tiempo");
+            Sucursal origen = conexiones.buscarSucursal(idOrigen);
+            if (origen == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal de origen no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Producto producto = origen.getInventarioSucursal().buscarPorCodigo(codigo);
+            if (producto == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "No existe este producto en la sucursal de origen.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            txtConsolaTransferencia.setText("Calculando ruta...\n");
+            origen.getInventarioSucursal().eliminarProducto(codigo);
+            String resultado = conexiones.realizarTransferencia(producto, idOrigen, idDestino, esPorTiempo);
+            txtConsolaTransferencia.setText(resultado);
+        }
+        catch (NumberFormatException ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos para las IDs de las sucursales.", "Error de Formato", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTransferirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,12 +319,10 @@ public class PestañaInicio extends javax.swing.JFrame
     private String cargarArchivos()
     {
         JFileChooser selector = new JFileChooser();
-
         if (selector.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
         {
             return selector.getSelectedFile().getAbsolutePath();
         }
-
         return null;
     }
 
@@ -200,9 +330,21 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btnCargarAristas;
     private javax.swing.JButton btnCargarProductos;
     private javax.swing.JButton btnCargarSucursales;
+    private javax.swing.JButton btnTransferir;
+    private javax.swing.JComboBox<String> cbxCriterio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField txtCodigoProducto;
+    private javax.swing.JTextArea txtConsolaTransferencia;
+    private javax.swing.JTextField txtDestino;
+    private javax.swing.JTextField txtOrigen;
     // End of variables declaration//GEN-END:variables
 
 }
