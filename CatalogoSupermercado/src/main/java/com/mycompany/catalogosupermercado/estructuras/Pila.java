@@ -1,5 +1,5 @@
-package com.mycompany.catalogosupermercado;
-import com.mycompany.catalogosupermercado.Nodos.NodoSimple;
+package com.mycompany.catalogosupermercado.estructuras;
+import com.mycompany.catalogosupermercado.nodos.NodoSimple;
 
 public class Pila<T>
 {

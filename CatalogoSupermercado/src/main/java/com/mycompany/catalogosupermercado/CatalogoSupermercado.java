@@ -1,10 +1,24 @@
 package com.mycompany.catalogosupermercado;
-
-import java.io.*;
-import java.util.Scanner;
+import com.mycompany.catalogosupermercado.frontend.PestañaInicio;
+import javax.swing.SwingUtilities;
 
 public class CatalogoSupermercado
 {
+    public static void main(String[] args)
+    {
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                PestañaInicio ventana = new PestañaInicio();
+                ventana.setVisible(true);
+            }
+        });
+    }
+}
+
+/*
     private static void mostrarMenu()
     {
         System.out.println("-----------------------------------------");
@@ -261,4 +275,4 @@ public class CatalogoSupermercado
 
         scanner.close();
     }
-}
+    */

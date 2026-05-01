@@ -1,4 +1,4 @@
-package com.mycompany.catalogosupermercado.Nodos;
+package com.mycompany.catalogosupermercado.nodos;
 
 public class NodoSimple<T>
 {

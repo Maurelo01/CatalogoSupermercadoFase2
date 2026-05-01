@@ -1,5 +1,5 @@
-package com.mycompany.catalogosupermercado.Nodos;
-import com.mycompany.catalogosupermercado.Producto;
+package com.mycompany.catalogosupermercado.nodos;
+import com.mycompany.catalogosupermercado.modelos.Producto;
 
 public class NodoAVL
 {

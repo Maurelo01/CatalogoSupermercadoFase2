@@ -1,5 +1,8 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.modelos;
 
+import com.mycompany.catalogosupermercado.estructuras.Cola;
+import com.mycompany.catalogosupermercado.controladores.GestionInventario;
+import com.mycompany.catalogosupermercado.modelos.Producto;
 import java.util.ArrayList;
 import java.util.List;
 

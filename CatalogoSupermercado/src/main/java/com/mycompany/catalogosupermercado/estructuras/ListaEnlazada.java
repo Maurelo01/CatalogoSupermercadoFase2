@@ -1,5 +1,6 @@
-package com.mycompany.catalogosupermercado;
-import com.mycompany.catalogosupermercado.Nodos.NodoLista;
+package com.mycompany.catalogosupermercado.estructuras;
+import com.mycompany.catalogosupermercado.modelos.Producto;
+import com.mycompany.catalogosupermercado.nodos.NodoLista;
 
 public class ListaEnlazada 
 {

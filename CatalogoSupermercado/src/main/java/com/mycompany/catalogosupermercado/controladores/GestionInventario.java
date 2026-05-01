@@ -1,5 +1,11 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.controladores;
 
+import com.mycompany.catalogosupermercado.estructuras.ArbolB;
+import com.mycompany.catalogosupermercado.estructuras.TablaHash;
+import com.mycompany.catalogosupermercado.estructuras.ArbolAVL;
+import com.mycompany.catalogosupermercado.estructuras.ArbolBMas;
+import com.mycompany.catalogosupermercado.estructuras.ListaEnlazada;
+import com.mycompany.catalogosupermercado.modelos.Producto;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;

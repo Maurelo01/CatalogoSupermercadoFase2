@@ -1,4 +1,4 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.modelos;
 
 public class Producto
 {
