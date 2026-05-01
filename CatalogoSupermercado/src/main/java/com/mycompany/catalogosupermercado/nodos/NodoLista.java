@@ -1,6 +1,6 @@
-package com.mycompany.catalogosupermercado.Nodos;
+package com.mycompany.catalogosupermercado.nodos;
 
-import com.mycompany.catalogosupermercado.Producto;
+import com.mycompany.catalogosupermercado.modelos.Producto;
 
 public class NodoLista
 {

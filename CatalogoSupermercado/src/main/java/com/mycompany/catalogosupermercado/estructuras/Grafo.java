@@ -1,5 +1,8 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.estructuras;
 
+import com.mycompany.catalogosupermercado.modelos.Arista;
+import com.mycompany.catalogosupermercado.modelos.Sucursal;
+import com.mycompany.catalogosupermercado.modelos.Producto;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;

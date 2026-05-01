@@ -1,4 +1,6 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.modelos;
+
+import com.mycompany.catalogosupermercado.modelos.Sucursal;
 
 public class Arista
 {

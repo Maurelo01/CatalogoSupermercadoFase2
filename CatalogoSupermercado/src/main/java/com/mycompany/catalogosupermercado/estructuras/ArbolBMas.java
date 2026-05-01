@@ -1,6 +1,7 @@
-package com.mycompany.catalogosupermercado;
+package com.mycompany.catalogosupermercado.estructuras;
 
-import com.mycompany.catalogosupermercado.Nodos.NodoBMas;
+import com.mycompany.catalogosupermercado.modelos.Producto;
+import com.mycompany.catalogosupermercado.nodos.NodoBMas;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
