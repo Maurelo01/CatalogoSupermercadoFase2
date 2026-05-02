@@ -32,7 +32,8 @@ public class GestionInventario
     public void cargarDesdeCSV(String ruta)
     {
         File archivo = new File(ruta);
-        int cargados = 0, omitidos = 0;
+        int cargados = 0;
+        int omitidos = 0;
 
         try (BufferedWriter log = new BufferedWriter(new FileWriter("errors.log", false)))
         {
@@ -153,15 +154,14 @@ public class GestionInventario
         avlNombres.listarEnOrden();
     }
     
-    public void compararBusquedas(int m, int j)
+    public String compararBusquedas(int m, int j)
     {
+        StringBuilder sb = new StringBuilder();
         int totalProductos = avlNombres.getContadorNodos();
         if (totalProductos == 0)
         {
-            System.out.println("No hay productos cargados para realizar la comparación.");
-            return;
+            return "No hay productos cargados para realizar la comparación.\n";
         }
-
         if (m > totalProductos) m = totalProductos;
         List<String> nombres = new ArrayList<>();
         avlNombres.obtenerNombres(nombres, m);
@@ -177,21 +177,20 @@ public class GestionInventario
             {
                 listaNoOrdenada.buscarPorNombre(nombre);
             }
-            tiempoListaExitosa += (System.nanoTime() - t0) / 1000;
+            tiempoListaExitosa += (System.nanoTime() - t0) / 1000.0;
             t0 = System.nanoTime();
             listaNoOrdenada.buscarPorNombre(INEXISTENTE);
-            tiempoListaFallida += (System.nanoTime() - t0) / 1000;
+            tiempoListaFallida += (System.nanoTime() - t0) / 1000.0;
             t0 = System.nanoTime();
             for (String nombre : nombres)
             {
                 avlNombres.buscarPorNombre(nombre);
             }
-            tiempoAVLExitosa += (System.nanoTime() - t0) / 1000;
+            tiempoAVLExitosa += (System.nanoTime() - t0) / 1000.0;
             t0 = System.nanoTime();
             avlNombres.buscarPorNombre(INEXISTENTE);
-            tiempoAVLFallida += (System.nanoTime() - t0) / 1000;
+            tiempoAVLFallida += (System.nanoTime() - t0) / 1000.0;
         }
-
         double denominador = (double) j * m;
         double promListaExito = tiempoListaExitosa / denominador;
         double promAVLExito = tiempoAVLExitosa / denominador;
@@ -199,38 +198,41 @@ public class GestionInventario
         double promAVLFallido = tiempoAVLFallida / (double) j;
         long totalLista = tiempoListaExitosa + tiempoListaFallida;
         long totalAVL = tiempoAVLExitosa + tiempoAVLFallida;
-        String separador = "-".repeat(58);
-        System.out.println();
-        System.out.println(separador);
-        System.out.println("--- Comparacion Lista Enlazada - Arbol AVL ---");
-        System.out.printf(" m = %d busquedas por repeticion | j = %d repeticiones%n%n", m, j);
-        System.out.println(separador);
-        System.out.println("--- Busquedas exitosas - " + m + " nombres reales ---");
-        System.out.println(separador);
-        System.out.println("  Tiempo total Lista (us): " + tiempoListaExitosa);
-        System.out.println("  Tiempo total AVL   (us): " + tiempoAVLExitosa);
-        System.out.printf ("  Promedio por busqueda Lista: %.4f us%n", promListaExito);
-        System.out.printf ("  Promedio por busqueda AVL:   %.4f us%n%n", promAVLExito);
-        System.out.println("--- Busquedas fallidas - nombre inexistente ---");
-        System.out.println(separador);
-        System.out.println("  Tiempo total Lista (us): " + tiempoListaFallida);
-        System.out.println("  Tiempo total AVL   (us): " + tiempoAVLFallida);
-        System.out.printf ("  Promedio por busqueda Lista: %.4f us%n", promListaFallido);
-        System.out.printf ("  Promedio por busqueda AVL:   %.4f us%n%n", promAVLFallido);
-        System.out.println("--- Totales ---");
-        System.out.println(separador);
-        System.out.println("  Lista Enlazada (us): " + totalLista);
-        System.out.println("  Arbol AVL      (us): " + totalAVL);
-        System.out.println("  Resultado: " + (totalLista > totalAVL ? "AVL es mas rapido" : "Lista es mas rapida"));
+        String separador = "----------------------------------------------------------\n";
+        
+        sb.append("\n").append(separador);
+        sb.append("--- Comparacion Lista Enlazada vs Arbol AVL ---\n");
+        sb.append(String.format(" m = %d busquedas por repeticion | j = %d repeticiones%n%n", m, j));
+        sb.append(separador);
+        sb.append("--- Busquedas exitosas - ").append(m).append(" nombres reales ---\n");
+        sb.append(separador);
+        sb.append("  Tiempo total Lista (us): ").append(tiempoListaExitosa).append("\n");
+        sb.append("  Tiempo total AVL   (us): ").append(tiempoAVLExitosa).append("\n");
+        sb.append(String.format("  Promedio por busqueda Lista: %.4f us%n", promListaExito));
+        sb.append(String.format("  Promedio por busqueda AVL:   %.4f us%n%n", promAVLExito));
+        
+        sb.append("--- Busquedas fallidas - nombre inexistente ---\n");
+        sb.append(separador);
+        sb.append("  Tiempo total Lista (us): ").append(tiempoListaFallida).append("\n");
+        sb.append("  Tiempo total AVL   (us): ").append(tiempoAVLFallida).append("\n");
+        sb.append(String.format("  Promedio por busqueda Lista: %.4f us%n", promListaFallido));
+        sb.append(String.format("  Promedio por busqueda AVL:   %.4f us%n%n", promAVLFallido));
+        
+        sb.append("--- Totales ---\n");
+        sb.append(separador);
+        sb.append("  Lista Enlazada (us): ").append(totalLista).append("\n");
+        sb.append("  Arbol AVL      (us): ").append(totalAVL).append("\n");
+        sb.append("  Resultado: ").append(totalLista > totalAVL ? "AVL es mas rapido" : "Lista es mas rapida").append("\n");
         if (promAVLExito > 0.0)
         {
-            System.out.printf("  Factor de mejora AVL/Lista exitosa: x%.2f%n%n", promListaExito / promAVLExito);
+            sb.append(String.format("  Factor de mejora AVL/Lista: x%.2f%n%n", promListaExito / promAVLExito));
         }
-        System.out.println("--- Complejidades teoricas ---");
-        System.out.println(separador);
-        System.out.println("  Lista Enlazada: O(n)");
-        System.out.println("  Arbol AVL: O(log n)");
-        System.out.println(separador);
+        sb.append("--- Complejidades Teoricas (Big-O) ---\n");
+        sb.append(separador);
+        sb.append("  Lista Enlazada: O(n)\n");
+        sb.append("  Arbol AVL:      O(log n)\n");
+        sb.append(separador);
+        return sb.toString();
     }
     
     private boolean generarPNG(String archivoDot, String archivoPng)

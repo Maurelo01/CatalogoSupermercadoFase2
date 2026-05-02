@@ -353,8 +353,11 @@ public class PestañaInicio extends javax.swing.JFrame
             }
             txtConsolaTransferencia.setText("Calculando ruta...\n");
             origen.getInventarioSucursal().eliminarProducto(codigo);
+            long inicio = System.nanoTime();
             String resultado = conexiones.realizarTransferencia(producto, idOrigen, idDestino, esPorTiempo);
-            txtConsolaTransferencia.setText(resultado);
+            long fin = System.nanoTime();
+            double tiempo = (fin - inicio) / 1000.0;
+            txtConsolaTransferencia.setText("Tiempo de cálculo de ruta: " + tiempo + " us\n\n" + resultado);
         }
         catch (NumberFormatException ex)
         {
