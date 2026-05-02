@@ -50,6 +50,16 @@ public class PestañaInicio extends javax.swing.JFrame
         btnTransferir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtConsolaTransferencia = new javax.swing.JTextArea();
+        jPanel3 = new javax.swing.JPanel();
+        btnVerGrafo = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lblImagen = new javax.swing.JLabel();
+        btnVerAVL = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtIdSucursalVisualizar = new javax.swing.JTextField();
+        btnVerB = new javax.swing.JButton();
+        btnVerBMas = new javax.swing.JButton();
+        btnVerTablaHash = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +82,7 @@ public class PestañaInicio extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCargarSucursales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -92,7 +102,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addComponent(btnCargarAristas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCargarProductos)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cargar CSV", jPanel1);
@@ -126,26 +136,22 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4)
+                            .addComponent(btnTransferir)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDestino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cbxCriterio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnTransferir)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                                .addComponent(txtCodigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 53, Short.MAX_VALUE)))
+                                .addComponent(jLabel5)
+                                .addGap(66, 66, 66)
+                                .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 374, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -170,11 +176,78 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(btnTransferir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Transferir", jPanel2);
+
+        btnVerGrafo.setText("Ver Grafo Sucursales");
+        btnVerGrafo.addActionListener(this::btnVerGrafoActionPerformed);
+
+        jScrollPane2.setViewportView(lblImagen);
+
+        btnVerAVL.setText("Ver Árbol AVL");
+        btnVerAVL.addActionListener(this::btnVerAVLActionPerformed);
+
+        jLabel6.setText("ID de Sucursal:");
+
+        btnVerB.setText("Ver Árbol B");
+        btnVerB.addActionListener(this::btnVerBActionPerformed);
+
+        btnVerBMas.setText("Ver Árbol B+ ");
+        btnVerBMas.addActionListener(this::btnVerBMasActionPerformed);
+
+        btnVerTablaHash.setText("Ver Tabla Hash");
+        btnVerTablaHash.addActionListener(this::btnVerTablaHashActionPerformed);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(btnVerGrafo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdSucursalVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerAVL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerBMas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVerTablaHash))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2)))
+                .addGap(9, 9, 9))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVerGrafo)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtIdSucursalVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerAVL)
+                    .addComponent(btnVerB)
+                    .addComponent(btnVerBMas)
+                    .addComponent(btnVerTablaHash))
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Visualizar", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,7 +257,9 @@ public class PestañaInicio extends javax.swing.JFrame
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -291,6 +366,119 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnTransferirActionPerformed
 
+    private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
+        String archivoDot = "GrafoSucursales.dot";
+        String archivoPng = "GrafoSucursales.png";
+        conexiones.crearGrafico(archivoDot);
+        generarImagenGraphviz(archivoDot, archivoPng);
+        mostrarGraphviz(archivoPng);
+    }//GEN-LAST:event_btnVerGrafoActionPerformed
+
+    private void btnVerAVLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAVLActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(txtIdSucursalVisualizar.getText().trim());
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String archivoDot = "AvlSucursal_" + idSucursal + ".dot";
+            String archivoPng = "AvlSucursal_" + idSucursal + ".png";
+            sucursal.getInventarioSucursal().getArbolAVL().crearGrafico(archivoDot);
+            generarImagenGraphviz(archivoDot, archivoPng);
+            mostrarGraphviz(archivoPng);
+        }
+        catch (NumberFormatException ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVerAVLActionPerformed
+
+    private void btnVerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerBActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(txtIdSucursalVisualizar.getText().trim());
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String archivoDot = "ArbolbSucursal_" + idSucursal + ".dot";
+            String archivoPng = "ArbolbSucursal_" + idSucursal + ".png";
+            sucursal.getInventarioSucursal().getArbolB().crearGrafico(archivoDot);
+            generarImagenGraphviz(archivoDot, archivoPng);
+            mostrarGraphviz(archivoPng);
+        }
+        catch (NumberFormatException ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVerBActionPerformed
+
+    private void btnVerBMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerBMasActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(txtIdSucursalVisualizar.getText().trim());
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String archivoDot = "ArbolBMasSucursal_" + idSucursal + ".dot";
+            String archivoPng = "ArbolBMasSucursal_" + idSucursal + ".png";
+            sucursal.getInventarioSucursal().getArbolBMas().crearGrafico(archivoDot);
+            generarImagenGraphviz(archivoDot, archivoPng);
+            mostrarGraphviz(archivoPng);
+        }
+        catch (NumberFormatException ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVerBMasActionPerformed
+
+    private void btnVerTablaHashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTablaHashActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(txtIdSucursalVisualizar.getText().trim());
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal == null)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String archivoDot = "TablaHashSucursal_" + idSucursal + ".dot";
+            String archivoPng = "TablaHashSucursal_" + idSucursal + ".png";
+            
+            sucursal.getInventarioSucursal().getTablaHash().crearGrafico(archivoDot);
+            generarImagenGraphviz(archivoDot, archivoPng);
+            mostrarGraphviz(archivoPng);
+            
+        } catch (NumberFormatException ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVerTablaHashActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,25 +513,66 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         return null;
     }
+    
+    private void generarImagenGraphviz(String rutaDot, String rutaPng)
+    {
+        try
+        {
+            ProcessBuilder pb = new ProcessBuilder("dot", "-Tpng", rutaDot, "-o", rutaPng);
+            pb.redirectErrorStream(true);
+            Process proceso = pb.start();
+            proceso.waitFor();
+        }
+        catch (Exception e)
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al ejecutar Graphviz.\n¿Tienes Graphviz instalado y en el PATH de Windows?\n" + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void mostrarGraphviz(String rutaPng) 
+    {
+        java.io.File archivo = new java.io.File(rutaPng);
+        if (archivo.exists())
+        {
+            javax.swing.ImageIcon imagen = new javax.swing.ImageIcon(rutaPng);
+            imagen.getImage().flush();
+            lblImagen.setIcon(imagen);
+            lblImagen.repaint();
+        }
+        else
+        {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró la imagen generada.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCargarAristas;
     private javax.swing.JButton btnCargarProductos;
     private javax.swing.JButton btnCargarSucursales;
     private javax.swing.JButton btnTransferir;
+    private javax.swing.JButton btnVerAVL;
+    private javax.swing.JButton btnVerB;
+    private javax.swing.JButton btnVerBMas;
+    private javax.swing.JButton btnVerGrafo;
+    private javax.swing.JButton btnVerTablaHash;
     private javax.swing.JComboBox<String> cbxCriterio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextArea txtConsolaTransferencia;
     private javax.swing.JTextField txtDestino;
+    private javax.swing.JTextField txtIdSucursalVisualizar;
     private javax.swing.JTextField txtOrigen;
     // End of variables declaration//GEN-END:variables
 

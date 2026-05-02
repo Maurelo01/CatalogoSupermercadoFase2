@@ -117,9 +117,9 @@ public class TablaHash
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))
         {
             bw.write("digraph TablaHash {\n");
-            bw.write("  rankdir=LR;\n");
-            bw.write("  node [shape=record, style=filled, fillcolor=lightgrey];\n");
-            StringBuilder structTabla = new StringBuilder("  tabla [label=\"");
+            bw.write(" rankdir=LR;\n");
+            bw.write(" node [shape=record, style=filled, fillcolor=grey];\n");
+            StringBuilder structTabla = new StringBuilder(" tabla [label=\"");
             for (int i = 0; i < capacidad; i++)
             {
                 structTabla.append("<f").append(i).append("> ").append(i);
@@ -127,7 +127,7 @@ public class TablaHash
             }
             structTabla.append("\"];\n");
             bw.write(structTabla.toString());
-            bw.write("  node [shape=Mrecord, fillcolor=white];\n");
+            bw.write(" node [shape=record, fillcolor=white];\n");
             for (int i = 0; i < capacidad; i++)
             {
                 NodoLista actual = tabla[i];
