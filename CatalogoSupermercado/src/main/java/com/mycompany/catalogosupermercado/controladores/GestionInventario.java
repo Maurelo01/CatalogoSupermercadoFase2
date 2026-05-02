@@ -328,4 +328,24 @@ public class GestionInventario
             System.err.println("Error al generar el PNG.");
         }
     }
+    
+    public ArbolAVL getArbolAVL()
+    {
+        return avlNombres;
+    }
+
+    public ArbolB getArbolB()
+    {
+        return arbolFechas;
+    }
+
+    public ArbolBMas getArbolBMas()
+    {
+        return arbolCategoria;
+    }
+
+    public TablaHash getTablaHash()
+    {
+        return tablaHash;
+    }
 }

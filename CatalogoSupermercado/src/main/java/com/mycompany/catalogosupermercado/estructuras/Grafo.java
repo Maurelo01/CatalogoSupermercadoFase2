@@ -293,4 +293,27 @@ public class Grafo
             System.err.println("Error de lectura de CSV de Productos: " + e.getMessage());
         }
     }
+    
+    public void crearGrafico(String nombreArchivo)
+    {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))
+        {
+            bw.write("digraph RedSucursales {\n");
+            bw.write(" rankdir=LR;\n");
+            bw.write(" node [shape=box, style=filled, fillcolor=white, fontname=\"Arial\"];\n");
+            for (Sucursal s : sucursales)
+            {
+                bw.write("  " + s.getId() + " [label=\"" + s.getNombre() + "\\n" + s.getUbicacion() + "\"];\n");
+                for (Arista a : s.getAristas())
+                {
+                    bw.write("  " + s.getId() + " -> " + a.getDestino().getId() + " [label=\"Tiempo:" + a.getTiempo() + " | Costo:" + a.getCosto() + "\", fontsize=12];\n");
+                }
+            }
+            bw.write("}\n");
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error al escribir el .dot del Grafo: " + e.getMessage());
+        }
+    }
 }
