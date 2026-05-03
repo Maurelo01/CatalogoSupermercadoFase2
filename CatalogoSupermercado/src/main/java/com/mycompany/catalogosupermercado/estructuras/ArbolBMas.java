@@ -242,6 +242,26 @@ public class ArbolBMas
         }
     }
     
+    public List<Producto> obtenerTodosLosProductos()
+    {
+        List<Producto> lista = new ArrayList<>();
+        if (raiz == null) return lista;
+        NodoBMas hojaActual = raiz;
+        while (!hojaActual.isEsHoja())
+        {
+            hojaActual = hojaActual.getHijos().get(0);
+        }
+        while (hojaActual != null)
+        {
+            for (List<Producto> listaProducto : hojaActual.getListasProductos())
+            {
+                lista.addAll(listaProducto);
+            }
+            hojaActual = hojaActual.getSiguiente();
+        }
+        return lista;
+    }
+    
     public void crearGrafico(String nombreArchivo)
     {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo)))

@@ -4,6 +4,7 @@ import com.mycompany.catalogosupermercado.nodos.NodoAVL;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArbolAVL
@@ -236,6 +237,23 @@ public class ArbolAVL
             actual = actual.getIzquierdo();
         }
         return actual;
+    }
+    
+    public List<Producto> obtenerListaEnOrden()
+    {
+        List<Producto> lista = new ArrayList<>();
+        obtenerListaEnOrdenRecursivo(raiz, lista);
+        return lista;
+    }
+
+    private void obtenerListaEnOrdenRecursivo(NodoAVL nodo, List<Producto> lista)
+    {
+        if (nodo != null)
+        {
+            obtenerListaEnOrdenRecursivo(nodo.getIzquierdo(), lista);
+            lista.add(nodo.getProducto());
+            obtenerListaEnOrdenRecursivo(nodo.getDerecho(), lista);
+        }
     }
 
     public int getContadorNodos()
