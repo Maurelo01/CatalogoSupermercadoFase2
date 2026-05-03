@@ -124,20 +124,22 @@ public class ArbolAVL
         return buscarRecursivo(nodo.getDerecho(), nombre);
     }
 
-    public void listarEnOrden()
+    public String listarEnOrden()
     {
-        System.out.println("--- Catálogo Alfabético ---");
-        listarInOrdenRecursivo(raiz);
-        System.out.println("---------------------------");
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Catálogo Alfabético ---\n");
+        listarInOrdenRecursivo(raiz, sb);
+        sb.append("---------------------------\n");
+        return sb.toString();
     }
 
-    private void listarInOrdenRecursivo(NodoAVL nodo)
+    private void listarInOrdenRecursivo(NodoAVL nodo, StringBuilder sb)
     {
         if (nodo != null)
         {
-            listarInOrdenRecursivo(nodo.getIzquierdo());
-            System.out.println(nodo.getProducto().getNombre() + " | Stock: " + nodo.getProducto().getStock() + " | Q"      + nodo.getProducto().getPrecio());
-            listarInOrdenRecursivo(nodo.getDerecho());
+            listarInOrdenRecursivo(nodo.getIzquierdo(), sb);
+            sb.append(nodo.getProducto().getNombre()).append(" | Stock: ").append(nodo.getProducto().getStock()).append(" | Q").append(nodo.getProducto().getPrecio()).append("\n");
+            listarInOrdenRecursivo(nodo.getDerecho(), sb);
         }
     }
     

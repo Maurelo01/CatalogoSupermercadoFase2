@@ -124,23 +124,26 @@ public class ArbolBMas
         }
         return buscarHoja(nodo.getHijos().get(i), categoria);
     }
-    public void buscarPorCategoria(String categoria)
+    
+    public String buscarPorCategoria(String categoria)
     {
-        if (raiz == null) return;
+        if (raiz == null) return "El árbol está vacío.";
+        StringBuilder sb = new StringBuilder();
         NodoBMas hoja = buscarHoja(raiz, categoria);
         int indice = hoja.getCategorias().indexOf(categoria);
         if (indice != -1)
         {
-            System.out.println(" PRODUCTOS EN LA CATEGORIA " + categoria + ":");
-            for (Producto p : hoja.getListasProductos().get(indice))
+            sb.append(" PRODUCTOS EN LA CATEGORÍA ").append(categoria).append(":\n");
+            for (Producto producto : hoja.getListasProductos().get(indice))
             {
-                System.out.println(" - " + p.getNombre() + " (Código: " + p.getCodigoBarra() + ", Precio: Q" + p.getPrecio() + ")");
+                sb.append(indice).append(") ").append(producto.getNombre()).append(" (Código: ").append(producto.getCodigoBarra()).append(", Precio: Q").append(producto.getPrecio()).append(")\n");
             }
         }
         else
         {
-            System.out.println("No se encontraron productos en la categoría " + categoria + ".");
+            sb.append("No se encontraron productos en la categoría ").append(categoria).append(".");
         }
+        return sb.toString();
     }
 
     public void eliminarProducto(String categoria, String codigoBarra)
@@ -150,7 +153,7 @@ public class ArbolBMas
         int indice = hoja.getCategorias().indexOf(categoria);
         if (indice != -1)
         {
-            hoja.getListasProductos().get(indice).removeIf(p -> p.getCodigoBarra().equals(codigoBarra));
+            hoja.getListasProductos().get(indice).removeIf(producto -> producto.getCodigoBarra().equals(codigoBarra));
         }
     }
     
@@ -174,8 +177,7 @@ public class ArbolBMas
                     Integer idSig    = mapaIds.get(hoja.getSiguiente());
                     if (idActual != null && idSig != null)
                     {
-                        bw.write("  node" + idActual + " -> node" + idSig
-                                + " [color=red, constraint=false];\n");
+                        bw.write("  node" + idActual + " -> node" + idSig + " [color=red, constraint=false];\n");
                     }
                     hoja = hoja.getSiguiente();
                 }
@@ -194,11 +196,10 @@ public class ArbolBMas
         sb.append(" node").append(idActual).append(" [label=<<TABLE BORDER=\"1\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
         for (String clave : nodo.getCategorias())
         {
-            sb.append("<TD>").append(escaparHtml(clave)).append("</TD>");
+            sb.append("<TD>").append(escribirHtml(clave)).append("</TD>");
         }
         sb.append("</TR></TABLE>>];\n");
         bw.write(sb.toString());
- 
         if (!nodo.isEsHoja())
         {
             for (int i = 0; i < nodo.getHijos().size(); i++)
@@ -218,11 +219,8 @@ public class ArbolBMas
         }
     }
  
-    private String escaparHtml(String texto)
+    private String escribirHtml(String texto)
     {
-        return texto.replace("&", "&amp;")
-                    .replace("<", "&lt;")
-                    .replace(">", "&gt;")
-                    .replace("\"", "&quot;");
+        return texto.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;");
     }
 }
