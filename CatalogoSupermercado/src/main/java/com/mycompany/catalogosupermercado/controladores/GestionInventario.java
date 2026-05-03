@@ -204,6 +204,11 @@ public class GestionInventario
     {
         return avlNombres.buscarPorNombre(nombre);
     }
+    
+    public List<Producto> buscarOpcionesAlternativas(String nombre)
+    {
+        return listaNoOrdenada.buscarOpcionesAlternativas(nombre);
+    }
 
     public Producto buscarPorCodigo(String codigo)
     {

@@ -1,6 +1,8 @@
 package com.mycompany.catalogosupermercado.estructuras;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import com.mycompany.catalogosupermercado.nodos.NodoLista;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListaEnlazada 
 {
@@ -77,6 +79,22 @@ public class ListaEnlazada
             actual = actual.getSiguiente();
         }
         return null;
+    }
+    
+    public List<Producto> buscarOpcionesAlternativas(String parteNombre)
+    {
+        List<Producto> coincidencias = new ArrayList<>();
+        NodoLista actual = cabeza;
+        String busqueda = parteNombre.toLowerCase();
+        while (actual != null)
+        {
+            if (actual.getProducto().getNombre().toLowerCase().contains(busqueda))
+            {
+                coincidencias.add(actual.getProducto());
+            }
+            actual = actual.getSiguiente();
+        }
+        return coincidencias;
     }
 
     public boolean eliminar(String codigo)
