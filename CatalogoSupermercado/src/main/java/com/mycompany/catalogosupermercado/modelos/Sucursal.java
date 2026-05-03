@@ -150,9 +150,9 @@ public class Sucursal
         return tiempoEntrega;
     }
     
-    public void setTiempoDespacho(int tiempoDespacho)
+    public void setTiempoEntrega(int tiempoEntrega)
     {
-        this.tiempoEntrega = tiempoDespacho;
+        this.tiempoEntrega = tiempoEntrega;
     }
     
     public GestionInventario getInventarioSucursal()
