@@ -7,6 +7,7 @@ import com.mycompany.catalogosupermercado.estructuras.Grafo;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import com.mycompany.catalogosupermercado.modelos.Sucursal;
 import java.io.File;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -741,14 +742,14 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
             if (sucursal != null)
             {
-                String nombre = JOptionPane.showInputDialog("Ingrese el Nombre exacto a buscar:");
+                String nombre = JOptionPane.showInputDialog("Ingrese el Nombre a buscar:");
                 if (nombre != null && !nombre.trim().isEmpty())
                 {
                     long t0 = System.nanoTime();
                     Producto producto = sucursal.getInventarioSucursal().buscarPorNombreSecuencial(nombre);
                     double tiempo = (System.nanoTime() - t0) / 1000.0;
-                    txtConsolaGestorInventario.setText("--- Búsqueda por Nombre Secuencial (Lista Enlazada) ---\n");
-                    txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
+                    txtConsolaGestorInventario.setText("--- Búsqueda por Nombre (Lista Enlazada) ---\n");
+                    txtConsolaGestorInventario.append("Tiempo de búsqueda exacta: " + tiempo + " us\n\n");
                     if (producto != null)
                     {
                         txtConsolaGestorInventario.append("Producto Encontrado:\n");
@@ -756,7 +757,24 @@ public class PestañaInicio extends javax.swing.JFrame
                     }
                     else
                     {
-                        txtConsolaGestorInventario.append("Producto no encontrado.");
+                        txtConsolaGestorInventario.append("Producto no encontrado. Buscando coincidencias...\n\n");
+                        long t1 = System.nanoTime();
+                        List<Producto> coincidencias = sucursal.getInventarioSucursal().buscarOpcionesAlternativas(nombre);
+                        double tiempoAlternativo = (System.nanoTime() - t1) / 1000.0;
+                        if (!coincidencias.isEmpty()) 
+                        {
+                            txtConsolaGestorInventario.append("Opciones Alternativas (" + tiempoAlternativo + " us):\n");
+                            int indice = 1;
+                            for (Producto prod : coincidencias)
+                            {
+                                txtConsolaGestorInventario.append(indice + ") " + prod.getNombre() + " | Código: " + prod.getCodigoBarra() + " | Q" + prod.getPrecio() + "\n");
+                                indice++;
+                            }
+                        } 
+                        else 
+                        {
+                            txtConsolaGestorInventario.append("No se encontraron coincidencias ni alternativas.");
+                        }
                     }
                 }
             }
@@ -860,7 +878,7 @@ public class PestañaInicio extends javax.swing.JFrame
             if (sucursal != null)
             {
                 String reporte = sucursal.getInventarioSucursal().compararBusquedas(25, 5);
-                txtConsolaGestorInventario.setText(reporte); // Imprime el String generado en tu método compararBusquedas
+                txtConsolaGestorInventario.setText(reporte);
             }
             else
             {
