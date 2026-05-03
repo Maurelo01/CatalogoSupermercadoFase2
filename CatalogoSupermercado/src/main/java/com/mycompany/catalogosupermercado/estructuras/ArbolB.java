@@ -350,6 +350,29 @@ public class ArbolB
         padre.getHijos().remove(indiceHijo + 1);
     }
     
+    public List<Producto> obtenerTodosLosProductos()
+    {
+        List<Producto> lista = new ArrayList<>();
+        obtenerTodosRecursivo(raiz, lista);
+        return lista;
+    }
+
+    private void obtenerTodosRecursivo(NodoB nodo, List<Producto> lista) {
+        if (nodo == null) return;
+        int i;
+        for (i = 0; i < nodo.getFechas().size(); i++)
+        {
+            if (!nodo.isHoja())
+            {
+                obtenerTodosRecursivo(nodo.getHijos().get(i), lista);
+            }
+            lista.addAll(nodo.getListasProductos().get(i));
+        }
+        if (!nodo.isHoja())
+        {
+            obtenerTodosRecursivo(nodo.getHijos().get(i), lista);
+        }
+    }
     
     public void crearGrafico(String nombreArchivo)
     {
