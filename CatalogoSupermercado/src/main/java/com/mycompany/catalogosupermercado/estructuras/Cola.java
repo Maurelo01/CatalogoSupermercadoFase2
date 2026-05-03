@@ -1,5 +1,6 @@
 package com.mycompany.catalogosupermercado.estructuras;
 import com.mycompany.catalogosupermercado.nodos.NodoSimple;
+import java.util.List;
 
 public class Cola<T>
 {
@@ -14,7 +15,6 @@ public class Cola<T>
         this.tamaño = 0;
     }
 
-    
     public void encolar(T dato)
     {
         NodoSimple<T> nuevoNodo = new NodoSimple<>(dato);
@@ -45,6 +45,18 @@ public class Cola<T>
         }
         tamaño--;
         return dato;
+    }
+    
+    public List<T> obtenerElementos()
+    {
+        List<T> lista = new java.util.ArrayList<>();
+        NodoSimple<T> actual = frente;
+        while (actual != null)
+        {
+            lista.add(actual.getDato());
+            actual = actual.getSiguiente();
+        }
+        return lista;
     }
     
     public T peek()
