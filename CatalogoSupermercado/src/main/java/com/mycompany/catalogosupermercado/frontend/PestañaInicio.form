@@ -76,6 +76,8 @@
                                       <Component id="btnEliminarProducto" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnListarNombre" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnDevolver" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
@@ -117,6 +119,7 @@
                           <Component id="btnAgregarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnEliminarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnListarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDevolver" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -253,6 +256,14 @@
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnDevolver">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Devolver (Pila)"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDevolverActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

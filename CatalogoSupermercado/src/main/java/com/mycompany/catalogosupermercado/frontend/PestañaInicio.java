@@ -53,6 +53,7 @@ public class PestañaInicio extends javax.swing.JFrame
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtConsolaGestorInventario = new javax.swing.JTextArea();
+        btnDevolver = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtCodigoProducto = new javax.swing.JTextField();
@@ -125,6 +126,9 @@ public class PestañaInicio extends javax.swing.JFrame
         txtConsolaGestorInventario.setColumns(20);
         txtConsolaGestorInventario.setRows(5);
 
+        btnDevolver.setText("Devolver (Pila)");
+        btnDevolver.addActionListener(this::btnDevolverActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,7 +152,9 @@ public class PestañaInicio extends javax.swing.JFrame
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEliminarProducto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnListarNombre))
+                                .addComponent(btnListarNombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDevolver))
                             .addComponent(jLabel9)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnBuscarNombreSeq)
@@ -181,7 +187,8 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarProducto)
                     .addComponent(btnEliminarProducto)
-                    .addComponent(btnListarNombre))
+                    .addComponent(btnListarNombre)
+                    .addComponent(btnDevolver))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -587,7 +594,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 if (cat != null && !cat.trim().isEmpty())
                 {
                     long t0 = System.nanoTime();
-                    String resultado = sucursal.getInventarioSucursal().getArbolBMas().buscarPorCategoria(cat);
+                    String resultado = sucursal.getInventarioSucursal().buscarPorCategoria(cat);
                     double tiempo = (System.nanoTime() - t0) / 1000.0;
                     txtConsolaGestorInventario.setText("--- Búsqueda por Categoría (Árbol B+) ---\n");
                     txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
@@ -650,7 +657,10 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(this, "Datos inválidos o números incorrectos.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
-        catch (Exception e) {}
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
@@ -689,7 +699,10 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
-        catch (Exception e){}
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnEliminarProductoActionPerformed
 
     private void btnListarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarNombreActionPerformed
@@ -756,7 +769,10 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
-        catch (Exception e){}
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnBuscarNombreSeqActionPerformed
 
     private void btnBuscarRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRangoActionPerformed
@@ -861,6 +877,48 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnCompararActionPerformed
 
+    private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String codigo = JOptionPane.showInputDialog("ingrese el Código de barras del producto devuelto:");
+                if (codigo != null && !codigo.trim().isEmpty())
+                {
+                    Producto producto = sucursal.getInventarioSucursal().registrarDevolucion(codigo);
+                    txtConsolaGestorInventario.setText("--- Control de devolución (Pila) ---\n");
+                    if (producto != null)
+                    {
+                        txtConsolaGestorInventario.append("Estado: Producto devuelto exitosamente.\n");
+                        txtConsolaGestorInventario.append("Registro: El producto fue ingresado a la pila de devoluciones.\n\n");
+                        txtConsolaGestorInventario.append("Detalles del Producto:\n");
+                        txtConsolaGestorInventario.append("- Nombre: " + producto.getNombre() + "\n");
+                        txtConsolaGestorInventario.append("- Nuevo Stock: " + producto.getStock() + "\n");
+                        txtConsolaGestorInventario.append("- Estado Actual: " + producto.getEstado() + "\n");
+                    }
+                    else
+                    {
+                        txtConsolaGestorInventario.append("Error: No se encontró el producto para procesar la devolución.\n");
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDevolverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -937,6 +995,7 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btnCargarProductos;
     private javax.swing.JButton btnCargarSucursales;
     private javax.swing.JButton btnComparar;
+    private javax.swing.JButton btnDevolver;
     private javax.swing.JButton btnEliminarProducto;
     private javax.swing.JButton btnListarNombre;
     private javax.swing.JButton btnTransferir;
