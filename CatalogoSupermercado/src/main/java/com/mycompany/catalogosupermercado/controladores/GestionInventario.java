@@ -102,26 +102,81 @@ public class GestionInventario
         {
             return false;
         }
-        tablaHash.insertar(nuevo);
-        listaNoOrdenada.insertar(nuevo);
-        listaOrdenada.insertar(nuevo);
-        avlNombres.insertar(nuevo);
-        arbolFechas.insertar(nuevo);
-        arbolCategoria.insertar(nuevo);
-        return true;
+        boolean hashInsertado = false;
+        boolean listaNoOrdInsertada = false;
+        boolean listaOrdInsertada = false;
+        boolean avlInsertado = false;
+        boolean bInsertado = false;
+        boolean bMasInsertado = false;
+        try 
+        {
+            tablaHash.insertar(nuevo);
+            hashInsertado = true;
+            listaNoOrdenada.insertar(nuevo);
+            listaNoOrdInsertada = true;
+            listaOrdenada.insertar(nuevo);
+            listaOrdInsertada = true;
+            avlNombres.insertar(nuevo);
+            avlInsertado = true;
+            arbolFechas.insertar(nuevo);
+            bInsertado = true;
+            arbolCategoria.insertar(nuevo);
+            bMasInsertado = true;
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            System.err.println("Error durante la inserción, rollback en proceso");
+            if (bMasInsertado) arbolCategoria.eliminarProducto(nuevo.getCategoria(), nuevo.getCodigoBarra());
+            if (bInsertado) arbolFechas.eliminar(nuevo);
+            if (avlInsertado) avlNombres.eliminar(nuevo.getNombre());
+            if (listaOrdInsertada) listaOrdenada.eliminar(nuevo.getCodigoBarra());
+            if (listaNoOrdInsertada) listaNoOrdenada.eliminar(nuevo.getCodigoBarra());
+            if (hashInsertado) tablaHash.eliminar(nuevo.getCodigoBarra());
+            System.err.println("Rollback completo. Detalle del error: " + e.getMessage());
+            return false;
+        }
     }
 
     public boolean eliminarProducto(String codigo)
     {
-        Producto prod = tablaHash.buscarPorCodigo(codigo);
-        if (prod == null) return false;
-        avlNombres.eliminar(prod.getNombre());
-        arbolFechas.eliminar(prod);
-        arbolCategoria.eliminarProducto(prod.getCategoria(), codigo);
-        tablaHash.eliminar(codigo);
-        boolean e1 = listaNoOrdenada.eliminar(codigo);
-        boolean e2 = listaOrdenada.eliminar(codigo);
-        return e1 && e2;
+        Producto producto = tablaHash.buscarPorCodigo(codigo);
+        if (producto == null) return false;
+        boolean avlEliminado = false;
+        boolean bEliminado = false;
+        boolean bMasEliminado = false;
+        boolean hashEliminado = false;
+        boolean listaNoOrdEliminada = false;
+        boolean listaOrdEliminada = false;
+        try 
+        {
+            avlNombres.eliminar(producto.getNombre());
+            avlEliminado = true;
+            arbolFechas.eliminar(producto);
+            bEliminado = true;
+            arbolCategoria.eliminarProducto(producto.getCategoria(), codigo);
+            bMasEliminado = true;
+            tablaHash.eliminar(codigo);
+            hashEliminado = true;
+            boolean e1 = listaNoOrdenada.eliminar(codigo);
+            listaNoOrdEliminada = e1;
+            boolean e2 = listaOrdenada.eliminar(codigo);
+            listaOrdEliminada = e2;
+            return e1 && e2;
+            
+        } 
+        catch (Exception e) 
+        {
+            System.err.println("Error durante la eliminación, rollback en proceso");
+            if (listaOrdEliminada) listaOrdenada.insertar(producto);
+            if (listaNoOrdEliminada) listaNoOrdenada.insertar(producto);
+            if (hashEliminado) tablaHash.insertar(producto);
+            if (bMasEliminado) arbolCategoria.insertar(producto);
+            if (bEliminado) arbolFechas.insertar(producto);
+            if (avlEliminado) avlNombres.insertar(producto);
+            System.err.println("Rollback completado, producto restaurado en memoria. Detalle: " + e.getMessage());
+            return false;
+        }
     }
 
     public Producto buscarPorNombreSecuencial(String nombre)
@@ -139,9 +194,22 @@ public class GestionInventario
         return tablaHash.buscarPorCodigo(codigo);
     }
 
-    public void buscarPorCategoria(String categoria)
+    public String buscarPorCategoria(String categoria)
     {
-        arbolCategoria.buscarPorCategoria(categoria);
+        List<Producto> lista = arbolCategoria.buscarPorCategoria(categoria);
+        if (lista.isEmpty())
+        {
+            return "No se encontraron productos en la categoría " + categoria + ".";
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- PRODUCTOS EN LA CATEGORÍA: ").append(categoria).append(" ---\n\n");
+        for (int i = 0; i < lista.size(); i++)
+        {
+            Producto producto = lista.get(i);
+            sb.append((i + 1)).append(") ").append(producto.getNombre()).append(" (Código: ").append(producto.getCodigoBarra()).append(", Precio: Q").append(producto.getPrecio()).append(")\n");
+        }
+        
+        return sb.toString();
     }
 
     public void buscarPorRangoFechas(String fechaInicio, String fechaFin)
