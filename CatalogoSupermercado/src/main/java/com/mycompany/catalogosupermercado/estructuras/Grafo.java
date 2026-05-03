@@ -127,7 +127,6 @@ public class Grafo
         return ruta;
     }
     
-    
     public void agregarArista(int idOrigen, int idDestino, double tiempo, double costo)
     {
         Sucursal origen = buscarSucursal(idOrigen);
@@ -136,6 +135,37 @@ public class Grafo
         {
             origen.agregarArista(tiempo, costo, destino);
         }
+    }
+    
+    public boolean eliminarArista(int idOrigen, int idDestino) 
+    {
+        Sucursal origen = buscarSucursal(idOrigen);
+        if (origen != null) 
+        {
+            return origen.getAristas().removeIf(arista -> arista.getDestino().getId() == idDestino);
+        }
+        return false;
+    }
+    
+    public boolean editarArista(int idOrigen, int idDestinoOriginal, int idNuevoDestino, double nuevoTiempo, double nuevoCosto) 
+    {
+        Sucursal origen = buscarSucursal(idOrigen);
+        Sucursal nuevoDestinoObj = buscarSucursal(idNuevoDestino);
+
+        if (origen != null && nuevoDestinoObj != null) 
+        {
+            for (Arista arista : origen.getAristas()) 
+            {
+                if (arista.getDestino().getId() == idDestinoOriginal) 
+                {
+                    arista.setDestino(nuevoDestinoObj);
+                    arista.setTiempo(nuevoTiempo);
+                    arista.setCosto(nuevoCosto);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     public String realizarTransferencia(Producto productoOrigen, int cantidad, int origenId, int destinoId, boolean esPorTiempo)
@@ -389,6 +419,18 @@ public class Grafo
         return reporte.toString();
     }
     
+    public boolean eliminarSucursal(int id) 
+    {
+        Sucursal aEliminar = buscarSucursal(id);
+        if (aEliminar == null) return false;
+        sucursales.remove(aEliminar);
+        for (Sucursal s : sucursales) 
+        {
+            s.getAristas().removeIf(arista -> arista.getDestino().getId() == id);
+        }
+        return true;
+    }
+    
     public void cargarCSVSucursales(String ruta)
     {
         try(BufferedReader br = new BufferedReader(new FileReader(ruta)); BufferedWriter errorLog = new BufferedWriter(new FileWriter("errors.log", true)))
@@ -534,5 +576,10 @@ public class Grafo
         {
             System.err.println("Error al escribir el .dot del Grafo: " + e.getMessage());
         }
+    }
+    
+    public List<Sucursal> getSucursales()
+    {
+        return this.sucursales;
     }
 }

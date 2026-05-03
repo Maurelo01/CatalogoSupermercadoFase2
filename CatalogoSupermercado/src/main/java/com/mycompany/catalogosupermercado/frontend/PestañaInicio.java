@@ -4,6 +4,7 @@
  */
 package com.mycompany.catalogosupermercado.frontend;
 import com.mycompany.catalogosupermercado.estructuras.Grafo;
+import com.mycompany.catalogosupermercado.modelos.Arista;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import com.mycompany.catalogosupermercado.modelos.Sucursal;
 import java.io.File;
@@ -11,6 +12,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -79,6 +81,41 @@ public class PestañaInicio extends javax.swing.JFrame
         btnVerBMas = new javax.swing.JButton();
         btnVerTablaHash = new javax.swing.JButton();
         btrVerColasSucursal = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaSucursales = new javax.swing.JTable();
+        btnActualizarSucursales = new javax.swing.JButton();
+        btnNuevaSucursal = new javax.swing.JButton();
+        btnEditarSucursal = new javax.swing.JButton();
+        btnEliminarSucursal = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        txtTiempoTraspaso = new javax.swing.JTextField();
+        txtIdSucursal = new javax.swing.JTextField();
+        txtNombreSucursal = new javax.swing.JTextField();
+        txtUbicacionSucursal = new javax.swing.JTextField();
+        txtTiempoIngreso = new javax.swing.JTextField();
+        txtTiempoEntrega = new javax.swing.JTextField();
+        btnGuardarSucursal = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaAristas = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txtOrigenArista = new javax.swing.JTextField();
+        txtDestinoArista = new javax.swing.JTextField();
+        txtTiempoArista = new javax.swing.JTextField();
+        txtCostoArista = new javax.swing.JTextField();
+        btnActualizarAristas = new javax.swing.JButton();
+        btnNuevaArista = new javax.swing.JButton();
+        btnEditarArista = new javax.swing.JButton();
+        btnEliminarArista = new javax.swing.JButton();
+        btnGuardarArista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,7 +240,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnComparar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtConsolaGestorInventario, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                .addComponent(txtConsolaGestorInventario, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -286,7 +323,7 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(btnTransferir)
                     .addComponent(btnAvanzarPaso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -360,11 +397,246 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(btnVerBMas)
                     .addComponent(btnVerTablaHash))
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Visualizar", jPanel3);
+
+        tablaSucursales.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Ubicación", "Tiempo Ingreso", "Tiempo Traspaso", "Tiempo Entrega"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tablaSucursales);
+
+        btnActualizarSucursales.setText("Actualizar Lista");
+        btnActualizarSucursales.addActionListener(this::btnActualizarSucursalesActionPerformed);
+
+        btnNuevaSucursal.setText("Nueva Sucursal");
+        btnNuevaSucursal.addActionListener(this::btnNuevaSucursalActionPerformed);
+
+        btnEditarSucursal.setText("Editar Seleccionada");
+        btnEditarSucursal.addActionListener(this::btnEditarSucursalActionPerformed);
+
+        btnEliminarSucursal.setText("Eliminar Seleccionada");
+        btnEliminarSucursal.addActionListener(this::btnEliminarSucursalActionPerformed);
+
+        jLabel10.setText("ID:");
+
+        jLabel11.setText("Nombre:");
+
+        jLabel12.setText("Ubicación:");
+
+        jLabel13.setText("Tiempo Ingreso:");
+
+        jLabel14.setText("Tiempo Traspaso:");
+
+        jLabel15.setText("Tiempo Entrega:");
+
+        txtIdSucursal.setEditable(false);
+
+        btnGuardarSucursal.setText("Guardar");
+        btnGuardarSucursal.addActionListener(this::btnGuardarSucursalActionPerformed);
+
+        tablaAristas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID Origen", "Nombre Origen", "ID Destino", "Nombre Destino", "Tiempo", "Costo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tablaAristas);
+
+        jLabel16.setText("Id Sucursal Origen:");
+
+        jLabel17.setText("Id Sucursal Destino:");
+
+        jLabel18.setText("Tiempo de ruta:");
+
+        jLabel19.setText("Costo de ruta:");
+
+        btnActualizarAristas.setText("Actualizar Rutas");
+        btnActualizarAristas.addActionListener(this::btnActualizarAristasActionPerformed);
+
+        btnNuevaArista.setText("Nueva Ruta");
+        btnNuevaArista.addActionListener(this::btnNuevaAristaActionPerformed);
+
+        btnEditarArista.setText("Editar Seleccionada");
+        btnEditarArista.addActionListener(this::btnEditarAristaActionPerformed);
+
+        btnEliminarArista.setText("Eliminar Seleccionada");
+        btnEliminarArista.addActionListener(this::btnEliminarAristaActionPerformed);
+
+        btnGuardarArista.setText("Guardar");
+        btnGuardarArista.addActionListener(this::btnGuardarAristaActionPerformed);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTiempoTraspaso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUbicacionSucursal)
+                                    .addComponent(txtNombreSucursal)
+                                    .addComponent(txtIdSucursal)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(20, 20, 20)
+                                .addComponent(txtTiempoIngreso))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtTiempoEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btnActualizarSucursales, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNuevaSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditarSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarSucursal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGuardarSucursal)))
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtOrigenArista)
+                                    .addComponent(txtDestinoArista)
+                                    .addComponent(txtTiempoArista)
+                                    .addComponent(txtCostoArista, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btnActualizarAristas, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNuevaArista, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditarArista, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarArista)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnGuardarArista)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtIdSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(txtNombreSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(txtUbicacionSucursal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(txtTiempoIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(txtTiempoTraspaso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtTiempoEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarSucursales)
+                    .addComponent(btnNuevaSucursal)
+                    .addComponent(btnEditarSucursal)
+                    .addComponent(btnEliminarSucursal)
+                    .addComponent(btnGuardarSucursal))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(txtOrigenArista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(txtDestinoArista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(txtTiempoArista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(txtCostoArista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarAristas)
+                    .addComponent(btnNuevaArista)
+                    .addComponent(btnEditarArista)
+                    .addComponent(btnEliminarArista)
+                    .addComponent(btnGuardarArista))
+                .addContainerGap(222, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Sucursales", jPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -397,6 +669,7 @@ public class PestañaInicio extends javax.swing.JFrame
             {
                 conexiones.cargarCSVAristas(ruta);
                 JOptionPane.showMessageDialog(this, "Se cargaron las Aristas.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", JOptionPane.INFORMATION_MESSAGE);
+                actualizarTablaAristas();
             }
             catch (Exception ex)
             {
@@ -418,6 +691,7 @@ public class PestañaInicio extends javax.swing.JFrame
             {
                 conexiones.cargarCSVSucursales(ruta);
                 JOptionPane.showMessageDialog(this, "Se cargaron las Sucursales.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada",JOptionPane.INFORMATION_MESSAGE);
+                actualizarTablaSucursales();
             }
             catch (Exception ex)
             {
@@ -1013,6 +1287,221 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnAvanzarPasoActionPerformed
 
+    private void btnGuardarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarSucursalActionPerformed
+        try 
+        {
+            String idStr = txtIdSucursal.getText().trim();
+            String nombre = txtNombreSucursal.getText().trim();
+            String ubicacion = txtUbicacionSucursal.getText().trim();
+            String tiempoIngresoStr = txtTiempoIngreso.getText().trim();
+            String tiempoTraspasoStr = txtTiempoTraspaso.getText().trim();
+            String tiempoEntregaStr = txtTiempoEntrega.getText().trim();
+            if (idStr.isEmpty() || nombre.isEmpty() || ubicacion.isEmpty() || tiempoIngresoStr.isEmpty() || tiempoTraspasoStr.isEmpty() || tiempoEntregaStr.isEmpty()) 
+            {
+                JOptionPane.showMessageDialog(this, "Todos los apartados son obligatorios.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            int id = Integer.parseInt(idStr);
+            int tiempoIngreso = Integer.parseInt(tiempoIngresoStr);
+            int tiempoTraspaso = Integer.parseInt(tiempoTraspasoStr);
+            int tiempoEntrega = Integer.parseInt(tiempoEntregaStr);
+            Sucursal existente = conexiones.buscarSucursal(id);
+            if (existente != null) 
+            {
+                existente.setNombre(nombre);
+                existente.setUbicacion(ubicacion);
+                existente.setTiempoIngreso(tiempoIngreso);
+                existente.setTiempoTraspaso(tiempoTraspaso);
+                existente.setTiempoEntrega(tiempoEntrega);
+                JOptionPane.showMessageDialog(this, "Sucursal actualizada correctamente.");
+            } 
+            else 
+            {
+                Sucursal nueva = new Sucursal(id, nombre, ubicacion, tiempoIngreso, tiempoTraspaso, tiempoEntrega);
+                conexiones.agregarSucursal(nueva);
+                JOptionPane.showMessageDialog(this, "Sucursal creada correctamente.");
+            }
+            actualizarTablaSucursales();
+            limpiarCamposSucursal();
+
+        } 
+        catch (NumberFormatException e) 
+        {
+            JOptionPane.showMessageDialog(this, "Error: Verifique que ID y Tiempos sean números enteros válidos y no contengan letras.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnGuardarSucursalActionPerformed
+
+    private void btnEditarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarSucursalActionPerformed
+        int filaSeleccionada = tablaSucursales.getSelectedRow();
+        if (filaSeleccionada == -1) 
+        {
+            JOptionPane.showMessageDialog(this, "Por favor selecciona una sucursal de la tabla.", "Selección Requerida", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Object idObj = tablaSucursales.getValueAt(filaSeleccionada, 0);
+        Object nombreObj = tablaSucursales.getValueAt(filaSeleccionada, 1);
+        Object ubicacionObj = tablaSucursales.getValueAt(filaSeleccionada, 2);
+        Object tIngresoObj = tablaSucursales.getValueAt(filaSeleccionada, 3);
+        Object tTraspasoObj = tablaSucursales.getValueAt(filaSeleccionada, 4);
+        Object tEntregaObj = tablaSucursales.getValueAt(filaSeleccionada, 5);
+        txtIdSucursal.setText(idObj != null ? idObj.toString() : "");
+        txtIdSucursal.setEditable(false); 
+        txtNombreSucursal.setText(nombreObj != null ? nombreObj.toString() : "");
+        txtUbicacionSucursal.setText(ubicacionObj != null ? ubicacionObj.toString() : "");
+        txtTiempoIngreso.setText(tIngresoObj != null ? tIngresoObj.toString() : "");
+        txtTiempoTraspaso.setText(tTraspasoObj != null ? tTraspasoObj.toString() : "");
+        txtTiempoEntrega.setText(tEntregaObj != null ? tEntregaObj.toString() : "");
+    }//GEN-LAST:event_btnEditarSucursalActionPerformed
+
+    private void btnEliminarSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarSucursalActionPerformed
+        int filaSeleccionada = tablaSucursales.getSelectedRow();
+        if (filaSeleccionada == -1)
+        {
+            JOptionPane.showMessageDialog(this, "Seleccione una sucursal para eliminar.");
+            return;
+        }
+        int id = (int) tablaSucursales.getValueAt(filaSeleccionada, 0);
+        String nombre = (String) tablaSucursales.getValueAt(filaSeleccionada, 1);
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar la sucursal: " + nombre + "?\n(Se borrarán también las conexiones hacia ella)", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION)
+        {
+            if (conexiones.eliminarSucursal(id))
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal eliminada.");
+                actualizarTablaSucursales();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al eliminar la sucursal.");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarSucursalActionPerformed
+
+    private void btnActualizarSucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarSucursalesActionPerformed
+        actualizarTablaSucursales();
+    }//GEN-LAST:event_btnActualizarSucursalesActionPerformed
+
+    private void btnNuevaSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaSucursalActionPerformed
+        limpiarCamposSucursal();
+        txtIdSucursal.requestFocus();
+    }//GEN-LAST:event_btnNuevaSucursalActionPerformed
+
+    private void btnActualizarAristasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAristasActionPerformed
+        actualizarTablaAristas();
+    }//GEN-LAST:event_btnActualizarAristasActionPerformed
+
+    private void btnNuevaAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaAristaActionPerformed
+        limpiarCamposArista();
+        txtOrigenArista.requestFocus();
+    }//GEN-LAST:event_btnNuevaAristaActionPerformed
+
+    private void btnEditarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAristaActionPerformed
+        int filaSeleccionada = tablaAristas.getSelectedRow();
+        if (filaSeleccionada == -1) 
+        {
+            JOptionPane.showMessageDialog(this, "Selecciona una ruta de la tabla.", "Selección Requerida", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Object origenObj = tablaAristas.getValueAt(filaSeleccionada, 0);
+        Object destinoObj = tablaAristas.getValueAt(filaSeleccionada, 2);
+        Object tiempoObj = tablaAristas.getValueAt(filaSeleccionada, 4);
+        Object costoObj = tablaAristas.getValueAt(filaSeleccionada, 5);
+        txtOrigenArista.setText(tablaAristas.getValueAt(filaSeleccionada, 0).toString());
+        txtOrigenArista.setEditable(false); 
+        String idDestino = tablaAristas.getValueAt(filaSeleccionada, 2).toString();
+        txtDestinoArista.setText(idDestino);
+        txtDestinoArista.putClientProperty("DestinoOriginal", idDestino);
+        txtTiempoArista.setText(tablaAristas.getValueAt(filaSeleccionada, 4).toString());
+        txtCostoArista.setText(tablaAristas.getValueAt(filaSeleccionada, 5).toString());
+    }//GEN-LAST:event_btnEditarAristaActionPerformed
+
+    private void btnEliminarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAristaActionPerformed
+        int filaSeleccionada = tablaAristas.getSelectedRow();
+        if (filaSeleccionada == -1)
+        {
+            JOptionPane.showMessageDialog(this, "Seleccione una ruta para eliminar.");
+            return;
+        }
+        int idOrigen = (int) tablaAristas.getValueAt(filaSeleccionada, 0);
+        int idDestino = (int) tablaAristas.getValueAt(filaSeleccionada, 2);
+        String nombreOrigen = (String) tablaAristas.getValueAt(filaSeleccionada, 1);
+        String nombreDestino = (String) tablaAristas.getValueAt(filaSeleccionada, 3);
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar la ruta: " + nombreOrigen + " -> " + nombreDestino + "?", "Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION)
+        {
+            if (conexiones.eliminarArista(idOrigen, idDestino))
+            {
+                JOptionPane.showMessageDialog(this, "Ruta eliminada.");
+                actualizarTablaAristas();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al eliminar la ruta.");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarAristaActionPerformed
+
+    private void btnGuardarAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAristaActionPerformed
+        try 
+        {
+            String origenStr = txtOrigenArista.getText().trim();
+            String destinoStr = txtDestinoArista.getText().trim();
+            String tiempoStr = txtTiempoArista.getText().trim();
+            String costoStr = txtCostoArista.getText().trim();
+            if (origenStr.isEmpty() || destinoStr.isEmpty() || tiempoStr.isEmpty() || costoStr.isEmpty()) 
+            {
+                JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            int idOrigen = Integer.parseInt(origenStr);
+            int idDestino = Integer.parseInt(destinoStr);
+            double tiempo = Double.parseDouble(tiempoStr);
+            double costo = Double.parseDouble(costoStr);
+            if (conexiones.buscarSucursal(idOrigen) == null || conexiones.buscarSucursal(idDestino) == null)
+            {
+                JOptionPane.showMessageDialog(this, "Error: El ID de Origen o Destino no existe en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Object destinoOriginalObj = txtDestinoArista.getClientProperty("DestinoOriginal");
+            if (!txtOrigenArista.isEditable() && destinoOriginalObj != null) 
+            {
+                int idDestinoOriginal = Integer.parseInt(destinoOriginalObj.toString());
+                if (conexiones.editarArista(idOrigen, idDestinoOriginal, idDestino, tiempo, costo))
+                {
+                    JOptionPane.showMessageDialog(this, "Ruta actualizada correctamente.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "No se pudo actualizar la ruta.");
+                }
+            } 
+            else 
+            {
+                boolean yaExiste = false;
+                for (Arista a : conexiones.buscarSucursal(idOrigen).getAristas())
+                {
+                    if (a.getDestino().getId() == idDestino)
+                    {
+                        yaExiste = true; break;
+                    }
+                }
+                if (yaExiste)
+                {
+                    JOptionPane.showMessageDialog(this, "La ruta de " + idOrigen + " hacia " + idDestino + " ya existe. Edítela en lugar de crear otra.", "Ruta Duplicada", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                conexiones.agregarArista(idOrigen, idDestino, tiempo, costo);
+                JOptionPane.showMessageDialog(this, "Nueva ruta creada correctamente.");
+            }
+            actualizarTablaAristas(); 
+            limpiarCamposArista(); 
+        } 
+        catch (NumberFormatException e) 
+        {
+            JOptionPane.showMessageDialog(this, "Error: Verifique que todos los campos sean números válidos (enteros para ID, decimales para tiempo/costo).", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnGuardarAristaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1078,8 +1567,61 @@ public class PestañaInicio extends javax.swing.JFrame
             JOptionPane.showMessageDialog(this, "No se encontró la imagen generada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    private void actualizarTablaSucursales()
+    {
+        DefaultTableModel modelo = (DefaultTableModel) tablaSucursales.getModel();
+        modelo.setRowCount(0);
+        List<Sucursal> lista = conexiones.getSucursales(); 
+        for (Sucursal sucursal : lista)
+        {
+            modelo.addRow(new Object[]{sucursal.getId(), sucursal.getNombre(), sucursal.getUbicacion(), sucursal.getTiempoIngreso(), sucursal.getTiempoTraspaso(), sucursal.getTiempoEntrega()});
+        }
+    }
+    
+    private void limpiarCamposSucursal() 
+    {
+        txtIdSucursal.setText("");
+        txtIdSucursal.setEditable(true);
+        txtNombreSucursal.setText("");
+        txtUbicacionSucursal.setText("");
+        txtTiempoIngreso.setText("");
+        txtTiempoTraspaso.setText("");
+        txtTiempoEntrega.setText("");
+        if (tablaSucursales != null) 
+        {
+            tablaSucursales.clearSelection();
+        }
+    }
+    
+    private void actualizarTablaAristas() 
+    {
+        DefaultTableModel modelo = (DefaultTableModel) tablaAristas.getModel();
+        modelo.setRowCount(0);
+        List<Sucursal> lista = conexiones.getSucursales(); 
+        for (Sucursal sucursalOrigen : lista) 
+        {
+            for (Arista arista : sucursalOrigen.getAristas()) 
+            {
+                modelo.addRow(new Object[]{sucursalOrigen.getId(), sucursalOrigen.getNombre(), arista.getDestino().getId(), arista.getDestino().getNombre(), arista.getTiempo(), arista.getCosto()});
+            }
+        }
+    }
+    
+    private void limpiarCamposArista() 
+    {
+        txtOrigenArista.setText("");
+        txtOrigenArista.setEditable(true);
+        txtDestinoArista.setText("");
+        txtDestinoArista.putClientProperty("DestinoOriginal", null); 
+        txtTiempoArista.setText("");
+        txtCostoArista.setText("");
+        if (tablaAristas != null) tablaAristas.clearSelection();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarAristas;
+    private javax.swing.JButton btnActualizarSucursales;
     private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JButton btnAvanzarPaso;
     private javax.swing.JButton btnBuscarCategoria;
@@ -1091,8 +1633,16 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btnCargarSucursales;
     private javax.swing.JButton btnComparar;
     private javax.swing.JButton btnDevolver;
+    private javax.swing.JButton btnEditarArista;
+    private javax.swing.JButton btnEditarSucursal;
+    private javax.swing.JButton btnEliminarArista;
     private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnEliminarSucursal;
+    private javax.swing.JButton btnGuardarArista;
+    private javax.swing.JButton btnGuardarSucursal;
     private javax.swing.JButton btnListarNombre;
+    private javax.swing.JButton btnNuevaArista;
+    private javax.swing.JButton btnNuevaSucursal;
     private javax.swing.JButton btnTransferir;
     private javax.swing.JButton btnVerAVL;
     private javax.swing.JButton btnVerB;
@@ -1102,6 +1652,16 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btrVerColasSucursal;
     private javax.swing.JComboBox<String> cbxCriterio;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1113,16 +1673,31 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblImagen;
+    private javax.swing.JTable tablaAristas;
+    private javax.swing.JTable tablaSucursales;
     private javax.swing.JTextField txtCodigoProducto;
     private javax.swing.JTextArea txtConsolaGestorInventario;
     private javax.swing.JTextArea txtConsolaTransferencia;
+    private javax.swing.JTextField txtCostoArista;
     private javax.swing.JTextField txtDestino;
+    private javax.swing.JTextField txtDestinoArista;
+    private javax.swing.JTextField txtIdSucursal;
     private javax.swing.JTextField txtIdSucursalVisualizar;
+    private javax.swing.JTextField txtNombreSucursal;
     private javax.swing.JTextField txtOrigen;
+    private javax.swing.JTextField txtOrigenArista;
+    private javax.swing.JTextField txtTiempoArista;
+    private javax.swing.JTextField txtTiempoEntrega;
+    private javax.swing.JTextField txtTiempoIngreso;
+    private javax.swing.JTextField txtTiempoTraspaso;
+    private javax.swing.JTextField txtUbicacionSucursal;
     // End of variables declaration//GEN-END:variables
 
 }
