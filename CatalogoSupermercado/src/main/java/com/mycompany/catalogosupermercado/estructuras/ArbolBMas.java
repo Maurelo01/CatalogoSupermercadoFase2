@@ -125,25 +125,22 @@ public class ArbolBMas
         return buscarHoja(nodo.getHijos().get(i), categoria);
     }
     
-    public String buscarPorCategoria(String categoria)
+    public List<Producto> buscarPorCategoria(String categoria)
     {
-        if (raiz == null) return "El árbol está vacío.";
-        StringBuilder sb = new StringBuilder();
-        NodoBMas hoja = buscarHoja(raiz, categoria);
-        int indice = hoja.getCategorias().indexOf(categoria);
-        if (indice != -1)
+        List<Producto> productos = new ArrayList<>();
+        if (raiz == null) return productos;
+        NodoBMas hojaActual = buscarHoja(raiz, categoria);
+        while (hojaActual != null)
         {
-            sb.append(" PRODUCTOS EN LA CATEGORÍA ").append(categoria).append(":\n");
-            for (Producto producto : hoja.getListasProductos().get(indice))
+            int indice = hojaActual.getCategorias().indexOf(categoria);
+            if (indice != -1)
             {
-                sb.append(indice).append(") ").append(producto.getNombre()).append(" (Código: ").append(producto.getCodigoBarra()).append(", Precio: Q").append(producto.getPrecio()).append(")\n");
+                productos.addAll(hojaActual.getListasProductos().get(indice));
             }
+            else if (!productos.isEmpty()) break;
+            hojaActual = hojaActual.getSiguiente();
         }
-        else
-        {
-            sb.append("No se encontraron productos en la categoría ").append(categoria).append(".");
-        }
-        return sb.toString();
+        return productos;
     }
 
     public void eliminarProducto(String categoria, String codigoBarra)
