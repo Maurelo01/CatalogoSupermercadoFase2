@@ -173,15 +173,183 @@ public class ArbolB
         if (raiz == null) return;
         String fecha = producto.getFechaCaducidad();
         NodoB nodo = buscarPorFecha(raiz, fecha);
+        
         if (nodo != null)
         {
             int indice = nodo.getFechas().indexOf(fecha);
             if (indice != -1)
             {
                 nodo.getListasProductos().get(indice).removeIf(p -> p.getCodigoBarra().equals(producto.getCodigoBarra()));
+                if (nodo.getListasProductos().get(indice).isEmpty())
+                {
+                    eliminarClave(raiz, fecha);
+                    if (raiz != null && raiz.getFechas().isEmpty())
+                    {
+                        if (raiz.isHoja())
+                        {
+                            raiz = null;
+                        }
+                        else
+                        {
+                            raiz = raiz.getHijos().get(0);
+                        }
+                    }
+                }
             }
         }
     }
+    
+    private void eliminarClave(NodoB nodo, String fecha)
+    {
+        int i = 0;
+        while (i < nodo.getFechas().size() && fecha.compareToIgnoreCase(nodo.getFechas().get(i)) > 0)
+        {
+            i++;
+        }
+        boolean existeEnNodo = (i < nodo.getFechas().size() && fecha.equalsIgnoreCase(nodo.getFechas().get(i)));
+        if (existeEnNodo)
+        {
+            if (nodo.isHoja())
+            {
+                nodo.getFechas().remove(i);
+                nodo.getListasProductos().remove(i);
+            }
+            else
+            {
+                NodoB hijoIzq = nodo.getHijos().get(i);
+                NodoB hijoDer = nodo.getHijos().get(i + 1);
+                if (hijoIzq.getFechas().size() >= d)
+                {
+                    NodoB pred = obtenerPredecesor(hijoIzq);
+                    String fPred = pred.getFechas().get(pred.getFechas().size() - 1);
+                    List<Producto> lPred = new ArrayList<>(pred.getListasProductos().get(pred.getListasProductos().size() - 1));
+                    nodo.getFechas().set(i, fPred);
+                    nodo.getListasProductos().set(i, lPred);
+                    eliminarClave(hijoIzq, fPred);
+                }
+                else if (hijoDer.getFechas().size() >= d)
+                {
+                    NodoB suc = obtenerSucesor(hijoDer);
+                    String fSuc = suc.getFechas().get(0);
+                    List<Producto> lSuc = new ArrayList<>(suc.getListasProductos().get(0));
+                    nodo.getFechas().set(i, fSuc);
+                    nodo.getListasProductos().set(i, lSuc);
+                    eliminarClave(hijoDer, fSuc);
+                }
+                else
+                {
+                    unir(nodo, i);
+                    eliminarClave(hijoIzq, fecha);
+                }
+            }
+        }
+        else
+        {
+            if (nodo.isHoja())
+            {
+                return;
+            }
+            boolean esUltimoHijo = (i == nodo.getFechas().size());
+            NodoB hijo = nodo.getHijos().get(i);
+            if (hijo.getFechas().size() < d)
+            {
+                llenarHijo(nodo, i);
+            }
+            if (esUltimoHijo && i > nodo.getFechas().size())
+            {
+                eliminarClave(nodo.getHijos().get(i - 1), fecha);
+            }
+            else
+            {
+                eliminarClave(nodo.getHijos().get(i), fecha);
+            }
+        }
+    }
+    
+    private NodoB obtenerPredecesor(NodoB nodo)
+    {
+        while (!nodo.isHoja())
+        {
+            nodo = nodo.getHijos().get(nodo.getFechas().size());
+        }
+        return nodo;
+    }
+
+    private NodoB obtenerSucesor(NodoB nodo)
+    {
+        while (!nodo.isHoja())
+        {
+            nodo = nodo.getHijos().get(0);
+        }
+        return nodo;
+    }
+    
+    private void llenarHijo(NodoB padre, int indiceHijo)
+    {
+        if (indiceHijo != 0 && padre.getHijos().get(indiceHijo - 1).getFechas().size() >= d)
+        {
+            tomarDeAnterior(padre, indiceHijo);
+        }
+        else if (indiceHijo != padre.getFechas().size() && padre.getHijos().get(indiceHijo + 1).getFechas().size() >= d)
+        {
+            tomarDeSiguiente(padre, indiceHijo);
+        }
+        else
+        {
+            if (indiceHijo != padre.getFechas().size())
+            {
+                unir(padre, indiceHijo);
+            }
+            else
+            {
+                unir(padre, indiceHijo - 1);
+            }
+        }
+    }
+    
+    private void tomarDeAnterior(NodoB padre, int indiceHijo)
+    {
+        NodoB hijo = padre.getHijos().get(indiceHijo);
+        NodoB hermano = padre.getHijos().get(indiceHijo - 1);
+        hijo.getFechas().add(0, padre.getFechas().get(indiceHijo - 1));
+        hijo.getListasProductos().add(0, padre.getListasProductos().get(indiceHijo - 1));
+        if (!hijo.isHoja())
+        {
+            hijo.getHijos().add(0, hermano.getHijos().remove(hermano.getHijos().size() - 1));
+        }
+        padre.getFechas().set(indiceHijo - 1, hermano.getFechas().remove(hermano.getFechas().size() - 1));
+        padre.getListasProductos().set(indiceHijo - 1, hermano.getListasProductos().remove(hermano.getListasProductos().size() - 1));
+    }
+    
+    private void tomarDeSiguiente(NodoB padre, int indiceHijo)
+    {
+        NodoB hijo = padre.getHijos().get(indiceHijo);
+        NodoB hermano = padre.getHijos().get(indiceHijo + 1);
+        hijo.getFechas().add(padre.getFechas().get(indiceHijo));
+        hijo.getListasProductos().add(padre.getListasProductos().get(indiceHijo));
+        if (!hijo.isHoja())
+        {
+            hijo.getHijos().add(hermano.getHijos().remove(0));
+        }
+        padre.getFechas().set(indiceHijo, hermano.getFechas().remove(0));
+        padre.getListasProductos().set(indiceHijo, hermano.getListasProductos().remove(0));
+    }
+    
+    private void unir(NodoB padre, int indiceHijo)
+    {
+        NodoB hijo = padre.getHijos().get(indiceHijo);
+        NodoB hermano = padre.getHijos().get(indiceHijo + 1);
+        hijo.getFechas().add(padre.getFechas().remove(indiceHijo));
+        hijo.getListasProductos().add(padre.getListasProductos().remove(indiceHijo));
+        hijo.getFechas().addAll(hermano.getFechas());
+        hijo.getListasProductos().addAll(hermano.getListasProductos());
+        if (!hijo.isHoja())
+        {
+            hijo.getHijos().addAll(hermano.getHijos());
+        }
+        padre.getHijos().remove(indiceHijo + 1);
+    }
+    
     
     public void crearGrafico(String nombreArchivo)
     {
@@ -207,12 +375,21 @@ public class ArbolB
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < nodo.getFechas().size(); i++)
         {
-            sb.append(nodo.getFechas().get(i));
+            String fecha = nodo.getFechas().get(i);
+            List<Producto> productos = nodo.getListasProductos().get(i);
+            StringBuilder nombres = new StringBuilder();
+            for (int j = 0; j < productos.size(); j++) 
+            {
+                nombres.append(productos.get(j).getNombre());
+                if (j < productos.size() - 1) nombres.append(", ");
+            }
+            sb.append(fecha).append("\\n(").append(nombres).append(")");
             if (i < nodo.getFechas().size() - 1)
+            {
                 sb.append(" | ");
+            }
         }
         bw.write("  node" + idActual + " [label=\"" + sb + "\"];\n");
- 
         if (!nodo.isHoja())
         {
             for (int i = 0; i <= nodo.getFechas().size(); i++)

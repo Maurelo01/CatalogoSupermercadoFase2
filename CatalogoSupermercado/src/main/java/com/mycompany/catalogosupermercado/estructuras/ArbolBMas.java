@@ -151,6 +151,94 @@ public class ArbolBMas
         if (indice != -1)
         {
             hoja.getListasProductos().get(indice).removeIf(producto -> producto.getCodigoBarra().equals(codigoBarra));
+            if (hoja.getListasProductos().get(indice).isEmpty())
+            {
+                String claveEliminada = hoja.getCategorias().remove(indice);
+                hoja.getListasProductos().remove(indice);
+                
+                if (indice == 0 && !hoja.getCategorias().isEmpty())
+                {
+                    actualizarClave(raiz, claveEliminada, hoja.getCategorias().get(0));
+                }
+                
+                if (hoja != raiz && hoja.getCategorias().size() < d - 1)
+                {
+                    rebalancearEliminacion(hoja);
+                }
+                if (hoja == raiz && raiz.getCategorias().isEmpty())
+                {
+                    raiz = null;
+                }
+            }
+        }
+    }
+    
+    private void actualizarClave(NodoBMas nodo, String viejaClave, String nuevaClave)
+    {
+        if (nodo == null || nodo.isEsHoja()) return;
+        
+        for (int i = 0; i < nodo.getCategorias().size(); i++)
+        {
+            if (nodo.getCategorias().get(i).equals(viejaClave))
+            {
+                nodo.getCategorias().set(i, nuevaClave);
+                return; 
+            }
+        }
+        for (NodoBMas hijo : nodo.getHijos())
+        {
+            actualizarClave(hijo, viejaClave, nuevaClave);
+        }
+    }
+    
+    private void rebalancearEliminacion(NodoBMas nodo)
+    {
+        if (nodo == raiz) return;
+        NodoBMas padre = nodo.getPadre();
+        int indiceEnPadre = padre.getHijos().indexOf(nodo);
+        if (indiceEnPadre > 0)
+        {
+            NodoBMas hermanoIzq = padre.getHijos().get(indiceEnPadre - 1);
+            if (hermanoIzq.getCategorias().size() >= d)
+            {
+                String categoriaPrestada = hermanoIzq.getCategorias().remove(hermanoIzq.getCategorias().size() - 1);
+                List<Producto> listaPrestada = hermanoIzq.getListasProductos().remove(hermanoIzq.getListasProductos().size() - 1);
+                nodo.getCategorias().add(0, categoriaPrestada);
+                nodo.getListasProductos().add(0, listaPrestada);
+                padre.getCategorias().set(indiceEnPadre - 1, nodo.getCategorias().get(0));
+                return;
+            }
+        }
+        if (indiceEnPadre < padre.getHijos().size() - 1)
+        {
+            NodoBMas hermanoDer = padre.getHijos().get(indiceEnPadre + 1);
+            if (hermanoDer.getCategorias().size() >= d)
+            {
+                String categoriaPrestada = hermanoDer.getCategorias().remove(0);
+                List<Producto> listaPrestada = hermanoDer.getListasProductos().remove(0);
+                nodo.getCategorias().add(categoriaPrestada);
+                nodo.getListasProductos().add(listaPrestada);
+                padre.getCategorias().set(indiceEnPadre, hermanoDer.getCategorias().get(0));
+                return;
+            }
+        }
+        if (indiceEnPadre > 0)
+        {
+            NodoBMas hermanoIzq = padre.getHijos().get(indiceEnPadre - 1);
+            hermanoIzq.getCategorias().addAll(nodo.getCategorias());
+            hermanoIzq.getListasProductos().addAll(nodo.getListasProductos());
+            hermanoIzq.setSiguiente(nodo.getSiguiente());
+            padre.getCategorias().remove(indiceEnPadre - 1);
+            padre.getHijos().remove(indiceEnPadre);
+        }
+        else
+        {
+            NodoBMas hermanoDer = padre.getHijos().get(indiceEnPadre + 1);
+            nodo.getCategorias().addAll(hermanoDer.getCategorias());
+            nodo.getListasProductos().addAll(hermanoDer.getListasProductos());
+            nodo.setSiguiente(hermanoDer.getSiguiente());
+            padre.getCategorias().remove(indiceEnPadre);
+            padre.getHijos().remove(indiceEnPadre + 1);
         }
     }
     
@@ -190,10 +278,28 @@ public class ArbolBMas
     private void generarDot(NodoBMas nodo, BufferedWriter bw, int[] contador, int idActual, Map<NodoBMas, Integer> mapaIds) throws IOException
     {
         StringBuilder sb = new StringBuilder();
-        sb.append(" node").append(idActual).append(" [label=<<TABLE BORDER=\"1\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
-        for (String clave : nodo.getCategorias())
+        sb.append(" node").append(idActual).append(" [label=<<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\"><TR>");
+        for (int i = 0; i < nodo.getCategorias().size(); i++)
         {
-            sb.append("<TD>").append(escribirHtml(clave)).append("</TD>");
+            String clave = nodo.getCategorias().get(i);
+            sb.append("<TD>");
+            if (nodo.isEsHoja())
+            {
+                sb.append("<B>").append(escribirHtml(clave)).append("</B><BR/>");
+                List<Producto> productos = nodo.getListasProductos().get(i);
+                sb.append("<FONT POINT-SIZE=\"10\">");
+                for (int j = 0; j < productos.size(); j++) 
+                {
+                    sb.append(escribirHtml(productos.get(j).getNombre()));
+                    if (j < productos.size() - 1) sb.append("<BR/>");
+                }
+                sb.append("</FONT>");
+            }
+            else
+            {
+                sb.append(escribirHtml(clave));
+            }
+            sb.append("</TD>");
         }
         sb.append("</TR></TABLE>>];\n");
         bw.write(sb.toString());
