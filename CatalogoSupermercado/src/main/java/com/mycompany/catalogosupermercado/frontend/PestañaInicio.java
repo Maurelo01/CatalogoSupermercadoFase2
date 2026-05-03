@@ -6,7 +6,10 @@ package com.mycompany.catalogosupermercado.frontend;
 import com.mycompany.catalogosupermercado.estructuras.Grafo;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import com.mycompany.catalogosupermercado.modelos.Sucursal;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +41,18 @@ public class PestañaInicio extends javax.swing.JFrame
         btnCargarSucursales = new javax.swing.JButton();
         btnCargarAristas = new javax.swing.JButton();
         btnCargarProductos = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        btnAgregarProducto = new javax.swing.JButton();
+        btnEliminarProducto = new javax.swing.JButton();
+        btnBuscarNombreSeq = new javax.swing.JButton();
+        btnBuscarCodigo = new javax.swing.JButton();
+        btnBuscarRango = new javax.swing.JButton();
+        btnBuscarCategoria = new javax.swing.JButton();
+        btnListarNombre = new javax.swing.JButton();
+        btnComparar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtConsolaGestorInventario = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtCodigoProducto = new javax.swing.JTextField();
@@ -75,6 +90,41 @@ public class PestañaInicio extends javax.swing.JFrame
         btnCargarProductos.setText("Cargar Productos");
         btnCargarProductos.addActionListener(this::btnCargarProductosActionPerformed);
 
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Gestionar Inventario");
+
+        btnAgregarProducto.setText("Agregar Producto");
+        btnAgregarProducto.addActionListener(this::btnAgregarProductoActionPerformed);
+
+        btnEliminarProducto.setText("Eliminar Producto");
+        btnEliminarProducto.addActionListener(this::btnEliminarProductoActionPerformed);
+
+        btnBuscarNombreSeq.setText("Buscar por Nombre Secuencial (Lista Enlazada)");
+        btnBuscarNombreSeq.addActionListener(this::btnBuscarNombreSeqActionPerformed);
+
+        btnBuscarCodigo.setText("Buscar por Código (Hash)");
+        btnBuscarCodigo.addActionListener(this::btnBuscarCodigoActionPerformed);
+
+        btnBuscarRango.setText("Buscar por Rango de Fechas (B)");
+        btnBuscarRango.addActionListener(this::btnBuscarRangoActionPerformed);
+
+        btnBuscarCategoria.setText("Buscar por Categorias (B+)");
+        btnBuscarCategoria.addActionListener(this::btnBuscarCategoriaActionPerformed);
+
+        btnListarNombre.setText("Listar por Nombre (AVL)");
+        btnListarNombre.addActionListener(this::btnListarNombreActionPerformed);
+
+        btnComparar.setText("Comparar Busqueda (Lista Enlazada - AVL)");
+        btnComparar.addActionListener(this::btnCompararActionPerformed);
+
+        jLabel7.setText("Productos:");
+
+        jLabel9.setText("Busqueda:");
+
+        txtConsolaGestorInventario.setEditable(false);
+        txtConsolaGestorInventario.setColumns(20);
+        txtConsolaGestorInventario.setRows(5);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,12 +132,34 @@ public class PestañaInicio extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnCargarSucursales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCargarAristas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCargarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCargarSucursales)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCargarAristas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCargarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnAgregarProducto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarProducto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnListarNombre))
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnBuscarNombreSeq)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarRango)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarCategoria)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarCodigo))
+                            .addComponent(btnComparar)
+                            .addComponent(txtConsolaGestorInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -97,15 +169,35 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCargarSucursales)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCargarAristas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCargarProductos)
-                .addContainerGap(346, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCargarSucursales)
+                    .addComponent(btnCargarAristas)
+                    .addComponent(btnCargarProductos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarProducto)
+                    .addComponent(btnEliminarProducto)
+                    .addComponent(btnListarNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarNombreSeq)
+                    .addComponent(btnBuscarRango)
+                    .addComponent(btnBuscarCategoria)
+                    .addComponent(btnBuscarCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnComparar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtConsolaGestorInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Cargar CSV", jPanel1);
+        jTabbedPane1.addTab("Gestión", jPanel1);
 
         jLabel2.setText("Codigo del producto a transferir:");
 
@@ -151,7 +243,7 @@ public class PestañaInicio extends javax.swing.JFrame
                                 .addComponent(jLabel5)
                                 .addGap(66, 66, 66)
                                 .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 374, Short.MAX_VALUE)))
+                        .addGap(0, 710, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -176,7 +268,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(btnTransferir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -243,7 +335,7 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(btnVerBMas)
                     .addComponent(btnVerTablaHash))
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -253,7 +345,9 @@ public class PestañaInicio extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1033, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,17 +365,17 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             if (!ruta.toLowerCase().endsWith(".csv"))
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             try
             {
                 conexiones.cargarCSVAristas(ruta);
-                javax.swing.JOptionPane.showMessageDialog(this, "Se cargaron las Aristas.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Se cargaron las Aristas.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", JOptionPane.INFORMATION_MESSAGE);
             }
             catch (Exception ex)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de aristas: " + ex.getMessage(), "Error de Lectura", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de aristas: " + ex.getMessage(), "Error de Lectura", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnCargarAristasActionPerformed
@@ -292,17 +386,17 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             if (!ruta.toLowerCase().endsWith(".csv"))
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             try
             {
                 conexiones.cargarCSVSucursales(ruta);
-                javax.swing.JOptionPane.showMessageDialog(this, "Se cargaron las Sucursales.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Se cargaron las Sucursales.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada",JOptionPane.INFORMATION_MESSAGE);
             }
             catch (Exception ex)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de sucursales:" + ex.getMessage(), "Error de Lectura", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de sucursales:" + ex.getMessage(), "Error de Lectura", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnCargarSucursalesActionPerformed
@@ -313,17 +407,17 @@ public class PestañaInicio extends javax.swing.JFrame
         {
             if (!ruta.toLowerCase().endsWith(".csv"))
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error: El archivo seleccionado no es CSV. Por favor elige un archivo .csv", "Error de Formato", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             try
             {
                 conexiones.cargarCSVProductos(ruta);
-                javax.swing.JOptionPane.showMessageDialog(this, "Se cargaron los Productos.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Se cargaron los Productos.\nSi había líneas con errores, fueron omitidas y guardadas en 'errors.log'.", "Carga Completada", JOptionPane.INFORMATION_MESSAGE);
             }
             catch (Exception ex)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de productos: " + ex.getMessage(), "Error de Lectura", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Ocurrió un error al leer el archivo de productos: " + ex.getMessage(), "Error de Lectura", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnCargarProductosActionPerformed
@@ -342,13 +436,13 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal origen = conexiones.buscarSucursal(idOrigen);
             if (origen == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal de origen no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La sucursal de origen no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             Producto producto = origen.getInventarioSucursal().buscarPorCodigo(codigo);
             if (producto == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "No existe este producto en la sucursal de origen.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No existe este producto en la sucursal de origen.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             txtConsolaTransferencia.setText("Calculando ruta...\n");
@@ -361,11 +455,11 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         catch (NumberFormatException ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos para las IDs de las sucursales.", "Error de Formato", javax.swing.JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingresa números válidos para las IDs de las sucursales.", "Error de Formato", JOptionPane.WARNING_MESSAGE);
         }
         catch (Exception ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnTransferirActionPerformed
 
@@ -384,7 +478,7 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
             if (sucursal == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             String archivoDot = "AvlSucursal_" + idSucursal + ".dot";
@@ -395,11 +489,11 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         catch (NumberFormatException ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", JOptionPane.WARNING_MESSAGE);
         }
         catch (Exception ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerAVLActionPerformed
 
@@ -410,7 +504,7 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
             if (sucursal == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             String archivoDot = "ArbolbSucursal_" + idSucursal + ".dot";
@@ -421,11 +515,11 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         catch (NumberFormatException ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", JOptionPane.WARNING_MESSAGE);
         }
         catch (Exception ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerBActionPerformed
 
@@ -436,7 +530,7 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
             if (sucursal == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             String archivoDot = "ArbolBMasSucursal_" + idSucursal + ".dot";
@@ -447,11 +541,11 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         catch (NumberFormatException ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", JOptionPane.WARNING_MESSAGE);
         }
         catch (Exception ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerBMasActionPerformed
 
@@ -462,7 +556,7 @@ public class PestañaInicio extends javax.swing.JFrame
             Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
             if (sucursal == null)
             {
-                javax.swing.JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La sucursal no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             String archivoDot = "TablaHashSucursal_" + idSucursal + ".dot";
@@ -474,13 +568,298 @@ public class PestañaInicio extends javax.swing.JFrame
             
         } catch (NumberFormatException ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Error", JOptionPane.WARNING_MESSAGE);
         }
         catch (Exception ex)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ocurrió un error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnVerTablaHashActionPerformed
+
+    private void btnBuscarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCategoriaActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String cat = JOptionPane.showInputDialog("Ingrese la Categoría:");
+                if (cat != null && !cat.trim().isEmpty())
+                {
+                    long t0 = System.nanoTime();
+                    String resultado = sucursal.getInventarioSucursal().getArbolBMas().buscarPorCategoria(cat);
+                    double tiempo = (System.nanoTime() - t0) / 1000.0;
+                    txtConsolaGestorInventario.setText("--- Búsqueda por Categoría (Árbol B+) ---\n");
+                    txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
+                    txtConsolaGestorInventario.append(resultado);
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarCategoriaActionPerformed
+
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String nombre = JOptionPane.showInputDialog("Nombre:");
+                if (nombre == null || nombre.trim().isEmpty()) return;
+                String codigo = JOptionPane.showInputDialog("Código de Barras:");
+                String categoria = JOptionPane.showInputDialog("Categoría:");
+                String fecha = JOptionPane.showInputDialog("Fecha (YYYY-MM-DD):");
+                String marca = JOptionPane.showInputDialog("Marca:");
+                double precio = Double.parseDouble(JOptionPane.showInputDialog("Precio (Q):"));
+                int stock = Integer.parseInt(JOptionPane.showInputDialog("Stock:"));
+                Producto producto = new Producto(nombre, codigo, categoria, fecha, marca, precio, stock);
+                long t0 = System.nanoTime();
+                boolean agregado = sucursal.getInventarioSucursal().agregarProducto(producto);
+                double tiempo = (System.nanoTime() - t0) / 1000.0;
+                txtConsolaGestorInventario.setText("--- Agregar Producto ---\n");
+                if (agregado)
+                {
+                    txtConsolaGestorInventario.append("Estado: Producto agregado exitosamente en todas las estructuras.\n");
+                    txtConsolaGestorInventario.append("Tiempo de inserción: " + tiempo + " us\n\n");
+                    txtConsolaGestorInventario.append("Detalles: " + producto.getNombre() + " | Código: " + producto.getCodigoBarra());
+                }
+                else
+                {
+                    txtConsolaGestorInventario.append("Estado: Error al agregar.\n");
+                    txtConsolaGestorInventario.append("Motivo: El código de barras '" + codigo + "' ya existe en el inventario de esta sucursal.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "Datos inválidos o números incorrectos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e) {}
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String codigo = JOptionPane.showInputDialog("Ingrese el Código de Barras del producto a eliminar:");
+                if (codigo != null && !codigo.trim().isEmpty())
+                {
+                    
+                    long t0 = System.nanoTime();
+                    boolean eliminado = sucursal.getInventarioSucursal().eliminarProducto(codigo);
+                    double tiempo = (System.nanoTime() - t0) / 1000.0;
+                    txtConsolaGestorInventario.setText("--- Eliminar Producto ---\n");
+                    if (eliminado)
+                    {
+                        txtConsolaGestorInventario.append("Estado: Producto eliminado exitosamente de todas las estructuras.\n");
+                        txtConsolaGestorInventario.append("Tiempo de eliminación: " + tiempo + " us\n");
+                    }
+                    else
+                    {
+                        txtConsolaGestorInventario.append("Estado: Error al eliminar.\n");
+                        txtConsolaGestorInventario.append("Motivo: El producto con código '" + codigo + "' no existe en el inventario.");
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+
+    private void btnListarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarNombreActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal para listar productos:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                long t0 = System.nanoTime();
+                String resultado = sucursal.getInventarioSucursal().getArbolAVL().listarEnOrden();
+                double tiempo = (System.nanoTime() - t0) / 1000.0;
+                txtConsolaGestorInventario.setText("--- Listado Alfabético (Árbol AVL) ---\n");
+                txtConsolaGestorInventario.append("Tiempo de listado: " + tiempo + " us\n\n");
+                txtConsolaGestorInventario.append(resultado);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnListarNombreActionPerformed
+
+    private void btnBuscarNombreSeqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNombreSeqActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String nombre = JOptionPane.showInputDialog("Ingrese el Nombre exacto a buscar:");
+                if (nombre != null && !nombre.trim().isEmpty())
+                {
+                    long t0 = System.nanoTime();
+                    Producto producto = sucursal.getInventarioSucursal().buscarPorNombreSecuencial(nombre);
+                    double tiempo = (System.nanoTime() - t0) / 1000.0;
+                    txtConsolaGestorInventario.setText("--- Búsqueda por Nombre Secuencial (Lista Enlazada) ---\n");
+                    txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
+                    if (producto != null)
+                    {
+                        txtConsolaGestorInventario.append("Producto Encontrado:\n");
+                        txtConsolaGestorInventario.append(producto.getNombre() + " | Código: " + producto.getCodigoBarra() + " | Q" + producto.getPrecio() + " | Stock: " + producto.getStock());
+                    }
+                    else
+                    {
+                        txtConsolaGestorInventario.append("Producto no encontrado.");
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnBuscarNombreSeqActionPerformed
+
+    private void btnBuscarRangoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRangoActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String inicio = JOptionPane.showInputDialog("Fecha de Inicio (YYYY-MM-DD):");
+                if (inicio != null && !inicio.trim().isEmpty())
+                {
+                    String fin = JOptionPane.showInputDialog("Fecha de Fin (YYYY-MM-DD):");
+                    if (fin != null && !fin.trim().isEmpty())
+                    {
+                        long t0 = System.nanoTime();
+                        String resultado = sucursal.getInventarioSucursal().getArbolB().mostrarEnRango(inicio, fin);
+                        double tiempo = (System.nanoTime() - t0) / 1000.0;
+                        txtConsolaGestorInventario.setText("--- Búsqueda por Rango de Fechas (Árbol B) ---\n");
+                        txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
+                        txtConsolaGestorInventario.append(resultado);
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarRangoActionPerformed
+
+    private void btnBuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCodigoActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String codigo = JOptionPane.showInputDialog("Ingrese el Código de Barras:");
+                if (codigo != null && !codigo.trim().isEmpty())
+                {
+                    long t0 = System.nanoTime();
+                    Producto producto = sucursal.getInventarioSucursal().buscarPorCodigo(codigo);
+                    double tiempo = (System.nanoTime() - t0) / 1000.0;
+                    txtConsolaGestorInventario.setText("--- Búsqueda por Código (Tabla Hash) ---\n");
+                    txtConsolaGestorInventario.append("Tiempo de búsqueda: " + tiempo + " us\n\n");
+                    if (producto != null)
+                    {
+                        txtConsolaGestorInventario.append("Producto Encontrado:\n");
+                        txtConsolaGestorInventario.append(producto.getNombre() + " | Marca: " + producto.getMarca() + " | Stock: " + producto.getStock() + " | Q" + producto.getPrecio());
+                    }
+                    else
+                    {
+                        txtConsolaGestorInventario.append("Producto no encontrado.");
+                    }
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarCodigoActionPerformed
+
+    private void btnCompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompararActionPerformed
+        try {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal para la comparación:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String reporte = sucursal.getInventarioSucursal().compararBusquedas(25, 5);
+                txtConsolaGestorInventario.setText(reporte); // Imprime el String generado en tu método compararBusquedas
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(this, "ID de sucursal inválido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCompararActionPerformed
 
     /**
      * @param args the command line arguments
@@ -528,30 +907,38 @@ public class PestañaInicio extends javax.swing.JFrame
         }
         catch (Exception e)
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al ejecutar Graphviz.\n¿Tienes Graphviz instalado y en el PATH de Windows?\n" + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al ejecutar Graphviz.\n¿Tienes Graphviz instalado y en el PATH de Windows?\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
     
     private void mostrarGraphviz(String rutaPng) 
     {
-        java.io.File archivo = new java.io.File(rutaPng);
+        File archivo = new java.io.File(rutaPng);
         if (archivo.exists())
         {
-            javax.swing.ImageIcon imagen = new javax.swing.ImageIcon(rutaPng);
+            ImageIcon imagen = new ImageIcon(rutaPng);
             imagen.getImage().flush();
             lblImagen.setIcon(imagen);
             lblImagen.repaint();
         }
         else
         {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se encontró la imagen generada.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se encontró la imagen generada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarProducto;
+    private javax.swing.JButton btnBuscarCategoria;
+    private javax.swing.JButton btnBuscarCodigo;
+    private javax.swing.JButton btnBuscarNombreSeq;
+    private javax.swing.JButton btnBuscarRango;
     private javax.swing.JButton btnCargarAristas;
     private javax.swing.JButton btnCargarProductos;
     private javax.swing.JButton btnCargarSucursales;
+    private javax.swing.JButton btnComparar;
+    private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnListarNombre;
     private javax.swing.JButton btnTransferir;
     private javax.swing.JButton btnVerAVL;
     private javax.swing.JButton btnVerB;
@@ -565,6 +952,9 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -573,6 +963,7 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JTextField txtCodigoProducto;
+    private javax.swing.JTextArea txtConsolaGestorInventario;
     private javax.swing.JTextArea txtConsolaTransferencia;
     private javax.swing.JTextField txtDestino;
     private javax.swing.JTextField txtIdSucursalVisualizar;

@@ -18,14 +18,16 @@ public class ArbolB
         this.raiz = new NodoB(d, true);
     }
 
-    public void mostrarEnRango(String fechaInicio, String fechaFin)
+    public String mostrarEnRango(String fechaInicio, String fechaFin)
     {
-        System.out.println("--- Productos con caducidad entre " + fechaInicio + " y " + fechaFin + " ---");
-        mostrarEnRangoRecursivo(raiz, fechaInicio, fechaFin);
-        System.out.println("------------------------------------------------------");
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Productos con caducidad entre ").append(fechaInicio).append(" y ").append(fechaFin).append(" ---\n");
+        mostrarEnRangoRecursivo(raiz, fechaInicio, fechaFin, sb);
+        sb.append("------------------------------------------------------\n");
+        return sb.toString();
     }
 
-    private void mostrarEnRangoRecursivo(NodoB nodo, String fechaInicio, String fechaFin)
+    private void mostrarEnRangoRecursivo(NodoB nodo, String fechaInicio, String fechaFin, StringBuilder sb)
     {
         if (nodo == null) return;
         int i = 0;
@@ -34,19 +36,19 @@ public class ArbolB
             String fechaActual = nodo.getFechas().get(i);
             if (!nodo.isHoja() && fechaActual.compareToIgnoreCase(fechaInicio) > 0)
             {
-                mostrarEnRangoRecursivo(nodo.getHijos().get(i), fechaInicio, fechaFin);
+                mostrarEnRangoRecursivo(nodo.getHijos().get(i), fechaInicio, fechaFin, sb);
             }
             if (fechaActual.compareToIgnoreCase(fechaInicio) >= 0 && fechaActual.compareToIgnoreCase(fechaFin) <= 0)
             {
-                for (Producto p : nodo.getListasProductos().get(i))
+                for (Producto producto : nodo.getListasProductos().get(i))
                 {
-                    System.out.println("- " + p.getNombre() + " | Expira: " + p.getFechaCaducidad() + " | Stock: " + p.getStock());
+                    sb.append(i+1).append(") ").append(producto.getNombre()).append(" | Expira: ").append(producto.getFechaCaducidad()).append(" | Stock: ").append(producto.getStock()).append("\n");
                 }
             }
         }
         if (!nodo.isHoja() && nodo.getFechas().get(i - 1).compareToIgnoreCase(fechaFin) < 0)
         {
-            mostrarEnRangoRecursivo(nodo.getHijos().get(i), fechaInicio, fechaFin);
+            mostrarEnRangoRecursivo(nodo.getHijos().get(i), fechaInicio, fechaFin, sb);
         }
     }
     
