@@ -5,6 +5,7 @@ import com.mycompany.catalogosupermercado.estructuras.TablaHash;
 import com.mycompany.catalogosupermercado.estructuras.ArbolAVL;
 import com.mycompany.catalogosupermercado.estructuras.ArbolBMas;
 import com.mycompany.catalogosupermercado.estructuras.ListaEnlazada;
+import com.mycompany.catalogosupermercado.estructuras.Pila;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import java.io.*;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class GestionInventario
     private ArbolB arbolFechas;
     private ArbolBMas arbolCategoria;
     private TablaHash tablaHash;
+    private Pila<Producto> pilaDevoluciones;
 
     public GestionInventario()
     {
@@ -27,6 +29,7 @@ public class GestionInventario
         arbolFechas = new ArbolB();
         arbolCategoria = new ArbolBMas();
         tablaHash = new TablaHash(503);
+        pilaDevoluciones = new Pila<>();
     }
     
     public void cargarDesdeCSV(String ruta)
@@ -178,7 +181,20 @@ public class GestionInventario
             return false;
         }
     }
-
+    
+    public Producto registrarDevolucion(String codigo)
+    {
+        Producto producto = tablaHash.buscarPorCodigo(codigo);
+        if (producto != null)
+        {
+            producto.setStock(producto.getStock() + 1);
+            producto.setEstado("Devuelto (espera)"); 
+            pilaDevoluciones.push(producto);
+            return producto;
+        }
+        return null;
+    }
+    
     public Producto buscarPorNombreSecuencial(String nombre)
     {
         return listaNoOrdenada.buscarPorNombre(nombre);

@@ -9,6 +9,7 @@ public class Producto
     private String marca;
     private double precio;
     private int stock;
+    private String estado;
 
     public Producto(String nombre, String codigoBarra, String categoria, String fechaCaducidad, String marca, double precio, int stock)
     {
@@ -19,6 +20,7 @@ public class Producto
         this.marca = marca;
         this.precio = precio;
         this.stock = stock;
+        this.estado = null;
     }
     public String getNombre()
     {
@@ -77,5 +79,33 @@ public class Producto
     public void setStock(int stock)
     {
         this.stock = stock;
+    }
+    
+    public String getEstado()
+    {
+        if (estado != null)
+        {
+            return estado;
+        }
+        if (this.stock <= 0)
+        {
+            return "Agotado";
+        }
+        else
+        {
+            return "Disponible";
+        }
+    }
+
+    public void setEstado(String estado)
+    {
+        if (estado.equals("Disponible") || estado.equals("Agotado"))
+        {
+            this.estado = null;
+        }
+        else
+        {
+            this.estado = estado;
+        }
     }
 }

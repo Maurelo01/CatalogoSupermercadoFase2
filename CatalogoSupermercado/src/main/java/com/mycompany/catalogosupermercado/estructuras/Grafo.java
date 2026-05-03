@@ -131,6 +131,7 @@ public class Grafo
         {
             ruta.add(pilaRuta.pop());
         }
+        producto.setEstado("En tránsito");
         consola.append("-------------------------------------------------------\n");
         consola.append("Transfiriendo: ").append(producto.getNombre()).append("\n");
         consola.append("Ruta por ").append(esPorTiempo ? "Tiempo" : "Costo").append(": ");
@@ -149,6 +150,7 @@ public class Grafo
             sucursal.getColaIngreso().desencolar();
             if (esDestinoFinal)
             {
+                producto.setEstado("Disponible");
                 sucursal.getInventarioSucursal().agregarProducto(producto);
                 consola.append("El producto se guardo exitosamente en el inventario de ").append(sucursal.getNombre()).append("\n");
             }
