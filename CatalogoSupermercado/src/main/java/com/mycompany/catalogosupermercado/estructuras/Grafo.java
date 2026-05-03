@@ -14,6 +14,27 @@ import java.util.List;
 public class Grafo
 {
     private List<Sucursal> sucursales;
+    
+    private class EstadoTransferencia
+    {
+        Producto producto;
+        List<Sucursal> ruta;
+        int indiceActual;
+        int fase;
+        Producto productoOriginal;
+        boolean fueEliminadoEnOrigen;
+        int stockAnterior;
+        public EstadoTransferencia(Producto producto, List<Sucursal> ruta)
+        {
+            this.producto = producto;
+            this.ruta = ruta;
+            this.indiceActual = 0;
+            this.fase = 1;
+        }
+    }
+    
+    private List<EstadoTransferencia> transferenciasActivas = new ArrayList<>();
+    
     public Grafo()
     {
         this.sucursales = new ArrayList<>();
@@ -117,59 +138,255 @@ public class Grafo
         }
     }
     
-    public String realizarTransferencia(Producto producto, int origenId, int destinoId, boolean esPorTiempo)
+    public String realizarTransferencia(Producto productoOrigen, int cantidad, int origenId, int destinoId, boolean esPorTiempo)
     {
         StringBuilder consola = new StringBuilder();
         Pila<Sucursal> pilaRuta = encontrarRutaMasCorta(origenId, destinoId, esPorTiempo);
         if (pilaRuta == null || pilaRuta.estaVacia())
         {
             return ("Error: No se encontró ruta, transferencia no realizada");
-            
         }
         List<Sucursal> ruta = new ArrayList<>();
         while (!pilaRuta.estaVacia())
         {
             ruta.add(pilaRuta.pop());
         }
-        producto.setEstado("En tránsito");
-        consola.append("-------------------------------------------------------\n");
-        consola.append("Transfiriendo: ").append(producto.getNombre()).append("\n");
-        consola.append("Ruta por ").append(esPorTiempo ? "Tiempo" : "Costo").append(": ");
-        for (int i = 0; i < ruta.size(); i++)
+        Sucursal origen = buscarSucursal(origenId);
+        int stockAnterior = productoOrigen.getStock();
+        boolean productoEliminado = false;
+        try 
         {
-            consola.append(ruta.get(i).getNombre()).append(i == ruta.size() - 1 ? "" : " -> ");
-        }
-        consola.append("\n-------------------------------------------------------\n");
-        for (int i = 0; i < ruta.size(); i++)
-        {
-            Sucursal sucursal = ruta.get(i);
-            boolean esOrigen = (i == 0);
-            boolean esDestinoFinal = (i == ruta.size() - 1);
-            sucursal.getColaIngreso().encolar(producto);
-            consola.append(sucursal.getNombre()).append(" - Cola de Ingreso: Procesando (").append(sucursal.getTiempoIngreso()).append( "s)\n");
-            sucursal.getColaIngreso().desencolar();
-            if (esDestinoFinal)
+            int nuevoStock = stockAnterior - cantidad;
+            if (nuevoStock == 0)
             {
-                producto.setEstado("Disponible");
-                sucursal.getInventarioSucursal().agregarProducto(producto);
-                consola.append("El producto se guardo exitosamente en el inventario de ").append(sucursal.getNombre()).append("\n");
+                origen.getInventarioSucursal().eliminarProducto(productoOrigen.getCodigoBarra());
+                productoEliminado = true;
             }
             else
             {
-                if (!esOrigen)
+                productoOrigen.setStock(nuevoStock);
+            }
+            Producto producto = new Producto(productoOrigen.getNombre(), productoOrigen.getCodigoBarra(), productoOrigen.getCategoria(), productoOrigen.getFechaCaducidad(), productoOrigen.getMarca(), productoOrigen.getPrecio(), cantidad);
+            producto.setEstado("En tránsito");
+            consola.append("-------------------------------------------------------\n");
+            consola.append("Transfiriendo: ").append(producto.getNombre()).append(" (Cantidad: ").append(cantidad).append(")\n");
+            consola.append("Ruta por ").append(esPorTiempo ? "Tiempo" : "Costo").append(": ");
+            for (int i = 0; i < ruta.size(); i++)
+            {
+                consola.append(ruta.get(i).getNombre()).append(i == ruta.size() - 1 ? "" : " -> ");
+            }
+            consola.append("\n-------------------------------------------------------\n");
+            for (int i = 0; i < ruta.size(); i++)
+            {
+                Sucursal sucursal = ruta.get(i);
+                boolean esOrigen = (i == 0);
+                boolean esDestinoFinal = (i == ruta.size() - 1);
+                sucursal.getColaIngreso().encolar(producto);
+                consola.append(sucursal.getNombre()).append(" - Cola de Ingreso: Procesando (").append(sucursal.getTiempoIngreso()).append( "s)\n");
+                sucursal.getColaIngreso().desencolar();
+                if (esDestinoFinal)
                 {
-                    sucursal.getColaTraspaso().encolar(producto);
-                    consola.append(sucursal.getNombre()).append(" - Cola de Traspaso: reenviando (").append(sucursal.getTiempoTraspaso()).append("s)\n");
-                    sucursal.getColaTraspaso().desencolar();
+                    Producto productoDestino = sucursal.getInventarioSucursal().buscarPorCodigo(producto.getCodigoBarra());
+                    if (productoDestino != null)
+                    {
+                        productoDestino.setStock(productoDestino.getStock() + producto.getStock());
+                        consola.append("El producto actualizó su stock en el inventario de ").append(sucursal.getNombre());
+                    }
+                    else
+                    {
+                        producto.setEstado("Disponible");
+                        sucursal.getInventarioSucursal().agregarProducto(producto);
+                        consola.append("El producto se guardo como nuevo en el inventario de ").append(sucursal.getNombre());
+                    }
+                    consola.append("\n");
                 }
-                sucursal.getColaSalida().encolar(producto);
-                consola.append(sucursal.getNombre()).append(" - Cola de Salida: Enviando producto (").append(sucursal.getTiempoEntrega()).append("s)\n");
-                sucursal.getColaSalida().desencolar();
-                consola.append("Entrando a ").append(ruta.get(i + 1).getNombre()).append("\n");
+                else
+                {
+                    if (!esOrigen)
+                    {
+                        sucursal.getColaTraspaso().encolar(producto);
+                        consola.append(sucursal.getNombre()).append(" - Cola de Traspaso: reenviando (").append(sucursal.getTiempoTraspaso()).append("s)\n");
+                        sucursal.getColaTraspaso().desencolar();
+                    }
+                    sucursal.getColaSalida().encolar(producto);
+                    consola.append(sucursal.getNombre()).append(" - Cola de Salida: Enviando producto (").append(sucursal.getTiempoEntrega()).append("s)\n");
+                    sucursal.getColaSalida().desencolar();
+                    consola.append("Entrando a ").append(ruta.get(i + 1).getNombre()).append("\n");
+                }
+            }
+            consola.append("¡¡¡TRANSFERENCIA COMPLETADA!!!");
+            return consola.toString();
+        }
+        catch (Exception e)
+        {
+            consola.append("\nERROR DURANTE LA TRANSFERENCIA: ").append(e.getMessage()).append("\n");
+            if (productoEliminado)
+            {
+                productoOrigen.setStock(stockAnterior);
+                origen.getInventarioSucursal().agregarProducto(productoOrigen);
+                consola.append("El producto fue restaurado completamente en la sucursal de origen.\n");
+            }
+            else
+            {
+                productoOrigen.setStock(stockAnterior);
+                consola.append("El stock fue devuelto a la sucursal de origen.\n");
+            }
+            return consola.toString();
+        }
+    }
+    
+    public String iniciarTransferenciaPasoAPaso(Producto productoOrigen, int cantidad, int origenId, int destinoId, boolean esPorTiempo)
+    {
+        Pila<Sucursal> pilaRuta = encontrarRutaMasCorta(origenId, destinoId, esPorTiempo);
+        if (pilaRuta == null || pilaRuta.estaVacia()) return "Error: No se encontró ruta para " + productoOrigen.getNombre() + ".";
+        List<Sucursal> ruta = new ArrayList<>();
+        while (!pilaRuta.estaVacia()) 
+        {
+            ruta.add(pilaRuta.pop());
+        }
+        Sucursal origen = buscarSucursal(origenId);
+        int stockAnterior = productoOrigen.getStock();
+        boolean productoEliminado = false;
+        try
+        {
+            int nuevoStock = stockAnterior - cantidad;
+            if (nuevoStock == 0)
+            {
+                origen.getInventarioSucursal().eliminarProducto(productoOrigen.getCodigoBarra());
+                productoEliminado = true;
+            }
+            else
+            {
+                productoOrigen.setStock(nuevoStock);
+            }
+            Producto productoEnTransito = new Producto(productoOrigen.getNombre(), productoOrigen.getCodigoBarra(), productoOrigen.getCategoria(), productoOrigen.getFechaCaducidad(), productoOrigen.getMarca(), productoOrigen.getPrecio(), cantidad);
+            productoEnTransito.setEstado("En tránsito");
+            EstadoTransferencia nuevaTransferencia = new EstadoTransferencia(productoEnTransito, ruta);
+            nuevaTransferencia.productoOriginal = productoOrigen;
+            nuevaTransferencia.fueEliminadoEnOrigen = productoEliminado;
+            nuevaTransferencia.stockAnterior = stockAnterior;
+            ruta.get(0).getColaIngreso().encolar(productoEnTransito);
+            transferenciasActivas.add(nuevaTransferencia);
+            return "NUEVA TRANSFERENCIA INICIADA:\nEl producto '" + productoEnTransito.getNombre() + "' (Cantidad: " + cantidad + ") entró a la Cola de INGRESO de " + ruta.get(0).getNombre() + ".\n(Actualmente hay " + transferenciasActivas.size() + " transferencias en curso).";
+        }
+        catch(Exception e)
+        {
+            if (productoEliminado)
+            {
+                productoOrigen.setStock(stockAnterior);
+                origen.getInventarioSucursal().agregarProducto(productoOrigen);
+            }
+            else
+            {
+                productoOrigen.setStock(stockAnterior);
+            }
+            return "Error al iniciar transferencia: " + e.getMessage() + "\n- Restablecimiento ejecutado en Origen.";
+        }
+    }
+
+    public String avanzarPasoTransferencia()
+    {
+        if (transferenciasActivas.isEmpty()) return "No hay transferencias activas en este momento.";
+        StringBuilder reporte = new StringBuilder();
+        reporte.append("--- REPORTE DE AVANCE (").append(transferenciasActivas.size()).append(" transferencias en curso) ---\n\n");
+        List<EstadoTransferencia> finalizadas = new ArrayList<>();
+        for (EstadoTransferencia transferencia : transferenciasActivas) 
+        {
+            try
+            {
+                Sucursal sucursalActual = transferencia.ruta.get(transferencia.indiceActual);
+                boolean esOrigen = (transferencia.indiceActual == 0);
+                boolean esDestinoFinal = (transferencia.indiceActual == transferencia.ruta.size() - 1);
+                if (transferencia.fase == 1) 
+                { 
+                    sucursalActual.getColaIngreso().desencolar();
+                    if (esDestinoFinal)
+                    {
+                        Producto productoDestino = sucursalActual.getInventarioSucursal().buscarPorCodigo(transferencia.producto.getCodigoBarra());
+                        if (productoDestino != null)
+                        {
+                            productoDestino.setStock(productoDestino.getStock() + transferencia.producto.getStock());
+                        }
+                        else
+                        {
+                            transferencia.producto.setEstado("Disponible");
+                            sucursalActual.getInventarioSucursal().agregarProducto(transferencia.producto);
+                        }
+                        reporte.append("LLEGADA '").append(transferencia.producto.getNombre()).append("' ingresó al inventario de ").append(sucursalActual.getNombre())
+                               .append(" (Tardó ").append(sucursalActual.getTiempoIngreso()).append("s procesándose en ingreso).\n");
+                        finalizadas.add(transferencia);
+                    }
+                    else
+                    {
+                        if (!esOrigen)
+                        {
+                            sucursalActual.getColaTraspaso().encolar(transferencia.producto);
+                            transferencia.fase = 2;
+                            reporte.append("AVANCE '").append(transferencia.producto.getNombre()).append("' pasó a TRASPASO en ").append(sucursalActual.getNombre())
+                                   .append(" (Tardó ").append(sucursalActual.getTiempoIngreso()).append("s en el área de ingreso).\n");
+                        }
+                        else
+                        {
+                            sucursalActual.getColaSalida().encolar(transferencia.producto);
+                            transferencia.fase = 3;
+                            reporte.append("AVANCE '").append(transferencia.producto.getNombre()).append("' pasó a SALIDA en ").append(sucursalActual.getNombre())
+                                   .append(" (Tardó ").append(sucursalActual.getTiempoIngreso()).append("s en el área de ingreso).\n");
+                        }
+                    }
+                } 
+                else if (transferencia.fase == 2) 
+                {
+                    sucursalActual.getColaTraspaso().desencolar();
+                    sucursalActual.getColaSalida().encolar(transferencia.producto);
+                    transferencia.fase = 3;
+                    reporte.append("AVANCE '").append(transferencia.producto.getNombre()).append("' pasó a SALIDA en ").append(sucursalActual.getNombre())
+                           .append(" (Tardó ").append(sucursalActual.getTiempoTraspaso()).append("s preparándose para el traspaso).\n");
+                } 
+                else if (transferencia.fase == 3) 
+                {
+                    sucursalActual.getColaSalida().desencolar();
+                    Sucursal siguiente = transferencia.ruta.get(transferencia.indiceActual + 1);
+                    double tiempoViaje = 0.0;
+                    for (Arista arista : sucursalActual.getAristas())
+                    {
+                        if (arista.getDestino().getId() == siguiente.getId())
+                        {
+                            tiempoViaje = arista.getTiempo();
+                            break;
+                        }
+                    }
+                    transferencia.indiceActual++;
+                    siguiente.getColaIngreso().encolar(transferencia.producto);
+                    transferencia.fase = 1;
+                    reporte.append("VIAJE '").append(transferencia.producto.getNombre()).append("' viajó a la sucursal ").append(siguiente.getNombre()).append(" (Ingreso).\n")
+                           .append(" - Tiempo de despacho local: ").append(sucursalActual.getTiempoEntrega()).append("s\n")
+                           .append(" - Tiempo de viaje en ruta: ").append(tiempoViaje).append("s\n");
+                }
+            }
+            catch (Exception e)
+            {
+                reporte.append("\nERROR EN EL TRASPASO de '").append(transferencia.producto.getNombre()).append("']: ").append(e.getMessage()).append("\n");
+                Sucursal origenOriginal = transferencia.ruta.get(0);
+                if (transferencia.fueEliminadoEnOrigen)
+                {
+                    transferencia.productoOriginal.setStock(transferencia.stockAnterior);
+                    origenOriginal.getInventarioSucursal().agregarProducto(transferencia.productoOriginal);
+                    reporte.append("Producto '").append(transferencia.producto.getNombre()).append("' reingresado a la sucursal de origen.\n");
+                }
+                else
+                {
+                    transferencia.productoOriginal.setStock(transferencia.productoOriginal.getStock() + transferencia.producto.getStock());
+                    reporte.append("Stock devuelto a la sucursal de origen.\n");
+                }
+                finalizadas.add(transferencia);
             }
         }
-        consola.append("¡¡¡TRANSFERENCIA COMPLETADA!!!");
-        return consola.toString();
+        transferenciasActivas.removeAll(finalizadas);
+        if (transferenciasActivas.isEmpty() && !finalizadas.isEmpty())
+        {
+            reporte.append("\n¡Todas las transferencias en curso han llegado a sus destinos o fueron revertidas!");
+        }
+        return reporte.toString();
     }
     
     public void cargarCSVSucursales(String ruta)

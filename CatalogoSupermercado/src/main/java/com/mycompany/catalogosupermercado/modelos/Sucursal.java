@@ -3,6 +3,9 @@ package com.mycompany.catalogosupermercado.modelos;
 import com.mycompany.catalogosupermercado.estructuras.Cola;
 import com.mycompany.catalogosupermercado.controladores.GestionInventario;
 import com.mycompany.catalogosupermercado.modelos.Producto;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +40,59 @@ public class Sucursal
     
     public void agregarArista(double tiempo, double costo, Sucursal destino)
     {
+        for (Arista aristaExistente : this.aristas)
+        {
+            if (aristaExistente.getDestino().getId() == destino.getId())
+            {
+                aristaExistente.setTiempo(tiempo);
+                aristaExistente.setCosto(costo);
+                return; 
+            }
+        }
         this.aristas.add(new Arista(tiempo, costo, destino));
+    }
+    
+    public void crearGraficoColas(String nombreArchivo)
+    {
+        try (BufferedWriter bw = new java.io.BufferedWriter(new FileWriter(nombreArchivo)))
+        {
+            bw.write("digraph ColasSucursal {\n");
+            bw.write(" node [shape=record, style=filled, fillcolor=white, fontname=\"Arial\"];\n");
+            bw.write(" rankdir=LR;\n");
+            bw.write(" labelloc=\"t\";\n");
+            bw.write(" label=\"Estado Actual de Colas - Sucursal: " + this.nombre + "\";\n\n");
+            generarDotDeCola(bw, "ColaIngreso", "Cola de Ingreso", colaIngreso.obtenerElementos());
+            generarDotDeCola(bw, "ColaTraspaso", "Cola de Traspaso", colaTraspaso.obtenerElementos());
+            generarDotDeCola(bw, "ColaSalida", "Cola de Salida", colaSalida.obtenerElementos());
+            bw.write("}\n");
+        }
+        catch (IOException e)
+        {
+            System.err.println("Error al escribir el .dot de las Colas: " + e.getMessage());
+        }
+    }
+
+    private void generarDotDeCola(BufferedWriter bw, String idNodo, String titulo, List<Producto> elementos) throws IOException
+    {
+        StringBuilder struct = new StringBuilder();
+        struct.append(" ").append(idNodo).append(" [label=\"").append(titulo).append(" | ");
+        if (elementos.isEmpty())
+        {
+            struct.append("Vacía");
+        }
+        else
+        {
+            for (int i = 0; i < elementos.size(); i++)
+            {
+                struct.append("{").append(elementos.get(i).getNombre()).append("}");
+                if (i < elementos.size() - 1)
+                {
+                    struct.append(" | ");
+                }
+            }
+        }
+        struct.append("\"];\n");
+        bw.write(struct.toString());
     }
     
     public int getId()

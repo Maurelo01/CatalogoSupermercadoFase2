@@ -67,6 +67,7 @@ public class PestañaInicio extends javax.swing.JFrame
         btnTransferir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtConsolaTransferencia = new javax.swing.JTextArea();
+        btnAvanzarPaso = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnVerGrafo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -77,6 +78,7 @@ public class PestañaInicio extends javax.swing.JFrame
         btnVerB = new javax.swing.JButton();
         btnVerBMas = new javax.swing.JButton();
         btnVerTablaHash = new javax.swing.JButton();
+        btrVerColasSucursal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -226,6 +228,9 @@ public class PestañaInicio extends javax.swing.JFrame
         txtConsolaTransferencia.setRows(5);
         jScrollPane1.setViewportView(txtConsolaTransferencia);
 
+        btnAvanzarPaso.setText("Avanzar Siguiente Paso");
+        btnAvanzarPaso.addActionListener(this::btnAvanzarPasoActionPerformed);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -237,7 +242,10 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(btnTransferir)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnTransferir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAvanzarPaso))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -251,7 +259,7 @@ public class PestañaInicio extends javax.swing.JFrame
                                 .addComponent(jLabel5)
                                 .addGap(66, 66, 66)
                                 .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 710, Short.MAX_VALUE)))
+                        .addGap(0, 652, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -274,7 +282,9 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
-                .addComponent(btnTransferir)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTransferir)
+                    .addComponent(btnAvanzarPaso))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
@@ -301,6 +311,9 @@ public class PestañaInicio extends javax.swing.JFrame
         btnVerTablaHash.setText("Ver Tabla Hash");
         btnVerTablaHash.addActionListener(this::btnVerTablaHashActionPerformed);
 
+        btrVerColasSucursal.setText("Ver Colas (Sucursal)");
+        btrVerColasSucursal.addActionListener(this::btrVerColasSucursalActionPerformed);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -308,6 +321,8 @@ public class PestañaInicio extends javax.swing.JFrame
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(btnVerGrafo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btrVerColasSucursal)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,14 +341,16 @@ public class PestañaInicio extends javax.swing.JFrame
                         .addComponent(btnVerTablaHash))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)))
                 .addGap(9, 9, 9))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnVerGrafo)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVerGrafo)
+                    .addComponent(btrVerColasSucursal))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -453,13 +470,35 @@ public class PestañaInicio extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(this, "No existe este producto en la sucursal de origen.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            txtConsolaTransferencia.setText("Calculando ruta...\n");
-            origen.getInventarioSucursal().eliminarProducto(codigo);
-            long inicio = System.nanoTime();
-            String resultado = conexiones.realizarTransferencia(producto, idOrigen, idDestino, esPorTiempo);
-            long fin = System.nanoTime();
-            double tiempo = (fin - inicio) / 1000.0;
-            txtConsolaTransferencia.setText("Tiempo de cálculo de ruta: " + tiempo + " us\n\n" + resultado);
+            String cantidadStr = JOptionPane.showInputDialog(this, "Stock disponible: " + producto.getStock() + "\nIngrese la cantidad a transferir:");
+            if (cantidadStr == null || cantidadStr.trim().isEmpty()) return;
+            int cantidad = Integer.parseInt(cantidadStr.trim());
+            if (cantidad <= 0)
+            {
+                JOptionPane.showMessageDialog(this, "Cantidad inválida.", "Error de Cantidad", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else if (cantidad > producto.getStock())
+            {
+                JOptionPane.showMessageDialog(this, "Excede el stock disponible.", "Error de Cantidad", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            String[] opciones = {"Modo Instantáneo", "Modo Paso a Paso"};
+            int eleccion = JOptionPane.showOptionDialog(this, "¿Cómo desea visualizar esta transferencia?", "Seleccione Modalidad", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+            if (eleccion == 0)
+            {
+                txtConsolaTransferencia.setText("Calculando ruta...\n");
+                long inicio = System.nanoTime();
+                String resultado = conexiones.realizarTransferencia(producto, cantidad, idOrigen, idDestino, esPorTiempo);
+                long fin = System.nanoTime();
+                double tiempo = (fin - inicio) / 1000.0;
+                txtConsolaTransferencia.setText("Tiempo de cálculo de ruta: " + tiempo + " us\n\n" + resultado);
+            }
+            else if (eleccion == 1) 
+            {
+                String resultado = conexiones.iniciarTransferenciaPasoAPaso(producto, cantidad, idOrigen, idDestino, esPorTiempo);
+                txtConsolaTransferencia.setText(resultado);
+            }
         }
         catch (NumberFormatException ex)
         {
@@ -937,6 +976,43 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnDevolverActionPerformed
 
+    private void btrVerColasSucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btrVerColasSucursalActionPerformed
+        try
+        {
+            int idSucursal = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID de la Sucursal para ver sus colas:"));
+            Sucursal sucursal = conexiones.buscarSucursal(idSucursal);
+            if (sucursal != null)
+            {
+                String archivoDot = "ColasSucursal_" + idSucursal + ".dot";
+                String archivoPng = "ColasSucursal_" + idSucursal + ".png";
+                sucursal.crearGraficoColas(archivoDot);
+                generarImagenGraphviz(archivoDot, archivoPng);
+                mostrarGraphviz(archivoPng);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Sucursal no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog(this, "Ingresa un ID válido.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, "Operación cancelada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btrVerColasSucursalActionPerformed
+
+    private void btnAvanzarPasoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvanzarPasoActionPerformed
+        String mensaje = conexiones.avanzarPasoTransferencia();
+        txtConsolaTransferencia.setText(mensaje);
+        if (mensaje.equals("No hay ninguna transferencia activa en este momento."))
+        {
+            JOptionPane.showMessageDialog(this, mensaje, "Aviso", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAvanzarPasoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1005,6 +1081,7 @@ public class PestañaInicio extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarProducto;
+    private javax.swing.JButton btnAvanzarPaso;
     private javax.swing.JButton btnBuscarCategoria;
     private javax.swing.JButton btnBuscarCodigo;
     private javax.swing.JButton btnBuscarNombreSeq;
@@ -1022,6 +1099,7 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btnVerBMas;
     private javax.swing.JButton btnVerGrafo;
     private javax.swing.JButton btnVerTablaHash;
+    private javax.swing.JButton btrVerColasSucursal;
     private javax.swing.JComboBox<String> cbxCriterio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
