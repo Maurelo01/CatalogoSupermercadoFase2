@@ -119,28 +119,20 @@ public class TablaHash
             bw.write("digraph TablaHash {\n");
             bw.write(" rankdir=LR;\n");
             bw.write(" node [shape=record, style=filled, fillcolor=grey];\n");
-            StringBuilder structTabla = new StringBuilder(" tabla [label=\"");
             for (int i = 0; i < capacidad; i++)
             {
-                structTabla.append("<f").append(i).append("> ").append(i);
-                if (i < capacidad - 1) structTabla.append(" | ");
-            }
-            structTabla.append("\"];\n");
-            bw.write(structTabla.toString());
-            bw.write(" node [shape=record, fillcolor=white];\n");
-            for (int i = 0; i < capacidad; i++)
-            {
-                NodoLista actual = tabla[i];
-                if (actual != null)
+                if (tabla[i] != null)
                 {
-                    String prevNodo = "tabla:f" + i;
+                    bw.write("  slot_" + i + " [label=\"[" + i + "]\"];\n");
+                    NodoLista actual = tabla[i];
                     int cont = 0;
+                    String prevNodo = "slot_" + i;
                     while (actual != null)
                     {
                         String idNodo = "nodo_" + i + "_" + cont;
                         String codigo = actual.getProducto().getCodigoBarra();
-                        String nombre = actual.getProducto().getNombre();
-                        bw.write("  " + idNodo + " [label=\"{ " + codigo + " | " + nombre + " }\"];\n");
+                        String nombre = actual.getProducto().getNombre().replace("\"", "\\\"").replace("<", "\\<").replace(">", "\\>").replace("|", "\\|").replace("{", "\\{").replace("}", "\\}");
+                        bw.write("  " + idNodo + " [label=\"{ " + codigo + " | " + nombre + " }\", fillcolor=white];\n");
                         bw.write("  " + prevNodo + " -> " + idNodo + ";\n");
                         prevNodo = idNodo;
                         actual = actual.getSiguiente();
