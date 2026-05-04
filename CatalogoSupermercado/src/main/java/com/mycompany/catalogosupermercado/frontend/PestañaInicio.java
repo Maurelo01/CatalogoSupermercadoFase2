@@ -260,6 +260,8 @@ public class PestañaInicio extends javax.swing.JFrame
 
         txtProdCodigo.setPreferredSize(new java.awt.Dimension(80, 24));
 
+        txtProdFecha.setText("Año-Mes-Dia");
+
         txtProdStock.addActionListener(this::txtProdStockActionPerformed);
 
         btnProdEditar.setText("Editar Producto");

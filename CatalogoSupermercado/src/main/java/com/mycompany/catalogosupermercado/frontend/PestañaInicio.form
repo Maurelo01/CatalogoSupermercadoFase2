@@ -542,6 +542,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtProdFecha">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o-Mes-Dia"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtProdNombre">
             </Component>

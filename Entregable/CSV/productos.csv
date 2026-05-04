@@ -1,0 +1,1051 @@
+SucursalID,Nombre,CodigoBarra,Categoria,FechaCaducidad,Marca,Precio,Stock
+1,Granola con Miel 300g,7474709244257,Cereales,2027-04-07,Nature Valley,37.96,269
+2,Espárragos 400g,7470674424658,Enlatados,2028-09-10,Van Camps,48.98,482
+3,Aceite de Canola 2L,7461504952818,Aceites,2028-08-05,Cristal,137.16,30
+4,Café Molido 1kg,7470196529577,Bebidas,2026-12-27,Pure Water,59.32,400
+5,Paprika 200g,7498032297155,Condimentos,2028-06-07,La Morena,3.24,382
+6,Tortilla de Maíz x12,7442672412814,Panaderia,2026-11-09,Bimbo,54.26,230
+7,Piña unidad,7430994448383,Frutas,2028-09-07,TropiCal,29.27,157
+8,Garbanzos 2lb,7412614776493,Granos,2028-07-30,La Milpa,54.91,427
+1,Nueces Mixtas 100g,7415590274237,Snacks,2028-03-04,Ruffles,10.67,137
+2,Queso Manchego 400g,7477687507121,Lacteos,2028-07-24,Sancor,19.85,303
+3,Pasta Dental con Flúor 75ml,7418250127765,Higiene,2028-08-17,Nivea,52.8,431
+4,Agua Purificada 1.5L,7447265938043,Bebidas,2026-12-01,Monster,48.07,255
+5,Aceite de Canola 1L,7461880496777,Aceites,2028-05-27,Cocinero,83.06,143
+6,Crema de Afeitar 100ml,7475727265400,Higiene,2026-06-03,Old Spice,85.73,404
+7,Zanahoria 2lb,7447376350664,Verduras,2027-01-26,Local,8.53,355
+8,Limpiador Multiusos 500ml,7479404186432,Limpieza,2027-01-16,Ariel,41.57,174
+1,Yogurt Griego 500g,7463079237222,Lacteos,2026-11-15,Parmalat,84.93,201
+2,Pasas Sin Semilla 100g,7427205843821,Snacks,2027-12-15,Planter's,46.02,152
+3,All Bran Fibra 500g,7478029547516,Cereales,2028-03-08,Bob's Red Mill,45.26,333
+4,Helado de Fresa 500ml,7488717026886,Congelados,2026-10-25,DiGiorno,144.33,34
+5,Brócoli Congelado 800g,7484727885950,Congelados,2028-04-17,Eskimo,125.74,417
+6,Muslo de Pollo 2lb,7479629993723,Carnes,2026-10-01,AviCarne,202.48,213
+7,Acondicionador Hidratante 200ml,7469155222099,Higiene,2027-11-29,Rexona,50.85,120
+8,Refresco de Uva 600ml,7440449142815,Bebidas,2028-03-07,Pure Water,69.26,416
+1,Acondicionador Sin Enjuague 150ml,7444161554874,Higiene,2027-05-18,Garnier,16.7,40
+2,Pasta Dental Blanqueadora 200ml,7496269387588,Higiene,2027-09-28,Pantene,60.06,383
+3,Bistec de Res 500g,7454829610976,Carnes,2027-11-02,Carnibest,21.59,103
+4,Jugo Multifrutas 1L,7493445446903,Bebidas,2028-03-23,Cappy,41.37,151
+5,Trapo Multiusos x5,7475040326363,Limpieza,2028-01-06,Clorox,49.93,441
+6,Avena en Hojuelas 400g,7478526484084,Granos,2027-08-31,La Especial,32.84,242
+7,Uvas Verdes 1lb,7476652235071,Frutas,2028-02-04,BioFrut,31.41,284
+8,Tamales Congelados x6,7472769446249,Congelados,2028-08-08,Häagen-Dazs,37.66,27
+1,Harina de Maíz 500g,7437721944708,Cereales,2026-10-05,General Mills,47.82,15
+2,Tocino Ahumado 400g,7457015246732,Carnes,2028-09-28,PouletGT,33.76,110
+3,Papaya 1kg,7486921379435,Frutas,2027-08-16,TropiCal,47.77,486
+4,Hamburguesa de Pollo x6,7422886319631,Congelados,2026-10-10,Birds Eye,125.97,106
+5,Costilla de Res 1lb,7444165034884,Carnes,2028-07-31,San Rafael,196.88,20
+6,Chocapic 375g,7415157017962,Cereales,2026-12-17,Zucaritas,35.87,318
+7,Cereal Integral de Trigo 750g,7479635863338,Cereales,2028-07-13,Granix,15.61,246
+8,Chocolate Caliente 200g,7459290198045,Bebidas,2028-09-28,Tang,35.54,478
+1,Harina para Hotcakes 400g,7441514967658,Cereales,2027-03-29,General Mills,16.65,241
+2,Jamón Serrano 200g,7488028495868,Carnes,2026-07-15,Zenú,209.07,489
+3,Chips de Tortilla Naturales 100g,7452078061030,Snacks,2028-08-01,Del Monte,74.83,198
+4,Enjuague Bucal 500ml,7477330032036,Higiene,2027-05-11,Rexona,99.82,413
+5,Tostadas de Trigo 300g,7497961352706,Panaderia,2027-10-22,Schär,5.73,24
+6,Cúrcuma 200g,7493906234916,Condimentos,2026-09-03,Aro,28.56,488
+7,Cloro Líquido 2L,7469923474016,Limpieza,2028-05-31,Ariel,111.71,201
+8,Bolsas de Basura Pequeñas x20,7457995889673,Limpieza,2027-06-05,Ariel,48.92,183
+1,Arroz Integral 1lb,7448319983731,Granos,2027-07-07,Doña Herminia,15.04,433
+2,Mantequilla Sin Sal 400g,7451512274062,Lacteos,2028-10-05,Yoplait,87.3,285
+3,Trigo Bulgur 1kg,7420659248901,Granos,2028-08-18,Albita,9.89,113
+4,Pasta de Tomate 70g,7463017352567,Enlatados,2027-04-27,Libby's,58.78,449
+5,Mango Tommy 1lb,7483584437896,Frutas,2027-02-15,FreshFarm,40.94,213
+6,Barrita de Granola Chocolate x6,7499515937200,Snacks,2026-06-10,Planter's,79.35,170
+7,Aceite Aromático de Chile 200ml,7445979129875,Aceites,2027-10-25,Mazola,136.3,101
+8,Mayonesa 400g,7427445290790,Condimentos,2026-07-06,Goya,26.5,191
+1,Aceite Vegetal 1L,7414917595007,Aceites,2026-10-21,Paloma,62.46,191
+2,Manteca Vegetal 3kg,7441176643903,Aceites,2027-04-21,Verde Campo,167.75,41
+3,Leche Condensada 200g,7466922607717,Lacteos,2026-09-26,Yoplait,79.76,52
+4,Yogurt de Vainilla 125g,7433879233752,Lacteos,2026-06-04,Campolindo,63.43,361
+5,Melón Cantalupo 500g,7475784815807,Frutas,2027-07-01,FreshFarm,20.55,325
+6,Cloro Líquido 500ml,7472318214361,Limpieza,2027-03-17,Ajax,54.63,452
+7,Avena Instantánea Natural 1kg,7470973887831,Cereales,2027-01-21,General Mills,99.42,154
+8,Lavavajillas Líquido 250ml,7438933998531,Limpieza,2026-09-13,Lavaplatos Rey,70.01,377
+1,Quitamanchas 250ml,7415045461011,Limpieza,2026-12-22,Downy,38.47,444
+2,Limpiador Multiusos 1L,7418653354239,Limpieza,2026-08-31,WD-40,27.03,137
+3,Papas Fritas Queso 40g,7419119646796,Snacks,2026-08-12,Cheetos,14.48,380
+4,Sazonador de Pollo 300g,7460759152854,Condimentos,2028-08-08,Aro,31.85,237
+5,Bebida Energética 250ml,7416869915641,Bebidas,2027-08-15,Red Bull,19.45,110
+6,Barrita de Granola Miel x6,7454938755301,Snacks,2026-08-20,Trolli,37.07,362
+7,Té Frío de Durazno 500ml,7492924047413,Bebidas,2026-07-16,Milo,58.85,353
+8,Papas Fritas BBQ 200g,7478910765068,Snacks,2027-12-19,Del Monte,33.93,343
+1,Arroz Jazmín 2lb,7472759037165,Granos,2026-09-24,Goya,21.2,293
+2,Donas Glaseadas x6,7438969797274,Panaderia,2026-10-07,Pan Lido,6.68,256
+3,Carne Molida de Res 2lb,7434708944714,Carnes,2026-12-26,AgroFarm,49.99,330
+4,Café Instantáneo 200g,7422211330816,Bebidas,2028-01-26,AriZona,82.24,448
+5,Cereal de Avena con Frutas 750g,7436809754218,Cereales,2028-10-03,Fitness,64.17,485
+6,Corn Flakes con Miel 300g,7472779668901,Cereales,2028-04-27,All Bran,72.79,327
+7,Refresco de Cola 3L,7490505221559,Bebidas,2027-02-17,Tang,48.64,76
+8,Muslo de Pollo 1lb,7474313379167,Carnes,2027-12-05,FreshMeat,99.18,395
+1,Maní Enchilado 200g,7443288998275,Snacks,2028-08-22,Haribo,49.97,454
+2,Champiñones Rebanados 400g,7430954401204,Enlatados,2026-08-11,Libby's,53.02,338
+3,Arándanos Deshidratados 250g,7492340459729,Snacks,2027-01-30,Cheetos,80.46,280
+4,Jugo de Naranja 1L,7489557579263,Bebidas,2027-08-06,Jumex,69.4,159
+5,Müsli Suizo 500g,7448725150170,Cereales,2027-07-02,Quaker Oats,32.65,194
+6,Galletas de Avena 400g,7495492539326,Panaderia,2026-07-26,NaturPan,8.61,111
+7,Pan Multigrano 400g,7458327243540,Panaderia,2026-10-16,Artesano,52.46,332
+8,Guantes de Látex M,7488808338630,Limpieza,2027-09-20,Lysol,115.15,185
+1,Café Molido 500g,7442957025829,Bebidas,2027-01-03,Monster,61.45,152
+2,Quinoa Blanca 500g,7481344422633,Granos,2028-01-31,Goya,11.1,422
+3,Pasta Dental con Flúor 200ml,7490308299186,Higiene,2026-10-09,Sensodyne,73.99,341
+4,Refresco de Limón 350ml,7436512936555,Bebidas,2028-03-01,Tang,30.16,24
+5,Salsa de Soya 500ml,7446332315445,Condimentos,2026-06-21,Hunt's,68.46,17
+6,Salsa Inglesa 150ml,7430415413716,Condimentos,2028-02-29,Hellmann's,44.32,297
+7,Aceite de Maíz 500ml,7462136751220,Aceites,2028-07-21,La Torre,99.66,303
+8,Corn Flakes Clásico 300g,7483794789071,Cereales,2027-06-18,Special K,33.5,433
+1,Limpiapisos Lavanda 2L,7482129739800,Limpieza,2026-09-16,Ariel,61.97,320
+2,Aceite Vegetal 500ml,7450518204433,Aceites,2028-04-13,Capullo,98.44,480
+3,Crema para Batir 200ml,7490645899150,Lacteos,2027-11-17,Parmalat,72.55,11
+4,Helado de Chocolate 2L,7470489610965,Congelados,2028-01-16,La Michoacana,174.98,315
+5,Shampoo para Cabello Seco 400ml,7458293703621,Higiene,2027-04-30,Nivea,19.91,356
+6,Cúrcuma 50g,7438186858372,Condimentos,2028-08-27,La Fina,20.62,254
+7,Limpiador de Baño 750ml,7437096986153,Limpieza,2027-06-29,Downy,99.72,246
+8,Pan de Centeno 500g,7431719975454,Panaderia,2026-12-31,Sara Lee,34.49,52
+1,Espinaca Congelada 400g,7483805304693,Congelados,2027-08-24,Kellogg's,144.07,85
+2,Maíz Dulce Entero 300g,7468278632720,Enlatados,2027-04-04,Del Monte,49.91,52
+3,Atún en Agua 140g,7429276722008,Enlatados,2027-01-26,Knorr,50.84,485
+4,Harina de Trigo 2kg,7461836150054,Cereales,2027-02-10,Nestlé,63.7,252
+5,Limpiapisos Pino 2L,7486723128064,Limpieza,2028-08-23,Mr.Músculo,89.94,310
+6,Limpiapisos Citrus 1L,7491162851583,Limpieza,2028-02-11,WD-40,44.53,97
+7,Cereal Integral de Trigo 500g,7428170621571,Cereales,2027-07-25,Corn Pops,59.1,139
+8,Toallas de Papel x4,7464521882590,Higiene,2027-05-28,Nivea,15.93,273
+1,Espinaca 300g,7475342748353,Verduras,2027-11-17,Local,24.7,20
+2,Cepillo Dental Medio x2,7484847357356,Higiene,2026-07-31,Herbal Essences,102.8,489
+3,Leche Deslactosada 1L,7489206300053,Lacteos,2028-03-05,Lala,43.7,19
+4,Bolsas de Basura Medianas x10,7419556290314,Limpieza,2027-02-12,Mr.Músculo,67.67,208
+5,Apio manojo,7496502675800,Verduras,2027-01-18,FrescaMarca,13.02,342
+6,Frijoles Rojos 5lb,7460072341384,Granos,2028-05-16,La Milpa,8.81,403
+7,Detergente Líquido 2L,7477143918378,Limpieza,2026-07-05,Maestro Limpio,92.52,221
+8,Pan Blanco de Molde 400g,7430385926778,Panaderia,2026-06-13,Pan Rey,49.8,284
+1,Pañuelos Faciales x100,7445197024213,Higiene,2027-06-11,Rexona,22.71,251
+2,Café en Cápsulas x20,7459219610074,Bebidas,2028-03-03,Milo,71.76,483
+3,Lechuga Romana bolsa 200g,7414293492114,Verduras,2026-08-17,FreshMarket,29.36,308
+4,Papas Fritas Congeladas 1kg,7478909237568,Congelados,2028-07-03,Eskimo,77.14,429
+5,Chicharrones de Cerdo 100g,7416284301668,Snacks,2028-09-07,Pringles,68.53,251
+6,Agua con Gas 1L,7464261616957,Bebidas,2027-05-05,Lipton,7.14,353
+7,Queso Crema 500g,7476880075328,Lacteos,2028-01-06,Anchor,58.45,383
+8,Vinagre Blanco 1L,7435915434855,Condimentos,2028-02-05,Hellmann's,70.04,265
+1,Lentejas Verdes 1lb,7436429486993,Granos,2026-11-17,Arrocera GT,47.93,253
+2,Pasas Sin Semilla 500g,7474928209446,Snacks,2027-10-28,Bimbo,17.02,374
+3,Leche Descremada 500ml,7495894283198,Lacteos,2026-10-29,Sancor,13.09,280
+4,Muslo de Pollo 5lb,7441750266209,Carnes,2028-09-14,San Rafael,71.95,469
+5,Chuleta de Cerdo 1lb,7430279439989,Carnes,2028-03-19,Granja Selecta,52.85,141
+6,Chorizo Español 400g,7475916079227,Carnes,2028-09-07,Carnibest,65.7,236
+7,Corn Flakes Clásico 750g,7424218575357,Cereales,2027-11-13,Special K,62.47,336
+8,Queso Mozzarella 400g,7441653896453,Lacteos,2028-03-25,Danonino,78.62,173
+1,Orégano Seco 20g,7430139878304,Condimentos,2027-08-19,La Fina,42.49,185
+2,Margarina 225g,7464893760520,Lacteos,2028-06-08,Sigma,85.49,200
+3,Trigo Bulgur 500g,7421686011503,Granos,2027-05-22,La Milpa,39.66,94
+4,Yogurt de Durazno 250g,7431051772843,Lacteos,2028-07-22,Sancor,17.41,29
+5,Salsa de Tomate 400g,7463052145250,Enlatados,2026-07-10,Herdez,24.33,489
+6,Mortadela 300g,7448170425057,Carnes,2026-11-01,Carnibest,186.99,135
+7,Crema para Batir 500ml,7448886262012,Lacteos,2026-09-10,Selecta GT,54.28,324
+8,Bebida Energética 500ml,7425124825696,Bebidas,2027-04-07,AriZona,47.4,472
+1,Bebida de Coco 500ml,7428137235510,Bebidas,2028-07-02,Jarritos,15.69,194
+2,Mayonesa 800g,7446547373080,Condimentos,2028-10-11,Knorr,36.1,119
+3,Jugo de Piña 500ml,7477702841518,Bebidas,2028-05-11,V8,20.08,338
+4,Limpiapisos Lavanda 1L,7446875203483,Limpieza,2028-08-01,Pinol,62.33,332
+5,Jabón de Baño Hidratante 90g,7412582093483,Higiene,2026-11-15,Colgate,92.88,44
+6,Mezcla de Verduras 1kg,7458227114418,Congelados,2027-11-08,Sargento,100.57,121
+7,Yogurt Natural 250g,7498432408966,Lacteos,2028-07-05,Danonino,79.67,370
+8,Bebida de Coco 250ml,7436525139850,Bebidas,2027-10-26,Jarritos,55.95,168
+1,Chile Pimiento Verde 500g,7473515372197,Verduras,2026-10-06,Campo Rico,3.03,311
+2,Melón Cantalupo unidad,7462996762945,Frutas,2027-02-17,Local,44.69,163
+3,Pechuga de Pollo 5lb,7421702793047,Carnes,2026-10-13,Carnibest,153.69,46
+4,Salsa Picante 90ml,7455403885918,Condimentos,2028-01-15,Mc Ilhenny,68.08,102
+5,Tortilla de Harina x20,7468895665759,Panaderia,2026-11-26,Pozuelo,15.49,309
+6,Pañuelos Faciales x150,7452963337938,Higiene,2026-07-03,Pantene,143.61,239
+7,Sardinas Ahumadas 125g,7460294787111,Enlatados,2026-12-17,Hunt's,35.43,408
+8,Aceite de Oliva Virgen 500ml,7490920904957,Aceites,2027-03-10,Chef,163.2,129
+1,Muffins de Arándano x6,7426440585963,Panaderia,2027-05-13,NaturPan,52.47,10
+2,Lentejas Verdes 2lb,7418942279077,Granos,2028-02-16,Granos del Campo,45.71,34
+3,Manteca de Cerdo 1kg,7433185317865,Aceites,2027-01-18,Capullo,104.18,54
+4,Naranja Dulce 5lb,7443897947481,Frutas,2027-05-26,El Paraíso,24.31,307
+5,Pizza de Queso 450g,7444897518086,Congelados,2027-07-20,Kellogg's,56.56,167
+6,Sazonador de Carne 300g,7447830361263,Condimentos,2027-05-26,Hellmann's,40.79,494
+7,Afeitadora Desechable x5,7481334331514,Higiene,2027-01-14,Old Spice,111.01,367
+8,Chorizo Guatemalteco 400g,7429547148537,Carnes,2027-06-19,La Carnicería,69.61,383
+1,Pañuelos Faciales x50,7471264983950,Higiene,2027-11-19,Pears,47.69,447
+2,Espinaca Congelada 800g,7437307869930,Congelados,2027-02-24,Frosta,51.36,59
+3,Toallas de Papel x2,7448869828277,Higiene,2027-08-15,Gillette,102.61,109
+4,Pizza Hawaiana 450g,7462065463834,Congelados,2026-11-30,Birds Eye,90.34,246
+5,Fécula de Maíz (Maicena) 500g,7442043462948,Cereales,2026-07-27,Special K,17.6,262
+6,Chile Jalapeño 100g,7495204298669,Verduras,2027-01-11,Orgánica GT,4.1,39
+7,Aceite de Palma 500ml,7480832660833,Aceites,2027-01-26,Cristal,112.87,133
+8,Cebolla Blanca 1lb,7457206552216,Verduras,2028-01-19,EcoVerde,29.38,71
+1,Comino Molido 50g,7470648007145,Condimentos,2026-11-26,Knorr,71.08,114
+2,Refresco de Fresa 350ml,7412700276412,Bebidas,2026-10-30,Cappy,51.67,450
+3,Jabón de Baño Hidratante 150g,7461531314372,Higiene,2026-11-03,Aquafresh,47.92,433
+4,Salami 100g,7457355395267,Carnes,2027-05-15,AgroFarm,81.03,43
+5,Jugo de Mango 500ml,7459524995156,Bebidas,2028-03-15,Nescafé,29.27,477
+6,Refresco de Cola 2L,7450047187970,Bebidas,2027-07-01,Nescafé,27.19,282
+7,Bizcocho de Vainilla 300g,7464000815802,Panaderia,2028-03-23,Marinela,9.72,325
+8,Detergente en Polvo 1kg,7428703191385,Limpieza,2026-12-09,Ariel,101.26,231
+1,Papas Fritas Queso 100g,7420085925567,Snacks,2027-07-16,Hershey's,23.19,252
+2,Barrita de Granola Miel x12,7471507058172,Snacks,2028-02-17,Milky Way,70.21,470
+3,Waffles Congelados x8,7488117887809,Congelados,2027-10-10,Kellogg's,66.92,449
+4,Papa Criolla 2lb,7431427667530,Verduras,2027-10-20,El Huerto,30.36,160
+5,Papas Fritas BBQ 100g,7484921373613,Snacks,2027-07-04,Planter's,17.62,315
+6,Desodorante en Barra 75g,7410176602520,Higiene,2026-08-10,Gillette,89.05,36
+7,Manzana Roja 1lb,7492933810413,Frutas,2027-05-03,Dole,34.28,73
+8,Almendras Tostadas 100g,7429896962446,Snacks,2027-08-27,Ricolino,72.69,229
+1,Mezcla de Verduras 400g,7412080127421,Congelados,2027-02-24,Häagen-Dazs,26.84,48
+2,Chile Jalapeño 250g,7433168689232,Verduras,2026-07-05,Local,15.76,43
+3,Maní Tostado con Sal 400g,7443928149567,Snacks,2028-03-20,Bimbo,37.19,271
+4,Jugo de Guayaba 1L,7491055582039,Bebidas,2026-10-04,Tang,48.35,373
+5,Sardinas en Tomate 250g,7453210549256,Enlatados,2028-04-18,Van Camps,14.32,335
+6,Cacao en Polvo 400g,7470160983773,Bebidas,2027-10-02,Tropicana,54.52,289
+7,Azúcar Blanca Refinada 2lb,7424845390074,Condimentos,2026-09-25,Goya,7.15,147
+8,Pan Blanco de Molde 500g,7463513801488,Panaderia,2026-12-14,Artesano,54.23,188
+1,Tomate Roma 2lb,7411400376758,Verduras,2026-11-22,Campo Rico,12.67,301
+2,Suavizante de Ropa 1L,7417651424353,Limpieza,2026-07-31,Vanish,113.38,320
+3,Aceite Aromático de Ajo 400ml,7486538128996,Aceites,2028-05-16,Capullo,33.96,281
+4,Leche Condensada 395g,7497249272741,Lacteos,2028-02-04,Sancor,59.47,484
+5,Manzana Roja 500g,7457903072617,Frutas,2027-04-08,Local,17.16,401
+6,Pasta Dental para Niños 75ml,7423188266955,Higiene,2026-10-19,Nivea,105.3,202
+7,Vinagre Blanco 2L,7439838275791,Condimentos,2028-05-02,Aro,45.32,481
+8,Esponjas de Cocina x2,7481824621531,Limpieza,2026-06-17,Glad,22.43,89
+1,Yogurt Natural 1kg,7411393422640,Lacteos,2027-07-11,Parmalat,56.59,479
+2,Quitamanchas 500ml,7463841948860,Limpieza,2027-07-12,Clorox,51.56,68
+3,Paleta de Mango con Chile x4,7467093468958,Congelados,2027-11-25,DiGiorno,94.25,302
+4,Aceite de Oliva Extra Virgen 500ml,7458291400334,Condimentos,2027-07-19,Knorr,67.57,65
+5,Aceite Vegetal 2L,7492628519096,Aceites,2027-07-11,Ybarra,114.8,255
+6,Queso Cheddar 300g,7469919834081,Lacteos,2026-06-22,Danonino,51.91,278
+7,Pan de Centeno 400g,7437089325350,Panaderia,2028-05-22,Artesano,46.71,68
+8,Yogurt de Fresa 250g,7415078559759,Lacteos,2027-11-04,Selecta GT,35.68,172
+1,Calabacita 500g,7445245811147,Verduras,2027-07-25,Tierra Fértil,9.07,120
+2,Paleta de Caramelo x5,7499218462809,Snacks,2028-07-01,Ruffles,23.04,58
+3,Queso Mozzarella 500g,7439751371072,Lacteos,2027-10-12,NutriLeche,38.14,338
+4,Salsa Cátsup 397g,7480287497927,Condimentos,2027-08-03,Kikkoman,63.95,131
+5,Papa Blanca 1lb,7430918387854,Verduras,2028-08-21,AgroLocal,3.72,155
+6,Salsa Picante 180ml,7423983500157,Condimentos,2028-01-22,Del Monte,21.57,144
+7,Refresco de Limón 2L,7443484571029,Bebidas,2027-07-15,Coca-Cola,25.17,427
+8,Shampoo Anticaspa 200ml,7479577956734,Higiene,2027-09-21,Head&Shoulders,25.93,127
+1,Calabacita 1lb,7486228392476,Verduras,2028-09-16,AgroLocal,17.09,483
+2,Sopa de Tomate 610g,7465166344279,Enlatados,2026-12-30,Libby's,36.94,192
+3,Pimienta Negra Molida 200g,7419071621667,Condimentos,2026-11-25,La Morena,28.3,21
+4,Café Instantáneo 100g,7454869166385,Bebidas,2027-01-26,Jarritos,66.73,223
+5,Sazonador de Pollo 150g,7467724052368,Condimentos,2027-06-30,Natura,11.55,441
+6,Muffins de Arándano x4,7427477207953,Panaderia,2026-08-17,Pan Rey,8.29,352
+7,Corn Flakes Clásico 500g,7453554762196,Cereales,2028-05-21,Special K,45.26,398
+8,Chicle Sin Azúcar x30,7418185107910,Snacks,2027-05-20,Snickers,14.26,274
+1,Harina de Avena 500g,7411030231022,Cereales,2026-07-15,Granix,40.51,317
+2,Aceite Vegetal 5L,7468680580344,Aceites,2026-11-18,Capullo,84.81,424
+3,Pollo Entero 2lb,7491018780863,Carnes,2026-12-15,AviCarne,89.41,340
+4,Mantequilla Con Sal 200g,7451426612672,Lacteos,2028-07-25,Selecta GT,14.42,424
+5,Pechuga de Pollo 1lb,7490446034430,Carnes,2028-03-31,Zenú,92.67,338
+6,Berenjena unidad,7411669018649,Verduras,2027-04-08,AgroLocal,29.42,496
+7,Antical 500ml,7417329359345,Limpieza,2028-07-21,Persil,56.09,117
+8,Limón Amarillo 1lb,7454756690414,Frutas,2026-06-18,DelSol,12.55,168
+1,Pimienta Negra Molida 50g,7463257658055,Condimentos,2026-10-19,Heinz,68.67,221
+2,Uvas Rojas 500g,7420658638756,Frutas,2027-04-21,BioFrut,24.02,467
+3,Chuleta de Cerdo 2lb,7474357099531,Carnes,2028-10-02,Granja Selecta,59.24,492
+4,Sémola de Trigo 500g,7475992970991,Granos,2026-12-10,El Maizal,48.28,86
+5,Azúcar Morena 2lb,7490516469625,Condimentos,2027-04-30,McCormick,67.32,430
+6,Granola con Frutos Secos 750g,7424618668465,Cereales,2028-08-28,Granix,44.66,190
+7,Chorizo Español 200g,7414581103010,Carnes,2028-10-09,Carnibest,80.37,84
+8,Guantes de Látex S,7495799307700,Limpieza,2027-02-24,Glad,58.91,239
+1,Tostadas de Trigo 200g,7451965658663,Panaderia,2027-01-06,BonPain,24.76,15
+2,Chile Pimiento Rojo 500g,7417138661263,Verduras,2027-05-23,Campo Rico,18.7,66
+3,Lomo de Cerdo 1lb,7474655782363,Carnes,2026-06-11,La Hacienda,138.88,311
+4,Dedos de Pollo 600g,7448485478747,Congelados,2028-03-21,Rich's,157.76,57
+5,Aceite de Oliva Extra Virgen 1L,7454299768876,Condimentos,2028-09-26,McCormick,45.84,96
+6,Pasta Dental Blanqueadora 125ml,7490431151547,Higiene,2026-09-09,Scott,43.06,434
+7,Sal Yodada Fina 1kg,7435903365185,Condimentos,2028-09-04,Embasa,41.65,36
+8,Piña 1kg,7482385227751,Frutas,2026-10-31,SunFresh,7.82,433
+1,Nuggets de Pollo 1kg,7419638630509,Congelados,2027-08-07,Gorton's,25.22,69
+2,Canela en Polvo 100g,7464905885842,Condimentos,2026-06-28,Mc Ilhenny,39.95,163
+3,Jabón de Baño Hidratante 125g,7417831251743,Higiene,2027-09-19,Colgate,20.01,421
+4,Café en Cápsulas x16,7444283988561,Bebidas,2028-09-14,Nestea,62.11,440
+5,Lentejas Verdes 500g,7427987096123,Granos,2027-12-13,El Maizal,58.34,161
+6,Yogurt Griego 300g,7477154027276,Lacteos,2028-02-28,Sigma,49.01,348
+7,Palmito 400g,7496012670515,Enlatados,2028-09-14,Knorr,40.97,300
+8,Mango Ataulfo 1lb,7484511863569,Frutas,2026-12-29,El Paraíso,45.0,397
+1,Fresas 250g,7467317608160,Frutas,2027-08-19,FreshFarm,43.73,390
+2,Bistec de Res 1lb,7410483544635,Carnes,2027-11-12,La Hacienda,239.78,56
+3,Müsli Suizo 1kg,7459492382673,Cereales,2028-04-09,Zucaritas,66.01,395
+4,Shampoo Hidratante 750ml,7490122554082,Higiene,2028-02-01,Gillette,101.5,12
+5,Avena Instantánea Sabor Canela 400g,7415246451269,Cereales,2028-03-31,Quaker,33.49,356
+6,Sandía rebanada,7441545315221,Frutas,2027-12-29,BioFrut,46.91,318
+7,Miel de Abeja 500ml,7496331802946,Condimentos,2026-12-19,Las Palmas,33.56,430
+8,Palmito 300g,7479958645088,Enlatados,2028-09-05,La Costeña,24.67,263
+1,Garbanzos 1lb,7466946341026,Granos,2027-08-26,La Milpa,37.8,356
+2,Detergente Líquido 3L,7438318691843,Limpieza,2027-01-18,Glad,36.44,322
+3,Leche Evaporada 354ml,7416146472603,Lacteos,2027-10-17,NutriLeche,31.69,442
+4,Jugo Multifrutas 2L,7474967181900,Bebidas,2027-01-25,Jarritos,39.74,129
+5,Sardinas en Tomate 125g,7480805868069,Enlatados,2027-02-18,Clemente Jacques,26.46,217
+6,Papel Higiénico Doble Hoja x6,7448338447965,Higiene,2028-06-01,L'Oréal,56.78,80
+7,Leche Semidescremada 2L,7430947716523,Lacteos,2028-09-27,Yoplait,77.54,445
+8,Cereal Integral de Trigo 1kg,7484644790371,Cereales,2027-09-24,All Bran,74.13,363
+1,Café Instantáneo 500g,7483757787275,Bebidas,2027-08-31,Jumex,29.53,318
+2,Café Instantáneo 300g,7493366984602,Bebidas,2027-07-23,Pepsi,59.76,391
+3,Molida de Pollo 500g,7473174233807,Carnes,2027-11-21,FreshMeat,152.06,259
+4,Desodorante en Barra 150g,7491346464637,Higiene,2026-11-29,Colgate,44.32,313
+5,Avena en Hojuelas 1kg,7430426380622,Granos,2027-05-03,Arrocera GT,60.45,488
+6,Pizza de Pepperoni 450g,7411022144299,Congelados,2028-03-31,Delimex,198.68,377
+7,Pizza de Pepperoni 300g,7441834026513,Congelados,2028-01-15,DiGiorno,176.53,489
+8,Linaza 500g,7461002662354,Granos,2027-04-26,RicRiz,31.58,302
+1,Yogurt Congelado Vainilla 100ml,7433709542503,Congelados,2028-02-19,Sargento,42.42,220
+2,Caramelos de Menta 100g,7450015733272,Snacks,2026-10-17,Milky Way,8.14,179
+3,Naranja Dulce 2lb,7444620914606,Frutas,2027-04-21,FreshFarm,13.13,160
+4,Mostaza Amarilla 400g,7476687306416,Condimentos,2028-01-30,Goya,31.44,471
+5,Arroz Integral 5lb,7483799663121,Granos,2026-12-06,Albita,11.83,216
+6,Pimienta Blanca Molida 100g,7422600594190,Condimentos,2027-10-22,Ducal,8.92,248
+7,Waffles Congelados x12,7447634555152,Congelados,2027-11-24,Eskimo,192.96,154
+8,Paleta de Caramelo x10,7490841777544,Snacks,2027-08-04,Trolli,43.66,491
+1,Limpiapisos Citrus 2L,7423744247994,Limpieza,2026-10-30,WD-40,59.66,281
+2,Helado de Chocolate 1L,7426347423815,Congelados,2027-01-13,La Michoacana,111.95,129
+3,Maní Enchilado 400g,7478519128055,Snacks,2028-04-03,Snickers,67.0,97
+4,Hilo Dental 100m,7476691490832,Higiene,2027-09-24,Gillette,136.95,28
+5,Paleta de Fresa x6,7423953172719,Congelados,2027-07-19,Frosta,155.9,478
+6,Hilo Dental 50m,7471015367710,Higiene,2027-07-24,Dove,104.77,289
+7,Barrita de Granola Chocolate x12,7499834481167,Snacks,2026-07-09,Quaker,53.96,251
+8,Yogurt Congelado Vainilla 250ml,7430580865428,Congelados,2026-11-10,Nestlé,40.93,314
+1,Hotcakes Congelados x12,7444912098388,Congelados,2028-03-15,Don Lee,74.49,327
+2,Queso Crema 300g,7474647496254,Lacteos,2027-12-26,Gloria,31.25,242
+3,Maíz Dulce Entero 400g,7477227314601,Enlatados,2028-04-01,Goya,54.02,302
+4,Berenjena 500g,7488469679148,Verduras,2027-08-21,FrescaMarca,27.32,54
+5,Galletas de Arroz Sin Sal 100g,7485723196356,Snacks,2028-08-17,Haribo,16.8,86
+6,Leche Entera 1L,7450766598073,Lacteos,2028-06-20,Yoplait,53.58,485
+7,Queso Fresco 200g,7492642507043,Lacteos,2027-07-31,Anchor,11.98,364
+8,Pretzels 300g,7483139146530,Snacks,2027-02-12,Del Monte,11.87,14
+1,Chorizo Guatemalteco 200g,7470574948335,Carnes,2028-10-15,El Rancho,66.4,455
+2,Ala de Pollo 2lb,7497816905893,Carnes,2026-08-11,RanchoReal,34.53,63
+3,Fresas 500g,7493515630324,Frutas,2028-10-06,FrutaFina,32.29,153
+4,Galletas Soda 300g,7478234428054,Panaderia,2028-08-03,Barcel,20.31,495
+5,Chile Pimiento Rojo 1lb,7484692061811,Verduras,2027-02-18,AgroGuat,24.59,223
+6,Papas Fritas Naturales 200g,7414467599975,Snacks,2026-07-26,Hershey's,81.82,155
+7,Bolsas de Basura Grandes x15,7422598048506,Limpieza,2028-05-25,WD-40,60.5,307
+8,Pan Sin Gluten 400g,7493944083106,Panaderia,2026-10-18,Sara Lee,15.17,14
+1,Nuggets de Pollo 600g,7421231236069,Congelados,2027-01-17,Eskimo,145.34,282
+2,Arroz Jazmín 1lb,7489731638513,Granos,2027-05-05,Albita,60.73,187
+3,Naranja Dulce 1lb,7430009034247,Frutas,2028-07-18,TropiFrut,4.46,430
+4,Helado de Chocolate 500ml,7460764872278,Congelados,2026-08-18,Nestlé,164.79,308
+5,Molida de Pollo 1lb,7459966966771,Carnes,2028-05-21,PouletGT,182.56,282
+6,Rábano 200g,7458476491710,Verduras,2027-11-26,Campo Rico,24.33,113
+7,Jugo Multifrutas 500ml,7450368499942,Bebidas,2026-12-10,Jarritos,89.01,362
+8,Queso Crema 190g,7434420662592,Lacteos,2028-07-12,Selecta GT,9.76,38
+1,Toallas Húmedas x40,7448994904375,Higiene,2027-07-15,Pears,77.31,413
+2,Manzana Roja 2lb,7442922282270,Frutas,2028-04-02,FrutaFina,37.3,426
+3,Arroz Blanco 1lb,7421584375346,Granos,2028-05-20,Albita,36.81,319
+4,Canela en Polvo 200g,7458049979010,Condimentos,2028-10-01,Heinz,18.38,271
+5,Leche de Soya 1L,7460143697180,Lacteos,2028-06-07,Gloria,79.27,429
+6,Yogurt de Durazno 125g,7434528961796,Lacteos,2028-08-19,Anchor,93.53,92
+7,Aceite de Coco 250ml,7484883973114,Aceites,2028-08-21,Verde Campo,124.27,395
+8,Galletas de Arroz 100g,7438534006813,Panaderia,2027-08-02,Bimbo,45.21,30
+1,Aceite de Girasol 500ml,7450082712805,Aceites,2027-01-17,La Española,151.6,469
+2,Lavavajillas en Pastilla x40,7423826229418,Limpieza,2028-04-01,Downy,59.48,57
+3,Avena en Hojuelas 500g,7415030265968,Granos,2026-09-08,NutriGrano,56.6,299
+4,Salchicha Frankfurt 250g,7412400278014,Carnes,2027-08-26,RanchoReal,232.96,46
+5,Aceite de Oliva Virgen 1L,7461431875620,Aceites,2028-08-27,La Torre,168.24,15
+6,Burritos Congelados x6,7417116284352,Congelados,2028-02-20,Kellogg's,143.35,99
+7,Maní Enchilado 100g,7410991130433,Snacks,2026-09-07,Quaker,72.04,471
+8,Mortadela 500g,7498617857980,Carnes,2028-02-18,Cunit,51.12,245
+1,Jugo de Mango 2L,7441850883962,Bebidas,2027-04-22,Nestea,73.69,434
+2,Galletas Dulces 300g,7433421638513,Panaderia,2026-08-06,Pozuelo,28.74,366
+3,Uvas Rojas 1lb,7492353722150,Frutas,2027-05-25,SunFresh,30.24,44
+4,Salsa Inglesa 500ml,7463793818402,Condimentos,2028-02-18,Aro,69.01,335
+5,Desodorante Roll-On 50ml,7449566967278,Higiene,2026-10-06,Nivea,100.07,35
+6,Fresas 1lb,7473627178683,Frutas,2028-08-16,FreshFarm,34.37,465
+7,Papa Blanca 5lb,7434070230707,Verduras,2027-03-10,Local,24.27,414
+8,Edamame Sin Cáscara 400g,7448935587357,Congelados,2028-03-03,Birds Eye,70.54,20
+1,Frijoles Blancos 2lb,7489554429893,Granos,2028-07-29,La Especial,31.6,306
+2,Manteca Vegetal 500g,7473408641495,Aceites,2026-12-25,Gallo,87.81,164
+3,Helado de Vainilla 500ml,7446866945264,Congelados,2026-12-06,McCain,166.69,347
+4,Papas Fritas Congeladas 500g,7469211674365,Congelados,2028-07-15,McCain,110.85,362
+5,Yogurt de Fresa 125g,7465431410225,Lacteos,2026-08-12,Alpura,47.29,258
+6,Galletas de Chocolate 300g,7419398161125,Panaderia,2028-07-26,BonPain,21.38,425
+7,Chía 250g,7437807554520,Granos,2026-07-16,NutriGrano,44.6,248
+8,Limón Persa 500g,7440615969537,Frutas,2027-02-06,SunFresh,33.09,284
+1,Espárragos 200g,7466903080489,Enlatados,2027-09-29,Heinz,35.52,10
+2,Leche en Polvo 1kg,7445187456042,Lacteos,2028-08-14,Dos Pinos,55.66,463
+3,Comino Molido 100g,7496636871429,Condimentos,2027-06-26,Ducal,41.81,467
+4,Aceite de Oliva Extra Virgen 1L,7425190607252,Aceites,2027-11-03,Olmeca,132.86,61
+5,Queso Manchego 200g,7479076265143,Lacteos,2027-04-04,Sigma,94.97,223
+6,Galletas de Chocolate 200g,7455840187148,Panaderia,2027-10-30,Marinela,39.0,379
+7,Jabón Antibacterial 125g,7497381408855,Higiene,2028-08-05,Palmolive,144.96,339
+8,Limón Persa 1lb,7451931730261,Frutas,2027-03-20,TropiFrut,7.09,215
+1,Apio 200g,7438031560751,Verduras,2026-10-10,Local,31.37,385
+2,Kiwi 500g,7490607077507,Frutas,2027-06-20,SunFresh,6.94,25
+3,Orégano Seco 100g,7464647079333,Condimentos,2026-06-10,Las Palmas,72.42,41
+4,Aceite de Aguacate 500ml,7433346690739,Aceites,2026-06-12,NaturOil,121.74,169
+5,Tomate Roma 1lb,7477225192414,Verduras,2027-08-06,AgroLocal,30.93,19
+6,Enjuague Bucal 250ml,7440989222085,Higiene,2028-07-30,Garnier,16.57,472
+7,Atún en Aceite 280g,7457189861927,Enlatados,2026-11-05,Campbell's,13.3,420
+8,Tomate Roma 500g,7482821601705,Verduras,2028-06-04,Campo Rico,28.23,449
+1,Refresco de Fresa 1.5L,7436912841298,Bebidas,2026-12-13,Cappy,73.01,293
+2,Antical 750ml,7475157867919,Limpieza,2028-10-07,WD-40,66.14,102
+3,Gomitas de Fruta 200g,7490247095375,Snacks,2027-11-07,Del Monte,58.38,490
+4,Espinaca 500g,7472737464858,Verduras,2027-10-06,Orgánica GT,31.83,178
+5,Kiwi x3,7412263409490,Frutas,2028-06-21,Tropical,26.03,111
+6,Aceite de Coco 500ml,7424591891291,Aceites,2026-07-18,Paloma,177.58,283
+7,Dulce de Leche 1kg,7443109094088,Snacks,2028-05-05,Ruffles,68.87,163
+8,Queso Fresco 1kg,7489529701180,Lacteos,2028-09-12,Dos Pinos,18.63,139
+1,Pasta Dental para Niños 100ml,7435153413220,Higiene,2026-11-11,Kotex,56.1,442
+2,Shampoo Hidratante 200ml,7463196742006,Higiene,2027-12-01,Rexona,47.51,444
+3,Zucaritas 500g,7441616948667,Cereales,2027-10-08,Fitness,91.13,411
+4,Shampoo para Cabello Seco 200ml,7411220385330,Higiene,2027-09-02,Aquafresh,76.96,214
+5,Limpiapisos Lavanda 500ml,7455927820049,Limpieza,2028-03-28,Vanish,27.23,491
+6,Tortilla de Harina x12,7446013235264,Panaderia,2028-01-27,Marinela,22.54,390
+7,Chicle Sin Azúcar x20,7468396230944,Snacks,2027-04-23,Milky Way,34.15,462
+8,Limpiador de Baño 500ml,7451814465815,Limpieza,2028-01-20,Vileda,58.72,127
+1,Maíz Congelado 800g,7424469201722,Congelados,2026-06-22,Rich's,41.17,137
+2,Almendras Tostadas 400g,7417637285499,Snacks,2028-01-24,Nature Valley,40.59,474
+3,Atún en Agua 280g,7467929932571,Enlatados,2027-06-23,El Inca,31.39,201
+4,Bebida Isotónica 500ml,7476526488480,Bebidas,2027-01-30,Jumex,17.28,477
+5,Margarina 1kg,7469356558799,Lacteos,2026-10-10,Dos Pinos,23.54,270
+6,Aros de Cebolla 500g,7495544124411,Congelados,2026-12-26,Nestlé,135.9,285
+7,Chile Pimiento Rojo 250g,7489597636520,Verduras,2027-04-06,FreshMarket,24.27,226
+8,Mandarina 1lb,7488681808832,Frutas,2028-06-20,NaturFresh,46.23,113
+1,Maíz Congelado 400g,7469177910392,Congelados,2026-12-29,Green Giant,128.0,179
+2,Mantequilla Sin Sal 90g,7420063726699,Lacteos,2027-11-27,Parmalat,14.43,359
+3,Pepino x3,7431225954223,Verduras,2028-02-06,El Huerto,27.02,381
+4,Croissant x4,7448438345139,Panaderia,2028-09-09,Barcel,48.71,65
+5,Bebida de Coco 1L,7420937432470,Bebidas,2026-12-11,Del Valle,63.71,92
+6,Desodorante en Spray 150ml,7493324550040,Higiene,2028-09-16,L'Oréal,139.21,299
+7,Atún en Agua 80g,7468186401907,Enlatados,2028-02-19,Goya,47.98,69
+8,Duraznos en Almíbar 820g,7493831197751,Enlatados,2028-02-12,Del Monte,34.57,131
+1,Arándanos 500g,7413418829263,Frutas,2027-09-18,DelSol,25.53,235
+2,Palomitas de Maíz Natural 200g,7440049335625,Snacks,2027-06-13,Ruffles,69.18,33
+3,Jugo de Piña 2L,7433879591833,Bebidas,2027-08-30,Red Bull,54.19,132
+4,Queso Cheddar 200g,7477295414229,Lacteos,2028-05-11,Sigma,86.37,271
+5,Afeitadora Desechable x2,7432354070602,Higiene,2026-10-03,Gillette,27.76,65
+6,Bebida Isotónica 600ml,7414111728538,Bebidas,2027-05-19,Café Rey,55.96,305
+7,Zanahoria 500g,7426038060774,Verduras,2026-08-15,FrescaMarca,22.68,78
+8,Chile Pimiento Verde 1lb,7451946630645,Verduras,2027-05-10,La Finca,23.34,79
+1,Agua Purificada 5L,7491355350687,Bebidas,2027-03-09,Florida,46.16,206
+2,Tocino Ahumado 200g,7447861159662,Carnes,2026-06-12,La Carnicería,236.16,353
+3,Mango Tommy 2lb,7435524298698,Frutas,2027-09-04,El Paraíso,36.19,429
+4,Mezcla de Verduras 800g,7448734772658,Congelados,2026-06-11,Frosta,111.81,483
+5,Banano Verde 2lb,7444818397405,Frutas,2028-06-06,Tropical,45.85,84
+6,Café Molido 250g,7411469433225,Bebidas,2027-12-01,Jarritos,76.2,206
+7,Jamón Serrano 300g,7491102925848,Carnes,2026-07-07,El Rancho,242.06,434
+8,Paleta de Mango con Chile x6,7437191378644,Congelados,2026-08-29,Gorton's,75.11,173
+1,Leche en Polvo 400g,7428354403836,Lacteos,2026-08-17,Lala,62.14,338
+2,Suavizante de Ropa 3L,7455107736987,Limpieza,2028-09-14,Lavaplatos Rey,27.27,96
+3,Chips de Tortilla Queso 200g,7491232850709,Snacks,2027-10-10,Gamesa,42.91,64
+4,Canela en Polvo 50g,7438024615793,Condimentos,2028-02-01,Las Palmas,30.25,464
+5,Té Frío de Durazno 1L,7463156171786,Bebidas,2028-01-06,Lipton,28.99,179
+6,Rábano manojo,7421500335959,Verduras,2028-08-22,BioNatur,23.57,197
+7,Desodorante Roll-On 100ml,7421122504325,Higiene,2026-07-19,Nivea,13.47,379
+8,Galletas de Avena 200g,7487983196427,Panaderia,2026-07-16,Pan Rey,20.68,25
+1,Cereal de Quinoa 300g,7468995382642,Cereales,2028-09-26,Fitness,64.25,440
+2,Yogurt de Vainilla 250g,7457291792296,Lacteos,2027-11-07,Nestlé,82.94,221
+3,Pimienta Blanca Molida 50g,7454530185645,Condimentos,2027-08-03,La Morena,71.23,341
+4,Detergente Líquido 500ml,7419072294202,Limpieza,2028-02-12,Mistolin,13.69,419
+5,Galletas Soda 500g,7429117237211,Panaderia,2027-04-11,Pan Sello,40.5,301
+6,Arándanos 250g,7417246281803,Frutas,2026-08-14,Chiquita,14.54,134
+7,Galletas de Arroz 300g,7487444950497,Panaderia,2027-10-29,Pozuelo,44.96,467
+8,Vinagre Blanco 500ml,7459133697021,Condimentos,2027-08-29,Heinz,59.57,169
+1,Leche de Soya 750ml,7468301725412,Lacteos,2028-07-08,Pascual,30.71,250
+2,Fécula de Maíz (Maicena) 250g,7483954855948,Cereales,2028-03-07,Post,53.36,277
+3,Leche Entera 2L,7431888293191,Lacteos,2028-04-05,Nestlé,48.68,188
+4,Té Frío de Menta 500ml,7451468040109,Bebidas,2028-06-14,Pepsi,45.31,444
+5,Sal de Mar Gruesa 500g,7435899439338,Condimentos,2027-07-28,Las Palmas,5.72,72
+6,Desodorante en Barra 45g,7442796216406,Higiene,2027-08-20,Scott,60.35,395
+7,Aceite de Oliva Extra Virgen 250ml,7471975342247,Aceites,2028-09-15,Borges,70.66,393
+8,Banano Maduro 1lb,7475528521468,Frutas,2026-06-24,Tropical,22.22,417
+1,Vinagre de Manzana 500ml,7412087495140,Condimentos,2028-05-08,McCormick,13.38,179
+2,Cloro Líquido 1L,7456258350634,Limpieza,2028-01-06,Maestro Limpio,107.79,38
+3,Arroz Integral 2lb,7463201621750,Granos,2027-01-08,Goya,17.84,492
+4,Gomitas de Fruta 400g,7414932224034,Snacks,2028-10-15,Marinela,32.5,135
+5,Yogurt de Fresa 500g,7427678207762,Lacteos,2027-09-11,Lala,39.98,140
+6,Hamburguesa de Pollo x2,7425038196111,Congelados,2027-03-04,La Michoacana,137.22,226
+7,Acondicionador Hidratante 750ml,7423394859696,Higiene,2026-08-07,Aquafresh,113.84,19
+8,Papas Fritas Congeladas 750g,7451646682330,Congelados,2027-07-09,Rich's,111.58,132
+1,Salsa Inglesa 300ml,7419908520664,Condimentos,2027-10-03,Knorr,43.14,337
+2,Arveja Verde 300g,7423217523728,Enlatados,2028-01-08,San Marcos,10.08,431
+3,Pizza de Queso 600g,7445280395557,Congelados,2027-05-10,Green Giant,125.74,280
+4,Harina para Hotcakes 1kg,7494019233560,Cereales,2028-09-26,Nature Valley,100.63,177
+5,Refresco de Fresa 600ml,7416055114425,Bebidas,2027-06-09,Gatorade,7.44,253
+6,Helado de Vainilla 2L,7464273384457,Congelados,2027-05-23,Häagen-Dazs,71.68,313
+7,Maní Tostado con Sal 200g,7427658168607,Snacks,2028-03-03,Quaker,62.08,149
+8,Nueces Mixtas 400g,7446094104190,Snacks,2027-05-27,Ricolino,48.96,42
+1,Harina para Hotcakes 800g,7470811564028,Cereales,2028-04-14,Nestlé,30.81,394
+2,Paprika 50g,7460328522690,Condimentos,2028-09-23,Las Palmas,46.17,86
+3,Leche con Calcio 1L,7444813188594,Lacteos,2027-08-19,Sigma,69.95,345
+4,Aceite Aromático de Chile 400ml,7459323785821,Aceites,2028-02-29,Verde Campo,25.22,373
+5,Limpiador Multiusos 750ml,7434566972381,Limpieza,2028-06-18,Lysol,116.76,221
+6,Mostaza Dijon 400g,7492467398160,Condimentos,2026-10-24,Goya,14.2,38
+7,Papas Fritas Naturales 100g,7447529560772,Snacks,2028-08-17,Gamesa,23.53,147
+8,Miel de Abeja 1kg,7436089126608,Condimentos,2027-07-15,Hunt's,74.02,422
+1,Toallas Húmedas x80,7487802378314,Higiene,2027-12-29,Old Spice,130.75,186
+2,Lentejas Rojas 1lb,7432453151576,Granos,2026-07-30,NutriGrano,48.42,79
+3,Duraznos en Almíbar 400g,7448633513466,Enlatados,2027-03-21,Campbell's,52.39,326
+4,Carne Molida de Res 1lb,7483000912464,Carnes,2027-03-09,AviCarne,219.19,448
+5,Leche Deslactosada 2L,7494703068415,Lacteos,2027-01-06,Gloria,42.68,145
+6,Manteca de Cerdo 500g,7435893771901,Aceites,2026-09-03,La Torre,137.47,37
+7,Dedos de Pollo 400g,7455301125153,Congelados,2027-11-15,Delimex,149.14,201
+8,Linaza 1kg,7445685937584,Granos,2027-09-02,RicRiz,60.77,189
+1,Limpiapisos Citrus 500ml,7423811815134,Limpieza,2028-08-14,Axion,27.28,145
+2,Avena Instantánea Natural 800g,7459727925274,Cereales,2028-01-03,Special K,59.78,404
+3,Papa Criolla 1lb,7451974224888,Verduras,2027-11-16,Campo Verde,30.23,472
+4,Salami 200g,7488789088469,Carnes,2027-06-16,Cunit,132.26,124
+5,Desengrasante Cocina 750ml,7468345167061,Limpieza,2027-03-19,Tide,81.47,158
+6,Toallas Húmedas x20,7444713374447,Higiene,2027-09-22,Listerine,37.1,27
+7,Cereal de Quinoa 500g,7461015413532,Cereales,2027-12-31,Corn Pops,57.11,227
+8,Palomitas de Maíz Mantequilla 300g,7432755063805,Snacks,2027-10-08,Quaker,10.81,110
+1,Leche en Polvo 200g,7478116393611,Lacteos,2028-10-02,Yoplait,8.79,230
+2,Sal de Mar Gruesa 1kg,7418413123359,Condimentos,2027-11-19,Heinz,32.8,326
+3,Sopa de Tomate 305g,7420171984965,Enlatados,2027-02-26,Goya,54.93,82
+4,Té Frío de Limón 1.5L,7477345150887,Bebidas,2026-11-21,Jumex,66.82,278
+5,Jabón Antibacterial 90g,7425836793418,Higiene,2026-09-25,Palmolive,11.03,188
+6,Leche Evaporada 410ml,7482927704007,Lacteos,2028-08-17,Nestlé,46.9,154
+7,Maíz Amarillo 2lb,7439893494727,Granos,2028-03-12,La Perla,61.02,236
+8,Maíz Morado 1lb,7424840069141,Granos,2027-08-07,BioSelect,47.02,362
+1,Cepillo Dental Medio x4,7489586688976,Higiene,2027-08-27,Colgate,94.76,105
+2,Sopa de Verduras 305g,7465535990666,Enlatados,2027-02-26,La Costeña,8.46,13
+3,Chips de Tortilla Naturales 300g,7441631455669,Snacks,2026-12-01,Quaker,68.85,474
+4,Brócoli 1lb,7469102228927,Verduras,2027-01-22,Tierra Fértil,31.51,298
+5,Pretzels 500g,7414073021708,Snacks,2027-10-06,Gamesa,32.66,340
+6,Limón Persa 250g,7426335841075,Frutas,2027-11-25,Tropical,39.4,122
+7,Margarina 500g,7498071092634,Lacteos,2028-06-02,Campolindo,33.42,347
+8,Pan Pita x6,7435455025169,Panaderia,2028-08-30,Artesano,18.96,185
+1,Chocolates Rellenos 100g,7412833385938,Snacks,2026-11-25,Lays,57.87,289
+2,Costilla de Cerdo 1lb,7452944901330,Carnes,2028-09-08,Cunit,81.41,276
+3,Leche con Calcio 500ml,7487634056204,Lacteos,2026-11-09,Danonino,41.99,281
+4,Refresco de Naranja 600ml,7435958730033,Bebidas,2028-06-21,Pure Water,70.15,396
+5,Salami 300g,7483978521928,Carnes,2028-07-13,RanchoReal,172.79,444
+6,Chocolates Rellenos 400g,7475388559680,Snacks,2027-03-11,Lays,82.19,10
+7,Papel Higiénico Triple Hoja x4,7458789567881,Higiene,2027-04-26,Aquafresh,41.92,399
+8,Detergente en Polvo 2kg,7464580455386,Limpieza,2028-09-14,WD-40,33.65,497
+1,Shampoo Hidratante 400ml,7415188165229,Higiene,2028-04-16,Kotex,45.88,424
+2,Waffles Congelados x6,7478976465937,Congelados,2027-05-09,Delimex,166.26,269
+3,Pechuga de Pollo 2lb,7478699608180,Carnes,2028-06-17,Campo Grande,127.14,169
+4,Costilla de Res 2lb,7441288826053,Carnes,2028-02-02,El Rancho,105.54,467
+5,Linaza 250g,7499868499805,Granos,2028-01-05,RicRiz,14.81,246
+6,Aceite de Girasol 1L,7476552556279,Aceites,2028-08-26,Paloma,175.16,86
+7,Granola con Miel 500g,7486266886547,Cereales,2028-06-16,Nature Valley,28.92,176
+8,Bebida Energética 355ml,7415004898445,Bebidas,2028-01-29,AriZona,5.94,122
+1,Galletas Dulces 200g,7485690671586,Panaderia,2027-06-27,BonPain,18.27,104
+2,Sardinas en Aceite 125g,7470419879192,Enlatados,2028-01-16,Heinz,32.65,422
+3,Cereal de Arroz Inflado 300g,7498759685271,Cereales,2028-06-08,Corn Pops,31.51,189
+4,Miel de Abeja 250ml,7483668581621,Condimentos,2027-07-19,La Fina,40.29,88
+5,Mango Ataulfo 2lb,7491510207531,Frutas,2026-11-25,TropiCal,19.31,458
+6,Maíz Morado 500g,7442969844738,Granos,2026-06-14,Selecta,41.73,86
+7,Muffins de Chocolate x6,7476641848098,Panaderia,2027-02-20,Schär,33.0,188
+8,Sazonador de Carne 150g,7431169705108,Condimentos,2027-12-22,Don Gustavo,72.55,204
+1,Aceite de Oliva Extra Virgen 250ml,7468708509836,Condimentos,2028-08-17,La Fina,57.57,23
+2,Jugo de Maracuyá 500ml,7451760382271,Bebidas,2026-11-26,Gatorade,21.23,313
+3,Lechuga Romana unidad,7494600989594,Verduras,2027-09-30,FreshMarket,8.41,62
+4,Sal Yodada Fina 2kg,7458347484163,Condimentos,2027-07-08,Don Gustavo,41.42,51
+5,Mantequilla Con Sal 90g,7457557050005,Lacteos,2027-09-05,Yoplait,55.34,17
+6,Desengrasante Cocina 500ml,7462827181488,Limpieza,2026-07-30,Brillante,35.31,106
+7,Dulce de Leche 400g,7422878174167,Snacks,2027-10-01,Ruffles,17.88,60
+8,Cacao en Polvo 200g,7478971335618,Bebidas,2028-06-15,Pure Water,10.37,225
+1,Manteca Vegetal 1kg,7460334384840,Aceites,2028-04-18,Cocinero,128.68,460
+2,Agua Purificada 500ml,7437324899501,Bebidas,2027-03-31,Pure Water,30.87,472
+3,Zucaritas 750g,7453998689290,Cereales,2027-07-20,Special K,88.65,437
+4,Ala de Pollo 1lb,7496766894314,Carnes,2026-12-11,Sigma,49.13,197
+5,Yogurt Griego 150g,7480323271371,Lacteos,2027-12-11,Sancor,42.84,125
+6,Chips de Tortilla Queso 100g,7436971512038,Snacks,2027-09-26,Haribo,67.32,480
+7,Quinoa Blanca 1kg,7451568660518,Granos,2026-11-04,NutriGrano,56.13,494
+8,Lentejas Rojas 500g,7417677583528,Granos,2028-03-10,Selecta,31.65,168
+1,Arroz Basmati 1lb,7499173538729,Granos,2028-01-09,Selecta,11.38,286
+2,Pastel de Zanahoria 400g,7486621127450,Panaderia,2028-01-25,Bimbo,17.73,260
+3,Gomitas de Fruta 100g,7418893545587,Snacks,2028-01-28,Barcel,65.25,420
+4,Arándanos Deshidratados 100g,7472959824518,Snacks,2027-04-17,Haribo,47.24,118
+5,Agua Mineral 1.5L,7421380977708,Bebidas,2026-11-17,Red Bull,42.7,76
+6,Zucaritas 300g,7495870053721,Cereales,2028-07-14,Nature Valley,43.5,72
+7,Pan Integral de Molde 400g,7429666943486,Panaderia,2027-02-10,Bimbo,48.91,210
+8,Trapo Multiusos x3,7443327049376,Limpieza,2026-08-11,Pinol,8.83,145
+1,Cepillo Dental Medio x1,7426070368031,Higiene,2027-01-30,Palmolive,123.76,158
+2,Cepillo Dental Suave x1,7458697793556,Higiene,2028-01-17,Garnier,122.69,245
+3,All Bran Fibra 300g,7476721487468,Cereales,2026-09-13,Quaker,52.62,101
+4,Uvas Verdes 500g,7412443244950,Frutas,2027-08-18,TropiCal,18.95,488
+5,Arroz Blanco 2lb,7484694829359,Granos,2027-06-16,RicRiz,58.19,212
+6,Jugo de Maracuyá 1L,7471312988541,Bebidas,2026-10-19,Café Rey,19.68,38
+7,Sal Yodada Fina 500g,7470767371425,Condimentos,2028-06-15,Maggi,49.04,457
+8,Cebolla Blanca 5lb,7431833630807,Verduras,2027-01-07,BioNatur,31.68,14
+1,Crema Ácida 400ml,7430782873220,Lacteos,2028-04-30,Alpura,38.63,115
+2,Lechuga Mantequilla bolsa 200g,7472862185061,Verduras,2026-10-22,La Finca,14.36,281
+3,Chía 500g,7473142368881,Granos,2026-09-15,Granos del Campo,40.48,276
+4,Papel Higiénico Doble Hoja x12,7484562465784,Higiene,2027-01-12,Gillette,148.04,155
+5,Aceite de Sésamo 150ml,7484081257103,Aceites,2028-04-13,Cristal,64.02,348
+6,Avena Instantánea Natural 400g,7462819984066,Cereales,2027-10-25,Post,30.21,181
+7,Desengrasante Cocina 1L,7473958503769,Limpieza,2026-12-07,Vanish,77.31,253
+8,Salsa Cátsup 1kg,7417301410279,Condimentos,2027-08-16,Natura,72.83,114
+1,Caramelos de Menta 200g,7435205689082,Snacks,2027-08-03,Quaker,68.63,343
+2,Salsa de Tomate 800g,7426929146755,Enlatados,2027-03-13,Del Monte,52.15,68
+3,Papas Fritas Naturales 40g,7498549812525,Snacks,2028-03-22,Haribo,58.24,257
+4,Galletas de Arroz Sin Sal 300g,7427135691373,Snacks,2028-09-19,Haribo,49.96,119
+5,Sémola de Trigo 1kg,7467997765427,Granos,2027-01-18,Selecta,41.47,294
+6,Cereal de Avena con Frutas 500g,7499059773533,Cereales,2027-10-23,General Mills,65.62,467
+7,Tomate Cherry 250g,7496991768897,Verduras,2028-07-09,Tierra Fértil,14.58,138
+8,Palomitas de Maíz Natural 100g,7429769022741,Snacks,2027-02-19,KitKat,89.67,277
+1,Leche de Almendra 750ml,7449410734015,Lacteos,2027-05-21,Parmalat,83.44,492
+2,Cepillo Dental Suave x4,7449033591342,Higiene,2027-08-02,Colgate,71.1,486
+3,Jamón Cocido 300g,7437531344599,Carnes,2026-07-05,Sigma,62.89,355
+4,Chocapic 500g,7474465057686,Cereales,2028-10-20,Granix,72.41,463
+5,Lavavajillas Líquido 500ml,7469949460687,Limpieza,2026-11-10,Persil,30.44,134
+6,Pan Integral de Molde 500g,7460152455922,Panaderia,2026-06-24,Bimbo,15.71,173
+7,Piña 500g,7415796223639,Frutas,2028-08-06,FrutaReal,33.08,98
+8,Pretzels 150g,7454319388126,Snacks,2027-08-29,Pringles,38.14,457
+1,Pastel de Zanahoria 600g,7424698120909,Panaderia,2028-04-12,Barcel,45.81,404
+2,Leche de Soya 500ml,7455770854345,Lacteos,2028-05-10,NutriLeche,59.4,202
+3,Galletas de Arroz Sin Sal 200g,7470767522911,Snacks,2026-12-16,Hershey's,12.95,239
+4,Manzana Verde 1lb,7480851536221,Frutas,2027-03-05,Tropical,17.93,286
+5,Bebida Isotónica 1L,7475573752594,Bebidas,2027-05-16,Jarritos,45.65,347
+6,Müsli Suizo 750g,7442884266416,Cereales,2028-06-18,Zucaritas,27.52,204
+7,Pan Multigrano 500g,7473683595409,Panaderia,2027-06-30,Pozuelo,20.39,134
+8,Agua Purificada 2L,7462749662056,Bebidas,2027-03-15,Tropicana,17.9,62
+1,Pasas Sin Semilla 250g,7425820193443,Snacks,2028-04-25,Snickers,30.4,114
+2,Paprika 100g,7473497939462,Condimentos,2028-08-22,Embasa,79.92,271
+3,Sandía unidad,7410984663401,Frutas,2028-07-11,TropiCal,6.48,84
+4,Jugo de Piña 1L,7420299031173,Bebidas,2026-10-07,Café Rey,36.7,383
+5,Frijoles Bayos Cocidos 400g,7477016315354,Enlatados,2027-11-30,Libby's,25.54,492
+6,Comino Molido 200g,7436591612433,Condimentos,2027-07-04,Ducal,74.23,23
+7,Manzana Gala 2lb,7448855186437,Frutas,2026-12-15,TropiCal,15.9,233
+8,Cepillo Dental Suave x2,7487176195988,Higiene,2028-01-13,Sensodyne,14.7,390
+1,Palomitas de Maíz Natural 300g,7434003032200,Snacks,2027-10-22,KitKat,63.45,390
+2,Jabón Líquido para Manos 500ml,7439367601116,Higiene,2027-05-31,Herbal Essences,31.42,318
+3,Bolsas de Basura Pequeñas x30,7454036350060,Limpieza,2027-01-28,Vileda,65.92,425
+4,Edamame Sin Cáscara 800g,7465285659277,Congelados,2028-04-12,Birds Eye,50.25,148
+5,Azúcar Glass 500g,7414287218991,Condimentos,2027-03-19,Embasa,23.67,187
+6,Cebolla Morada 1lb,7492676510266,Verduras,2028-06-27,Viva Fresh,19.95,362
+7,Champiñones Rebanados 200g,7453819603649,Enlatados,2026-10-12,Del Monte,44.68,495
+8,Pepino unidad,7466166901157,Verduras,2027-05-30,FreshMarket,31.43,289
+1,Frijoles Rojos 1lb,7411267931583,Granos,2026-11-18,Goya,16.94,221
+2,Frijoles Negros 2lb,7496635298441,Granos,2028-04-28,Doña Herminia,53.39,179
+3,Limpiapisos Pino 500ml,7449205207812,Limpieza,2026-10-15,Mr.Músculo,39.48,447
+4,Manzana Verde 2lb,7442421704803,Frutas,2027-06-11,BioFrut,17.09,390
+5,Pasta Dental Blanqueadora 75ml,7453819263102,Higiene,2027-04-26,Safeguard,71.16,289
+6,Agua Mineral 1L,7419779917343,Bebidas,2027-06-29,AriZona,36.59,465
+7,Aceite de Aguacate 250ml,7499992076227,Aceites,2028-09-14,Mazola,132.19,171
+8,Salsa de Tomate 200g,7434515502086,Enlatados,2026-09-20,Clemente Jacques,51.16,301
+1,Galletas de Arroz 200g,7425773858126,Panaderia,2027-05-16,La Vienesa,17.2,366
+2,Refresco de Cola 600ml,7447760795857,Bebidas,2027-02-22,Monster,22.15,101
+3,All Bran Fibra 750g,7429599446084,Cereales,2027-08-31,Zucaritas,28.71,500
+4,Orégano Seco 50g,7492580354226,Condimentos,2028-05-05,Aro,65.5,154
+5,Hotcakes Congelados x8,7429866154155,Congelados,2026-12-26,La Michoacana,187.4,11
+6,Azúcar Blanca Refinada 5lb,7430934974917,Condimentos,2027-02-03,Sabemas,22.74,422
+7,Atún en Aceite 80g,7485777284370,Enlatados,2027-12-29,Libby's,29.92,411
+8,Toallas de Papel x6,7418487371007,Higiene,2027-09-07,L'Oréal,147.63,336
+1,Granola con Frutos Secos 500g,7424833593893,Cereales,2027-02-22,Special K,105.85,77
+2,Crema Ácida 500ml,7453381367210,Lacteos,2028-09-25,Yoplait,58.16,11
+3,Yogurt de Vainilla 500g,7427990558519,Lacteos,2028-08-31,Gloria,81.56,168
+4,Cúrcuma 100g,7430166809268,Condimentos,2026-11-28,Goya,8.65,107
+5,Pan Sin Gluten 300g,7425864349604,Panaderia,2027-02-18,Artesano,20.9,285
+6,Afeitadora Desechable x4,7441464854506,Higiene,2028-10-05,Rexona,21.45,165
+7,Croissant x6,7435662366029,Panaderia,2026-06-21,Artesano,10.51,412
+8,Yogurt Natural 125g,7468620728178,Lacteos,2026-12-25,Selecta GT,31.15,196
+1,Barrita Proteica Vainilla x12,7420025839034,Snacks,2027-06-07,Snickers,33.64,33
+2,Papas Fritas Naturales 300g,7499904631287,Snacks,2027-07-21,Del Monte,29.27,68
+3,Pizza de Pepperoni 600g,7428022989697,Congelados,2027-02-27,Don Lee,109.08,131
+4,Cereal de Maíz Azucarado 750g,7482786169905,Cereales,2027-05-14,Quaker,103.67,295
+5,Paleta de Coco x4,7439346344560,Congelados,2027-11-20,Delimex,133.09,43
+6,Azúcar Morena 5lb,7481404160176,Condimentos,2028-01-03,Goya,40.77,295
+7,Mandarina 2lb,7471061441407,Frutas,2026-11-13,NaturFresh,20.86,280
+8,Cereal de Arroz Inflado 500g,7456031214405,Cereales,2027-07-21,Fitness,94.7,442
+1,Acondicionador Sin Enjuague 300ml,7486393003335,Higiene,2027-05-03,Palmolive,62.02,246
+2,Refresco de Uva 350ml,7448695425385,Bebidas,2026-11-11,Cappy,66.21,158
+3,Aceite de Sésamo 300ml,7424126115405,Aceites,2026-10-09,Borges,69.89,110
+4,Pollo Entero lb,7471677048854,Carnes,2028-06-24,Cunit,72.08,182
+5,Agua Purificada 1L,7440781320259,Bebidas,2026-09-06,Cappy,28.14,301
+6,Chips de Tortilla Naturales 200g,7434187632233,Snacks,2027-12-20,Barcel,63.61,214
+7,Lomo de Res 1lb,7434420999723,Carnes,2028-01-28,AviCarne,244.31,311
+8,Leche Entera 500ml,7492177052454,Lacteos,2027-03-10,Alpura,33.96,301
+1,Refresco de Limón 600ml,7417828455954,Bebidas,2026-12-29,Nescafé,27.32,296
+2,Jamón Cocido 200g,7480641699508,Carnes,2028-09-20,FreshMeat,208.99,407
+3,Papas Fritas BBQ 40g,7470615257385,Snacks,2028-05-10,Pringles,85.01,237
+4,Bizcocho de Vainilla 500g,7489822535189,Panaderia,2028-09-14,Bimbo,40.37,173
+5,Leche Entera 250ml,7495133066179,Lacteos,2028-05-28,Campolindo,90.47,390
+6,Pasta de Tomate 400g,7474333451511,Enlatados,2027-09-22,Van Camps,36.27,116
+7,Chocapic 750g,7453320910995,Cereales,2027-07-02,Chocapic,106.71,284
+8,Maní Tostado con Sal 100g,7431330595436,Snacks,2026-11-24,KitKat,14.16,419
+1,Chocolate Caliente 500g,7444820984489,Bebidas,2028-02-23,Milo,39.5,99
+2,Cebolla Blanca 2lb,7462090979270,Verduras,2026-10-01,El Huerto,16.26,94
+3,Acondicionador Hidratante 400ml,7426916659723,Higiene,2028-07-09,Palmolive,97.55,471
+4,Barrita de Granola Chocolate x24,7457980162221,Snacks,2028-04-05,Hershey's,71.43,432
+5,Chocolates Rellenos 200g,7487958387448,Snacks,2027-08-19,Gamesa,65.7,299
+6,Refresco de Cola 350ml,7481768766890,Bebidas,2027-08-04,Red Bull,89.77,140
+7,Papel Higiénico Triple Hoja x6,7451932094363,Higiene,2026-06-08,Head&Shoulders,132.79,306
+8,Esponjas de Cocina x5,7447358088959,Limpieza,2027-12-13,Persil,30.95,287
+1,Leche Descremada 1L,7445194842637,Lacteos,2027-05-31,Pascual,81.05,417
+2,Limpiador de Baño 1L,7460014668664,Limpieza,2026-06-24,Axion,112.74,176
+3,Pizza Hawaiana 300g,7463909252429,Congelados,2026-09-18,Delimex,115.84,498
+4,Spray de Aceite Antiadherente 300ml,7410890049840,Aceites,2027-04-20,Borges,168.96,158
+5,Harina de Maíz 1kg,7470131125717,Cereales,2027-04-12,Zucaritas,57.77,498
+6,Refresco de Cola 1.5L,7480586284063,Bebidas,2028-08-31,Gatorade,38.88,315
+7,Brócoli 500g,7411092382735,Verduras,2028-07-04,La Finca,11.73,215
+8,Cereal de Maíz Azucarado 500g,7447973062056,Cereales,2026-10-23,Special K,89.9,88
+1,Salsa Picante 300ml,7465223032886,Condimentos,2027-07-05,Don Gustavo,77.15,115
+2,Sardinas Ahumadas 250g,7424760975005,Enlatados,2027-09-01,El Inca,25.27,257
+3,Enjuague Bucal 1L,7427476759216,Higiene,2027-03-28,Old Spice,35.66,191
+4,Amaranto 250g,7484999068850,Granos,2027-01-17,Arrocera GT,59.33,488
+5,Mostaza Amarilla 190g,7435006796670,Condimentos,2027-06-10,Del Monte,22.37,318
+6,Harina de Maíz 2kg,7455689787230,Cereales,2026-06-05,Post,30.01,34
+7,Palomitas de Maíz Mantequilla 200g,7437244033360,Snacks,2028-08-23,Takis,77.21,380
+8,Papel Higiénico Doble Hoja x4,7416226572353,Higiene,2028-08-12,Sensodyne,81.13,365
+1,Chile Pimiento Verde 250g,7423248393646,Verduras,2027-02-20,FrescaMarca,11.29,189
+2,Aceite de Maíz 1L,7491467737221,Aceites,2027-01-19,Capullo,41.85,412
+3,Frijoles Negros 1lb,7453345061952,Granos,2026-11-10,La Especial,31.28,152
+4,Jamón Cocido 500g,7432850909588,Carnes,2026-10-27,Granja Selecta,209.87,49
+5,Banano Verde 1lb,7453831305331,Frutas,2027-09-07,NaturFresh,37.26,309
+6,Suavizante de Ropa 2L,7417758994707,Limpieza,2028-03-29,Glad,119.94,114
+7,Papel Higiénico Doble Hoja x24,7481764113114,Higiene,2026-07-09,Safeguard,36.03,350
+8,Paleta de Caramelo x20,7433342179375,Snacks,2026-06-16,KitKat,16.62,495
+1,Pan Blanco de Molde 680g,7494767013187,Panaderia,2026-11-04,Pozuelo,42.49,302
+2,Shampoo Anticaspa 400ml,7443795217832,Higiene,2027-03-23,Gillette,102.41,102
+3,Helado de Vainilla 1L,7493447628579,Congelados,2027-03-11,Don Lee,36.0,312
+4,Aros de Cebolla 300g,7441300619436,Congelados,2027-01-01,Häagen-Dazs,184.53,341
+5,Hamburguesa de Res x2,7425122866134,Congelados,2026-09-19,Rich's,185.28,57
+6,Lechuga Mantequilla unidad,7474381545955,Verduras,2027-02-25,AgroGuat,6.32,231
+7,Nueces Mixtas 200g,7463243110115,Snacks,2026-06-26,Trolli,21.73,63
+8,Paleta de Coco x6,7453099997248,Congelados,2027-05-03,La Michoacana,46.12,76
+1,Jabón Líquido para Manos 250ml,7419796352765,Higiene,2028-02-24,Oral-B,147.67,491
+2,Aceite de Maíz 2L,7425194944950,Aceites,2028-02-10,Borges,17.62,54
+3,Té Frío de Menta 1L,7453953408523,Bebidas,2027-01-02,Monster,33.45,36
+4,Detergente en Polvo 4kg,7469010773406,Limpieza,2026-12-07,Clorox,117.65,331
+5,Donas Glaseadas x4,7425989266207,Panaderia,2028-03-01,La Vienesa,9.2,286
+6,Aceite de Coco 1L,7484045564509,Aceites,2027-03-22,Borges,147.71,112
+7,Harina de Trigo 500g,7432410510003,Cereales,2026-06-23,Fitness,17.37,492
+8,Café en Cápsulas x10,7425299898921,Bebidas,2028-02-22,Tropicana,83.96,169
+1,Harina de Trigo 1kg,7499382431953,Cereales,2027-12-15,Kellogg's,101.82,77
+2,Detergente en Polvo 500g,7482618266639,Limpieza,2028-05-14,Lavaplatos Rey,20.1,328
+3,Yogurt Congelado Vainilla 500ml,7486228603738,Congelados,2028-01-03,Sargento,58.44,39
+4,Espinaca 150g,7462270977206,Verduras,2028-04-19,Campo Verde,31.52,311
+5,Helado de Fresa 1L,7412642889514,Congelados,2027-11-22,Eskimo,133.54,336
+6,Atún con Vegetales 140g,7494645112903,Enlatados,2027-06-10,San Marcos,39.63,145
+7,Queso Fresco 500g,7474088001221,Lacteos,2028-08-21,Sigma,37.21,79
+8,Jugo de Mango 1L,7421697612002,Bebidas,2027-10-21,Red Bull,63.86,144
+1,Galletas de Avena 300g,7483843354745,Panaderia,2028-03-24,Gamesa,15.55,442
+2,Hamburguesa de Res x4,7428061404218,Congelados,2028-04-06,Delimex,63.3,391
+3,Atún en Aceite 140g,7447828459813,Enlatados,2028-06-21,Unilever,26.05,127
+4,Tomate Cherry 500g,7477663944088,Verduras,2028-10-16,Local,20.07,130
+5,Maíz Dulce Entero 800g,7483882918553,Enlatados,2027-09-24,Herdez,25.25,473
+6,Aceite Aromático de Ajo 200ml,7485445164240,Aceites,2027-03-01,Gallo,156.63,220
+7,Lavavajillas Líquido 1L,7479531281783,Limpieza,2027-03-24,Maestro Limpio,38.62,185
+8,Pasta de Tomate 140g,7451251073216,Enlatados,2027-11-18,Goya,54.83,81
+1,Sardinas en Aceite 250g,7433491395407,Enlatados,2026-12-06,La Costeña,12.43,206
+2,Pizza de Queso 300g,7468713606549,Congelados,2027-05-27,Don Lee,99.11,58
+3,Lavavajillas en Pastilla x20,7440315025763,Limpieza,2027-01-23,Persil,34.06,55
+4,Queso Cheddar 400g,7448811826779,Lacteos,2026-12-10,Anchor,33.13,211
+5,Sazonador de Pollo 80g,7460016959046,Condimentos,2027-01-21,Maggi,56.51,315
+6,Leche de Almendra 1L,7419887381749,Lacteos,2027-12-23,Gloria,65.46,68
+7,Desodorante en Spray 200ml,7484567719466,Higiene,2027-11-02,Rexona,68.23,151
+8,Papaya 500g,7427126393460,Frutas,2027-01-19,Tropical,32.79,493
+1,Pan Integral de Molde 680g,7496327224490,Panaderia,2028-06-11,BonPain,35.17,280
+2,Aceite de Canola 500ml,7476932266682,Aceites,2027-05-17,Mazola,80.72,245
+3,Jugo de Guayaba 500ml,7443630348460,Bebidas,2028-05-22,Monster,73.38,374
+4,Bolsas de Basura Medianas x20,7440033354934,Limpieza,2027-09-12,Vanish,112.07,61
+5,Arroz Blanco 5lb,7428527526630,Granos,2027-05-04,La Perla,59.04,282
+6,Barrita de Granola Miel x24,7443675026138,Snacks,2027-06-12,Haribo,42.63,54
+7,Cacao en Polvo 500g,7455297052018,Bebidas,2028-06-10,Gatorade,78.77,489
+8,Papaya unidad,7411247360104,Frutas,2028-05-08,FreshFarm,23.61,459
+1,Suavizante de Ropa 500ml,7467327139893,Limpieza,2026-10-25,WD-40,44.07,190
+2,Azúcar Glass 250g,7435643686605,Condimentos,2027-09-30,Aro,31.7,278
+3,Refresco de Uva 1.5L,7411563814302,Bebidas,2026-09-26,Jarritos,69.54,410
+4,Maíz Amarillo 5lb,7443982772618,Granos,2028-04-02,El Cosechero,24.16,157
+5,Piña en Rodajas 820g,7494051090755,Enlatados,2028-01-03,Herdez,55.36,416
+6,Chicle Sin Azúcar x10,7467174286441,Snacks,2027-11-21,Del Monte,82.89,463
+7,Agua con Gas 500ml,7472880281272,Bebidas,2027-04-14,Del Valle,64.25,323
+8,Papel Higiénico Triple Hoja x12,7426151469410,Higiene,2027-11-23,Herbal Essences,139.45,42
+1,Maíz Amarillo 1lb,7463098508010,Granos,2027-11-10,Selecta,9.88,192
+2,Arroz Blanco 10lb,7445967872702,Granos,2026-12-04,Albita,24.5,170
+3,Galletas de Chocolate 400g,7441503855783,Panaderia,2028-02-06,Pan Rey,7.38,296
+4,Arroz Jazmín 5lb,7434251125063,Granos,2027-03-13,Maravilla,26.49,466
+5,Piña en Rodajas 400g,7439688720175,Enlatados,2026-08-23,El Inca,59.48,453
+6,Mayonesa 190g,7477552543775,Condimentos,2026-11-07,Del Monte,14.11,477
+7,Quinoa Roja 500g,7446306762803,Granos,2027-01-31,BioSelect,35.92,405
+8,Salsa de Soya 300ml,7427381641043,Condimentos,2027-05-09,Mc Ilhenny,22.64,414
+1,Chicharrones de Cerdo 200g,7459426476774,Snacks,2028-10-03,Snickers,76.25,345
+2,Frijoles Rojos 2lb,7449177121817,Granos,2027-05-22,RicRiz,12.76,86
+3,Crema Ácida 200ml,7499878096433,Lacteos,2027-04-30,Gloria,65.48,275
+4,Banano Maduro 2lb,7412764580769,Frutas,2026-08-16,El Paraíso,17.25,353
+5,Aceite de Palma 1L,7432647956740,Aceites,2028-09-24,La Española,105.92,439
+6,Esponjas de Cocina x3,7472133941523,Limpieza,2027-09-29,Persil,43.82,142
+7,Arroz Basmati 2lb,7446383013111,Granos,2027-12-14,Goya,63.94,331
+8,Tamales Congelados x8,7487283914855,Congelados,2027-08-20,Birds Eye,157.44,52
+1,Mortadela 200g,7490568876170,Carnes,2028-08-12,PouletGT,82.93,20
+2,Shampoo Anticaspa 750ml,7487719459974,Higiene,2027-08-04,Pantene,139.99,397
+3,Coliflor 1lb,7449327937905,Verduras,2027-04-08,Local,5.27,136
+4,Té Frío de Limón 500ml,7434375981873,Bebidas,2027-10-20,Pure Water,40.82,189
+5,Corn Flakes con Miel 500g,7447210887119,Cereales,2027-07-19,Fitness,89.24,182
+6,Mantequilla Con Sal 400g,7472976684621,Lacteos,2027-02-15,Lala,63.46,202
+7,Refresco de Naranja 2L,7420941656701,Bebidas,2028-06-12,Florida,79.67,429
+8,Sopa de Verduras 610g,7452354748084,Enlatados,2027-02-27,Del Monte,43.26,351
+1,Lomo de Res 500g,7421103107270,Carnes,2028-09-10,Zenú,186.62,378
+2,Lentejas Rojas 2lb,7455109843824,Granos,2027-10-22,Maravilla,27.69,401
+3,Limpiapisos Pino 1L,7441319917878,Limpieza,2027-05-28,Glad,29.53,380
+4,Frijoles Negros Cocidos 800g,7413459348687,Enlatados,2027-06-28,Herdez,40.44,74
+5,Leche Descremada 2L,7468354571460,Lacteos,2027-08-01,Parmalat,29.64,113
+6,Cereal de Maíz Azucarado 300g,7430674831616,Cereales,2027-04-19,Quaker,95.02,316
+7,Crema de Afeitar 200ml,7441513857652,Higiene,2027-04-06,Colgate,26.03,432
+8,Garbanzos 500g,7417687304696,Granos,2028-04-19,El Cosechero,31.14,482
+1,Paleta de Fresa x4,7447402482169,Congelados,2028-08-20,McCain,75.06,224
+2,Avena Instantánea Sabor Canela 800g,7475135814305,Cereales,2027-06-05,Kellogg's,98.18,427
+3,Hamburguesa de Pollo x4,7416575330967,Congelados,2027-05-01,Gorton's,180.54,357
+4,Pan Pita x4,7412551006026,Panaderia,2028-03-18,Gamesa,37.15,354
+5,Cebolla Morada 2lb,7495842703152,Verduras,2027-06-13,El Huerto,3.11,329
+6,Helado de Fresa 2L,7499590155389,Congelados,2028-07-24,Häagen-Dazs,85.77,126
+7,Limón Amarillo 500g,7496516162219,Frutas,2027-01-12,FrutaFina,43.38,81
+8,Agua Mineral 500ml,7492523159626,Bebidas,2028-03-23,AriZona,67.0,350
+1,Yogurt Natural 500g,7429207812093,Lacteos,2026-11-03,Gloria,44.57,206
+2,Muffins de Chocolate x4,7434456805514,Panaderia,2027-03-02,Wonder,45.44,117
+3,Queso Fresco 400g,7475997966690,Lacteos,2027-07-07,Yoplait,16.31,49
+4,Agua con Gas 1.5L,7429623542527,Bebidas,2027-02-19,Pepsi,64.98,416
+5,Brócoli Congelado 400g,7426724772619,Congelados,2027-04-30,Don Lee,111.66,189
+6,Kiwi x6,7474547624003,Frutas,2027-08-05,FreshFarm,15.77,38
+7,Jugo de Naranja 500ml,7426902283181,Bebidas,2027-11-01,Gatorade,69.5,106
+8,Vinagre de Manzana 1L,7416976735245,Condimentos,2027-07-31,Natura,21.91,61
+1,Coliflor 500g,7427419650812,Verduras,2028-02-02,FrescaMarca,34.09,282
+2,Barrita Proteica Vainilla x6,7471692450787,Snacks,2028-01-31,Haribo,32.64,283
+3,Amaranto 500g,7451751071659,Granos,2027-02-02,La Perla,31.42,339
+4,Papas Fritas Queso 200g,7449920305729,Snacks,2028-05-22,Trolli,27.78,261
+5,Hotcakes Congelados x6,7480281751110,Congelados,2027-03-06,Nestlé,79.49,339
+6,Frijoles Negros 5lb,7424264456005,Granos,2026-07-01,Goya,14.69,86
+7,Guantes de Látex L,7447331082905,Limpieza,2027-11-20,Axion,22.25,135
+8,Mantequilla Sin Sal 200g,7459297395499,Lacteos,2028-03-08,Sancor,23.74,445
+1,Pizza Hawaiana 600g,7461642739534,Congelados,2027-03-03,DiGiorno,23.7,485
+2,Salsa Cátsup 500g,7497526874813,Condimentos,2027-04-28,Herdez,7.01,171
+3,Refresco de Naranja 350ml,7466218848526,Bebidas,2026-06-29,Tropicana,74.93,466
+4,Carne Molida de Res 500g,7479107296867,Carnes,2028-04-10,Granja Selecta,95.57,84
+5,Manzana Gala 1lb,7463374175603,Frutas,2027-02-08,Local,17.63,225
+6,Pan Pita x8,7437614926699,Panaderia,2027-10-10,Pozuelo,13.73,398
+7,Jamón Serrano 100g,7482803523140,Carnes,2027-12-24,Granja Selecta,206.08,495
+8,Bolsas de Basura Grandes x10,7414331309460,Limpieza,2028-07-06,Axion,75.77,253
+1,Refresco de Limón 1.5L,7459486498870,Bebidas,2026-09-03,Florida,26.67,326
+2,Zanahoria 1lb,7498906347861,Verduras,2027-09-21,Campo Verde,13.78,443
+3,Leche Semidescremada 1L,7421463305627,Lacteos,2027-05-15,Campolindo,15.73,207
+4,Azúcar Blanca Refinada 10lb,7477501709583,Condimentos,2027-01-26,Aro,57.07,306
+5,Pasta Dental con Flúor 125ml,7457569490712,Higiene,2027-05-06,Head&Shoulders,51.28,334
+6,Queso Mozzarella 200g,7496579733053,Lacteos,2027-07-31,Lala,23.83,182
+7,Sopa de Pollo con Fideos 305g,7476328204130,Enlatados,2028-01-22,Heinz,47.14,358
+8,Detergente Líquido 1L,7434926975178,Limpieza,2027-05-01,Vanish,110.74,241
+1,Mandarina 500g,7489487152346,Frutas,2028-09-09,FrutaFina,10.99,463
+2,Tortilla de Maíz x30,7473849646252,Panaderia,2027-01-28,Artesano,25.98,278
+3,Dulce de Leche 200g,7483179468158,Snacks,2027-03-02,Milky Way,62.14,217
+4,Aceite de Girasol 2L,7457725292316,Aceites,2027-08-28,Mazola,128.48,302
+5,Lomo de Cerdo 500g,7448075490863,Carnes,2028-02-19,RanchoReal,156.53,444
+6,Chicharrones de Cerdo 50g,7427719609155,Snacks,2028-10-13,Quaker,47.91,480
+7,Tortilla de Harina x8,7466716271126,Panaderia,2027-04-15,Pan Rey,16.26,142
+8,Lavavajillas en Pastilla x30,7481837947794,Limpieza,2026-06-13,Ajax,117.67,66
+1,Pimienta Negra Molida 100g,7452351463540,Condimentos,2026-10-10,La Fina,37.11,74
+2,Burritos Congelados x4,7479958470729,Congelados,2028-05-16,McCain,172.78,65
+3,Harina de Avena 1kg,7464404730829,Cereales,2027-12-04,Fitness,75.66,310
+4,Manzana Verde 500g,7417623792988,Frutas,2026-12-13,BioFrut,4.44,391
+5,Quinoa Roja 1kg,7464002441467,Granos,2028-03-01,Doña Herminia,51.31,213
+6,Té Frío de Limón 1L,7490284938856,Bebidas,2028-02-07,V8,36.46,152
+7,Aceite de Oliva Extra Virgen 500ml,7453042636826,Aceites,2027-04-23,Mazola,115.48,98
+8,Arveja Verde 400g,7460164095486,Enlatados,2026-08-03,Clemente Jacques,32.25,480
+1,Atún con Vegetales 280g,7486862881581,Enlatados,2028-02-23,Knorr,8.26,66
+2,Hamburguesa de Res x6,7485655513046,Congelados,2028-06-28,Birds Eye,133.57,468
+3,Nuggets de Pollo 400g,7454367126243,Congelados,2028-04-21,McCain,167.97,469
+4,Té Frío de Durazno 1.5L,7490501186489,Bebidas,2028-04-08,Cappy,44.06,442
+5,Sazonador de Carne 80g,7487507958578,Condimentos,2028-04-27,Del Monte,4.76,43
+6,Mostaza Dijon 200g,7488549090423,Condimentos,2028-08-09,Sabemas,68.92,387
+7,Palomitas de Maíz Mantequilla 100g,7455454832226,Snacks,2026-07-19,Gamesa,34.12,66
+8,Papa Blanca 2lb,7485605898567,Verduras,2028-04-28,El Huerto,32.14,329
+1,Tamales Congelados x4,7444260423063,Congelados,2027-06-17,Häagen-Dazs,173.58,147
+2,Arándanos 125g,7477867589866,Frutas,2026-10-21,El Paraíso,46.83,484
+3,Granola con Frutos Secos 300g,7434345866095,Cereales,2028-02-03,Corn Pops,98.01,197
+4,Galletas Soda 400g,7410213814272,Panaderia,2027-07-16,Sara Lee,9.6,89
+5,Salchicha Frankfurt 500g,7452116333431,Carnes,2027-08-16,PouletGT,30.11,322
+6,Spray de Aceite Antiadherente 170ml,7435021046232,Aceites,2026-11-20,Chef,37.22,44
+7,Aceite de Oliva Virgen 250ml,7461690434151,Aceites,2028-09-05,Paloma,60.37,268
+8,Costilla de Cerdo 2lb,7415891332557,Carnes,2027-01-14,Carnibest,75.92,349
+1,Frijoles Bayos Cocidos 800g,7456722263387,Enlatados,2028-08-17,Del Monte,56.32,353
+2,Almendras Tostadas 200g,7461276114231,Snacks,2027-05-26,Cheetos,82.65,57
+3,Jabón Líquido para Manos 1L,7415956855842,Higiene,2028-08-22,Pantene,115.76,150
+4,Tortilla de Maíz x20,7471666780014,Panaderia,2027-02-01,NaturPan,13.87,71
+5,Chips de Tortilla Queso 300g,7445672539347,Snacks,2026-06-05,Ruffles,66.65,381
+6,Frijoles Blancos 1lb,7488317086558,Granos,2027-04-16,Doña Herminia,17.8,404
+7,Jabón Antibacterial 150g,7499874493966,Higiene,2026-09-10,Oral-B,42.78,237
+8,Chocolate Caliente 400g,7432453370390,Bebidas,2027-06-18,Del Valle,77.05,270
+1,Jugo de Naranja 2L,7442528690182,Bebidas,2026-10-16,Milo,28.53,196
+2,Salsa de Soya 150ml,7462571148831,Condimentos,2028-02-06,Del Monte,7.66,93
+3,Refresco de Naranja 1.5L,7498256931419,Bebidas,2027-05-28,Gatorade,23.57,27
+4,Frijoles Negros Cocidos 400g,7486910632425,Enlatados,2028-04-26,Goya,28.03,323
+5,Sopa de Pollo con Fideos 610g,7493026713235,Enlatados,2028-02-19,Herdez,55.15,265
+6,Granola con Miel 300g Extra,7456643652381,Cereales,2028-03-17,Chocapic,107.32,13
+7,Espárragos 400g Extra,7459213146746,Enlatados,2027-05-04,Campbell's,41.58,179
+8,Aceite de Canola 2L Extra,7496588781483,Aceites,2027-11-12,Borges,159.09,422
+1,Café Molido 1kg Extra,7439049887266,Bebidas,2028-05-17,Cappy,83.41,124
+2,Paprika 200g Extra,7410088267932,Condimentos,2028-07-17,Natura,24.27,280
+3,Tortilla de Maíz x12 Extra,7486932788719,Panaderia,2028-10-08,Schär,15.5,321
+4,Piña unidad Extra,7457229078575,Frutas,2028-06-14,DelSol,15.03,186
+5,Garbanzos 2lb Extra,7410566187547,Granos,2027-08-23,Doña Herminia,19.5,156
+6,Nueces Mixtas 100g Extra,7481297464349,Snacks,2027-09-19,Hershey's,27.97,445
+7,Queso Manchego 400g Extra,7487398149345,Lacteos,2027-02-21,Pascual,77.58,381
+8,Pasta Dental con Flúor 75ml Extra,7424861718553,Higiene,2027-12-03,Garnier,9.25,470
+1,Agua Purificada 1.5L Extra,7463902891178,Bebidas,2028-02-23,Coca-Cola,12.03,217
+2,Aceite de Canola 1L Extra,7445051694463,Aceites,2027-10-27,Mazola,94.78,27
+3,Crema de Afeitar 100ml Extra,7413258379637,Higiene,2027-04-26,Pantene,18.29,446
+4,Zanahoria 2lb Extra,7454911396831,Verduras,2027-08-18,FreshMarket,26.96,395
+5,Limpiador Multiusos 500ml Extra,7459383827431,Limpieza,2028-01-20,Ajax,105.97,279
+6,Yogurt Griego 500g Extra,7497442377194,Lacteos,2027-09-22,Lala,27.22,234
+7,Pasas Sin Semilla 100g Extra,7437015551813,Snacks,2026-10-27,Lays,84.31,16
+8,All Bran Fibra 500g Extra,7484252695687,Cereales,2028-10-14,Post,56.5,65
+1,Helado de Fresa 500ml Extra,7457414541977,Congelados,2028-03-16,McCain,47.56,20
+2,Brócoli Congelado 800g Extra,7475092660159,Congelados,2028-09-22,McCain,42.9,292
+3,Muslo de Pollo 2lb Extra,7463251596251,Carnes,2027-06-03,PouletGT,82.95,255
+4,Acondicionador Hidratante 200ml Extra,7478683403448,Higiene,2027-09-10,Old Spice,138.99,270
+5,Refresco de Uva 600ml Extra,7496743414396,Bebidas,2026-07-16,Tang,37.46,348
+6,Acondicionador Sin Enjuague 150ml Extra,7477332050543,Higiene,2027-01-15,Colgate,104.09,54
+7,Pasta Dental Blanqueadora 200ml Extra,7494027677864,Higiene,2026-09-20,Colgate,24.1,57
+8,Bistec de Res 500g Extra,7424066695642,Carnes,2027-11-13,San Rafael,238.3,376
+1,Jugo Multifrutas 1L Extra,7425462054705,Bebidas,2027-04-04,Tang,61.38,399
+2,Trapo Multiusos x5 Extra,7458446942740,Limpieza,2028-01-29,Scotch-Brite,102.01,202
+3,Avena en Hojuelas 400g Extra,7473279243248,Granos,2028-04-29,La Perla,10.38,384
+4,Uvas Verdes 1lb Extra,7412234861285,Frutas,2027-10-03,DelSol,16.52,52
+5,Tamales Congelados x6 Extra,7471235199145,Congelados,2027-05-14,Frosta,65.09,240
+6,Harina de Maíz 500g Extra,7442210145684,Cereales,2028-02-24,Special K,77.21,396
+7,Tocino Ahumado 400g Extra,7460572423465,Carnes,2026-08-13,Sigma,26.22,486
+8,Papaya 1kg Extra,7436340116839,Frutas,2028-04-22,FrucaGT,7.44,362
+1,Hamburguesa de Pollo x6 Extra,7481481907270,Congelados,2026-12-18,Delimex,196.75,242
+2,Costilla de Res 1lb Extra,7459199661882,Carnes,2028-02-08,RanchoReal,225.9,132
+3,Chocapic 375g Extra,7486277967291,Cereales,2026-12-10,Post,59.95,350
+4,Cereal Integral de Trigo 750g Extra,7447136210929,Cereales,2027-03-06,General Mills,19.6,276
+5,Chocolate Caliente 200g Extra,7492796637482,Bebidas,2026-08-08,V8,36.95,100
+6,Harina para Hotcakes 400g Extra,7416167325146,Cereales,2028-05-02,Nature Valley,105.33,270
+7,Jamón Serrano 200g Extra,7431375441759,Carnes,2027-01-18,PouletGT,145.97,353
+8,Chips de Tortilla Naturales 100g Extra,7486005097734,Snacks,2026-11-05,Ricolino,54.54,341
+1,Enjuague Bucal 500ml Extra,7472683166173,Higiene,2028-09-20,Head&Shoulders,134.06,360
+2,Tostadas de Trigo 300g Extra,7447403055896,Panaderia,2028-06-07,BonPain,9.45,80
+3,Cúrcuma 200g Extra,7447020007085,Condimentos,2027-07-06,Ducal,46.03,480
+4,Cloro Líquido 2L Extra,7444631601175,Limpieza,2028-01-12,Glad,18.67,377
+5,Bolsas de Basura Pequeñas x20 Extra,7445438933276,Limpieza,2028-02-21,Lysol,63.72,271
+6,Arroz Integral 1lb Extra,7447579559176,Granos,2028-10-08,El Maizal,63.46,180
+7,Mantequilla Sin Sal 400g Extra,7410312186868,Lacteos,2028-04-23,Selecta GT,71.53,234
+8,Trigo Bulgur 1kg Extra,7437811009889,Granos,2027-08-25,Goya,10.85,108
+1,Pasta de Tomate 70g Extra,7445320678859,Enlatados,2028-03-21,Van Camps,45.93,102
+2,Mango Tommy 1lb Extra,7434088867693,Frutas,2026-12-05,FreshFarm,35.51,438
+3,Barrita de Granola Chocolate x6 Extra,7495061124778,Snacks,2028-07-05,Nature Valley,67.74,59
+4,Aceite Aromático de Chile 200ml Extra,7472861984016,Aceites,2026-09-02,Borges,123.75,67
+5,Mayonesa 400g Extra,7423246269542,Condimentos,2027-10-19,Hunt's,24.9,109
+6,Aceite Vegetal 1L Extra,7485789648833,Aceites,2027-11-23,Verde Campo,55.95,217
+7,Manteca Vegetal 3kg Extra,7429630748761,Aceites,2028-01-25,La Española,162.93,123
+8,Leche Condensada 200g Extra,7481738856942,Lacteos,2028-01-31,Campolindo,36.28,455
+1,Yogurt de Vainilla 125g Extra,7489509021533,Lacteos,2026-12-12,Anchor,14.74,75
+2,Melón Cantalupo 500g Extra,7455103538850,Frutas,2027-05-13,Tropical,43.59,67
+3,Cloro Líquido 500ml Extra,7435475820210,Limpieza,2028-03-27,Scotch-Brite,101.59,64
+4,Avena Instantánea Natural 1kg Extra,7447067082376,Cereales,2027-09-06,Kellogg's,29.24,296
+5,Lavavajillas Líquido 250ml Extra,7483329354485,Limpieza,2028-02-14,Ariel,47.17,260
+6,Quitamanchas 250ml Extra,7435217698689,Limpieza,2027-04-22,Brillante,86.27,377
+7,Limpiador Multiusos 1L Extra,7488379550954,Limpieza,2028-04-21,Tide,70.04,29
+8,Papas Fritas Queso 40g Extra,7477275341509,Snacks,2027-01-22,Cheetos,14.44,118
+1,Sazonador de Pollo 300g Extra,7429772164062,Condimentos,2027-05-15,Ducal,66.12,246
+2,Bebida Energética 250ml Extra,7449632501840,Bebidas,2027-05-13,Milo,48.44,68
+3,Barrita de Granola Miel x6 Extra,7487557887833,Snacks,2026-08-10,Del Monte,61.38,236
+4,Té Frío de Durazno 500ml Extra,7468133464933,Bebidas,2028-02-12,Café Rey,37.34,309
+5,Papas Fritas BBQ 200g Extra,7475933305772,Snacks,2027-08-27,Milky Way,43.15,152
+6,Arroz Jazmín 2lb Extra,7465760618656,Granos,2028-10-19,BioSelect,39.62,283
+7,Donas Glaseadas x6 Extra,7487000076837,Panaderia,2026-11-29,Sara Lee,26.05,436
+8,Carne Molida de Res 2lb Extra,7479879644523,Carnes,2027-12-11,Cunit,109.75,114
+1,Café Instantáneo 200g Extra,7496819376574,Bebidas,2028-01-18,Milo,73.61,371
+2,Cereal de Avena con Frutas 750g Extra,7468265117707,Cereales,2027-07-13,Kellogg's,77.17,302
+3,Corn Flakes con Miel 300g Extra,7440097049836,Cereales,2026-10-23,Nature Valley,104.32,286
+4,Refresco de Cola 3L Extra,7476048297217,Bebidas,2027-10-23,Del Valle,88.04,157
+5,Muslo de Pollo 1lb Extra,7494536700098,Carnes,2028-08-29,AgroFarm,94.04,156
+6,Maní Enchilado 200g Extra,7484865593864,Snacks,2028-03-17,Takis,84.11,193
+7,Champiñones Rebanados 400g Extra,7483342361742,Enlatados,2026-10-23,El Inca,50.28,240
+8,Arándanos Deshidratados 250g Extra,7439819724713,Snacks,2027-12-11,Bimbo,67.15,246
+1,Jugo de Naranja 1L Extra,7470006862033,Bebidas,2026-08-15,Café Rey,22.99,230
+2,Müsli Suizo 500g Extra,7465064228167,Cereales,2027-07-10,Corn Pops,49.66,257
+3,Galletas de Avena 400g Extra,7414106862276,Panaderia,2026-07-17,La Vienesa,44.35,284
+4,Pan Multigrano 400g Extra,7421017631158,Panaderia,2027-07-01,Pan Rey,47.13,279
+5,Guantes de Látex M Extra,7489466647278,Limpieza,2026-08-15,Glad,38.28,195
+6,Café Molido 500g Extra,7413001479577,Bebidas,2028-01-29,AriZona,36.26,61
+7,Quinoa Blanca 500g Extra,7449681650848,Granos,2028-06-17,La Milpa,12.66,12
+8,Pasta Dental con Flúor 200ml Extra,7420674976731,Higiene,2028-04-18,Rexona,126.03,455
+1,Refresco de Limón 350ml Extra,7498682918399,Bebidas,2027-11-27,V8,28.55,215
+2,Salsa de Soya 500ml Extra,7489606605398,Condimentos,2028-08-16,Hunt's,33.27,205
+3,Salsa Inglesa 150ml Extra,7498523192125,Condimentos,2027-08-03,Kikkoman,76.61,397
+4,Aceite de Maíz 500ml Extra,7492249517059,Aceites,2026-09-13,Paloma,42.06,429
+5,Corn Flakes Clásico 300g Extra,7492295647110,Cereales,2027-01-22,General Mills,93.77,306
+6,Limpiapisos Lavanda 2L Extra,7437656558135,Limpieza,2027-08-23,Glad,9.02,220
+7,Aceite Vegetal 500ml Extra,7449051631525,Aceites,2026-09-23,La Española,89.83,154
+8,Crema para Batir 200ml Extra,7428103411215,Lacteos,2027-09-12,Parmalat,67.13,368
+1,Helado de Chocolate 2L Extra,7495258516572,Congelados,2027-06-17,Kellogg's,52.33,84
+2,Shampoo para Cabello Seco 400ml Extra,7451715667407,Higiene,2028-09-18,Rexona,12.26,171
+3,Cúrcuma 50g Extra,7450001120926,Condimentos,2027-08-07,Aro,77.29,395
+4,Limpiador de Baño 750ml Extra,7468391881734,Limpieza,2028-10-08,Ajax,21.36,246
+5,Pan de Centeno 500g Extra,7492998940115,Panaderia,2026-08-25,NaturPan,36.64,189
+6,Espinaca Congelada 400g Extra,7432284989211,Congelados,2027-10-08,McCain,64.14,19
+7,Maíz Dulce Entero 300g Extra,7413026234435,Enlatados,2027-12-23,Clemente Jacques,59.41,356
+8,Atún en Agua 140g Extra,7457147372144,Enlatados,2027-08-01,Hunt's,39.76,141
+1,Harina de Trigo 2kg Extra,7459168384752,Cereales,2026-11-16,Nestlé,18.25,185
+2,Limpiapisos Pino 2L Extra,7481857522895,Limpieza,2027-03-18,Lavaplatos Rey,58.8,100
+3,Limpiapisos Citrus 1L Extra,7427894201769,Limpieza,2028-04-11,Persil,104.99,67
+4,Cereal Integral de Trigo 500g Extra,7442514596631,Cereales,2027-04-22,Chocapic,93.0,281
+5,Toallas de Papel x4 Extra,7426195795756,Higiene,2028-08-18,Safeguard,83.77,204
+6,Espinaca 300g Extra,7470158952702,Verduras,2027-12-27,FrescaMarca,7.37,485
+7,Cepillo Dental Medio x2 Extra,7455185699455,Higiene,2027-12-25,Rexona,41.22,413
+8,Leche Deslactosada 1L Extra,7423446088397,Lacteos,2027-04-01,Anchor,83.6,400
+1,Bolsas de Basura Medianas x10 Extra,7493138518081,Limpieza,2027-05-07,Brillante,43.77,285
+2,Apio manojo Extra,7479956673091,Verduras,2027-02-02,Campo Verde,13.4,437
+3,Frijoles Rojos 5lb Extra,7425870639208,Granos,2028-05-04,Goya,22.39,380
+4,Detergente Líquido 2L Extra,7487817104844,Limpieza,2027-10-03,Lavaplatos Rey,114.88,45
+5,Pan Blanco de Molde 400g Extra,7476495756212,Panaderia,2027-06-14,Gamesa,21.86,106
+6,Pañuelos Faciales x100 Extra,7412525666051,Higiene,2027-09-09,Herbal Essences,101.31,169
+7,Café en Cápsulas x20 Extra,7419793615894,Bebidas,2027-12-18,Florida,78.34,44
+8,Lechuga Romana bolsa 200g Extra,7488631947036,Verduras,2026-11-08,La Finca,30.66,65
+1,Papas Fritas Congeladas 1kg Extra,7476119996081,Congelados,2027-09-28,Eskimo,56.76,290
+2,Chicharrones de Cerdo 100g Extra,7431628671443,Snacks,2027-03-12,Bimbo,51.43,28
+3,Agua con Gas 1L Extra,7482293509185,Bebidas,2026-08-17,Milo,12.84,239
+4,Queso Crema 500g Extra,7458281003549,Lacteos,2028-05-03,Selecta GT,37.65,178
+5,Vinagre Blanco 1L Extra,7473979033296,Condimentos,2028-07-21,Sabemas,56.57,212
+6,Lentejas Verdes 1lb Extra,7465116113326,Granos,2028-05-16,La Especial,48.77,148
+7,Pasas Sin Semilla 500g Extra,7489674362516,Snacks,2027-11-20,Marinela,64.65,19
+8,Leche Descremada 500ml Extra,7468149566595,Lacteos,2026-12-15,Anchor,56.89,56
+1,Muslo de Pollo 5lb Extra,7498710963866,Carnes,2028-02-01,Sigma,230.21,498
+2,Chuleta de Cerdo 1lb Extra,7479016766011,Carnes,2028-04-07,Sigma,25.31,455
+3,Chorizo Español 400g Extra,7459809857988,Carnes,2028-05-02,AgroFarm,182.89,453
+4,Corn Flakes Clásico 750g Extra,7490761638944,Cereales,2027-08-11,General Mills,24.64,393
+5,Queso Mozzarella 400g Extra,7477380881457,Lacteos,2027-01-06,Yoplait,92.84,232
+6,Orégano Seco 20g Extra,7470091342709,Condimentos,2027-04-10,Maggi,67.34,107
+7,Margarina 225g Extra,7467867968367,Lacteos,2028-03-03,Anchor,87.51,458
+8,Trigo Bulgur 500g Extra,7457648123773,Granos,2028-05-14,Arrocera GT,8.84,237
+1,Yogurt de Durazno 250g Extra,7490537865823,Lacteos,2026-10-20,NutriLeche,84.0,486
+2,Salsa de Tomate 400g Extra,7458889613176,Enlatados,2027-10-13,Hunt's,58.98,362
+3,Mortadela 300g Extra,7442761265383,Carnes,2028-07-26,Granja Selecta,38.05,473
+4,Crema para Batir 500ml Extra,7412778426645,Lacteos,2027-10-12,Selecta GT,61.91,310
+5,Bebida Energética 500ml Extra,7477375423100,Bebidas,2027-12-10,Milo,65.74,133
+6,Bebida de Coco 500ml Extra,7435607353767,Bebidas,2027-06-19,Nescafé,29.29,321
+7,Mayonesa 800g Extra,7433344858343,Condimentos,2027-05-31,McCormick,39.64,225
+8,Jugo de Piña 500ml Extra,7468139529577,Bebidas,2028-01-15,Pure Water,58.6,395
+1,Limpiapisos Lavanda 1L Extra,7415202471729,Limpieza,2027-10-04,Downy,10.65,342
+2,Jabón de Baño Hidratante 90g Extra,7448440177941,Higiene,2026-08-09,Herbal Essences,103.19,401
+3,Mezcla de Verduras 1kg Extra,7465296050120,Congelados,2028-09-12,Kellogg's,100.51,317
+4,Yogurt Natural 250g Extra,7411401759670,Lacteos,2026-07-26,Anchor,54.76,36
+5,Bebida de Coco 250ml Extra,7422520151188,Bebidas,2026-08-03,Nescafé,70.42,325
+6,Chile Pimiento Verde 500g Extra,7420179296664,Verduras,2027-09-14,EcoVerde,21.42,62
+7,Melón Cantalupo unidad Extra,7485223324632,Frutas,2027-04-15,Chiquita,35.57,480
+8,Pechuga de Pollo 5lb Extra,7491909250097,Carnes,2028-06-16,El Rancho,94.94,101
+1,Salsa Picante 90ml Extra,7476679481451,Condimentos,2026-10-24,Hellmann's,68.7,283
+2,Tortilla de Harina x20 Extra,7476250136515,Panaderia,2027-05-08,Marinela,34.6,339
+3,Pañuelos Faciales x150 Extra,7417919703906,Higiene,2028-03-13,Oral-B,126.16,230
+4,Sardinas Ahumadas 125g Extra,7423427695413,Enlatados,2028-07-24,Campbell's,48.21,417
+5,Aceite de Oliva Virgen 500ml Extra,7442506475140,Aceites,2026-07-28,Chef,51.28,161
+6,Muffins de Arándano x6 Extra,7439089813877,Panaderia,2027-12-10,La Vienesa,20.6,11
+7,Lentejas Verdes 2lb Extra,7450733092085,Granos,2027-12-30,Selecta,58.51,394
+8,Manteca de Cerdo 1kg Extra,7421461001502,Aceites,2028-10-06,Paloma,159.89,209
+1,Naranja Dulce 5lb Extra,7444748698458,Frutas,2028-07-23,Chiquita,42.93,299
+2,Pizza de Queso 450g Extra,7475934900883,Congelados,2027-08-19,Nestlé,121.23,103
+3,Sazonador de Carne 300g Extra,7417793310993,Condimentos,2026-06-16,Las Palmas,20.08,124
+4,Afeitadora Desechable x5 Extra,7431970210559,Higiene,2028-02-23,Rexona,83.37,389
+5,Chorizo Guatemalteco 400g Extra,7465326634990,Carnes,2027-12-22,Granja Selecta,197.67,121
+6,Pañuelos Faciales x50 Extra,7463254824731,Higiene,2028-08-14,Dove,35.23,184
+7,Espinaca Congelada 800g Extra,7476129710775,Congelados,2028-10-17,Delimex,46.96,197
+8,Toallas de Papel x2 Extra,7480496147540,Higiene,2027-07-09,Aquafresh,91.28,222
+1,Pizza Hawaiana 450g Extra,7460871826240,Congelados,2027-09-27,Kellogg's,125.65,16
+2,Fécula de Maíz (Maicena) 500g Extra,7454780292245,Cereales,2028-01-16,Corn Pops,46.37,415
+3,Chile Jalapeño 100g Extra,7490411118310,Verduras,2027-08-20,La Finca,31.85,288
+4,Aceite de Palma 500ml Extra,7460014916657,Aceites,2026-07-24,Chef,156.93,61
+5,Cebolla Blanca 1lb Extra,7486529240803,Verduras,2028-08-03,BioNatur,26.86,84
+6,Comino Molido 50g Extra,7466686611338,Condimentos,2028-07-26,Herdez,25.55,46
+7,Refresco de Fresa 350ml Extra,7459209358769,Bebidas,2027-03-08,Monster,31.64,112
+8,Jabón de Baño Hidratante 150g Extra,7422498089241,Higiene,2026-08-21,Oral-B,77.47,142
+1,Salami 100g Extra,7481588802568,Carnes,2026-06-18,Carnibest,47.34,26
+2,Jugo de Mango 500ml Extra,7496186291796,Bebidas,2028-02-08,Café Rey,48.58,171
+3,Refresco de Cola 2L Extra,7497483864635,Bebidas,2028-09-13,Florida,88.36,236
+4,Bizcocho de Vainilla 300g Extra,7471597551601,Panaderia,2028-01-17,Gamesa,41.42,300
+5,Detergente en Polvo 1kg Extra,7424928872550,Limpieza,2027-08-13,Ariel,29.64,212
+6,Papas Fritas Queso 100g Extra,7477840810883,Snacks,2028-04-28,Cheetos,35.72,275
+7,Barrita de Granola Miel x12 Extra,7422200999306,Snacks,2027-06-27,Nature Valley,50.7,224
+8,Waffles Congelados x8 Extra,7497642692830,Congelados,2027-12-16,Rich's,125.93,288
+1,Papa Criolla 2lb Extra,7425387094151,Verduras,2027-01-06,FreshMarket,7.13,436
+2,Papas Fritas BBQ 100g Extra,7418765420886,Snacks,2026-10-13,Marinela,11.63,500
