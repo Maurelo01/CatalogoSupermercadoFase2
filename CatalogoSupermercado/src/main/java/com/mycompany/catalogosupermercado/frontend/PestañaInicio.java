@@ -4,6 +4,7 @@
  */
 package com.mycompany.catalogosupermercado.frontend;
 import com.mycompany.catalogosupermercado.estructuras.Grafo;
+import com.mycompany.catalogosupermercado.estructuras.Pila;
 import com.mycompany.catalogosupermercado.modelos.Arista;
 import com.mycompany.catalogosupermercado.modelos.Producto;
 import com.mycompany.catalogosupermercado.modelos.Sucursal;
@@ -13,6 +14,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +25,7 @@ public class PestañaInicio extends javax.swing.JFrame
 {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PestañaInicio.class.getName());
     private Grafo conexiones = new Grafo();
+    private String ultimoDotGenerado = null;
     /**
      * Creates new form PestañaInicio
      */
@@ -107,6 +110,7 @@ public class PestañaInicio extends javax.swing.JFrame
         btnVerBMas = new javax.swing.JButton();
         btnVerTablaHash = new javax.swing.JButton();
         btrVerColasSucursal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaSucursales = new javax.swing.JTable();
@@ -159,6 +163,7 @@ public class PestañaInicio extends javax.swing.JFrame
         jScrollPane5.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestor Sucursales");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cargar datos desde CSV");
@@ -476,7 +481,7 @@ public class PestañaInicio extends javax.swing.JFrame
                                 .addComponent(jLabel5)
                                 .addGap(66, 66, 66)
                                 .addComponent(cbxCriterio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 648, Short.MAX_VALUE)))
+                        .addGap(0, 652, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -531,16 +536,13 @@ public class PestañaInicio extends javax.swing.JFrame
         btrVerColasSucursal.setText("Ver Colas (Sucursal)");
         btrVerColasSucursal.addActionListener(this::btrVerColasSucursalActionPerformed);
 
+        jButton1.setText("Exportar a SVG");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(btnVerGrafo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btrVerColasSucursal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -558,8 +560,19 @@ public class PestañaInicio extends javax.swing.JFrame
                         .addComponent(btnVerTablaHash))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1018, Short.MAX_VALUE)))
                 .addGap(9, 9, 9))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnVerGrafo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btrVerColasSucursal))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,7 +581,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerGrafo)
                     .addComponent(btrVerColasSucursal))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtIdSucursalVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -576,8 +589,10 @@ public class PestañaInicio extends javax.swing.JFrame
                     .addComponent(btnVerB)
                     .addComponent(btnVerBMas)
                     .addComponent(btnVerTablaHash))
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -591,7 +606,7 @@ public class PestañaInicio extends javax.swing.JFrame
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Ubicación", "Tiempo Ingreso", "Tiempo Traspaso", "Tiempo Entrega"
+                "ID", "Nombre", "Ubicación", "Tiempo Ingreso (s)", "Tiempo Traspaso (s)", "Tiempo Entrega (s)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -849,6 +864,7 @@ public class PestañaInicio extends javax.swing.JFrame
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbxCriterioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCriterioActionPerformed
@@ -868,13 +884,13 @@ public class PestañaInicio extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(this, "La sucursal de origen no está en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            Producto producto = origen.getInventarioSucursal().buscarPorCodigo(codigo);
-            if (producto == null)
+            Producto productoOrigen = origen.getInventarioSucursal().buscarPorCodigo(codigo);
+            if (productoOrigen == null)
             {
                 JOptionPane.showMessageDialog(this, "No existe este producto en la sucursal de origen.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            String cantidadStr = JOptionPane.showInputDialog(this, "Stock disponible: " + producto.getStock() + "\nIngrese la cantidad a transferir:");
+            String cantidadStr = JOptionPane.showInputDialog(this, "Stock disponible: " + productoOrigen.getStock() + "\nIngrese la cantidad a transferir:");
             if (cantidadStr == null || cantidadStr.trim().isEmpty()) return;
             int cantidad = Integer.parseInt(cantidadStr.trim());
             if (cantidad <= 0)
@@ -882,25 +898,157 @@ public class PestañaInicio extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(this, "Cantidad inválida.", "Error de Cantidad", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            else if (cantidad > producto.getStock())
+            else if (cantidad > productoOrigen.getStock())
             {
                 JOptionPane.showMessageDialog(this, "Excede el stock disponible.", "Error de Cantidad", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            String[] opciones = {"Modo Instantáneo", "Modo Paso a Paso"};
+            String[] opciones = {"Modo Simulación (Hilos)", "Modo Paso a Paso"};
             int eleccion = JOptionPane.showOptionDialog(this, "¿Cómo desea visualizar esta transferencia?", "Seleccione Modalidad", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
             if (eleccion == 0)
             {
-                txtConsolaTransferencia.setText("Calculando ruta...\n");
-                long inicio = System.nanoTime();
-                String resultado = conexiones.realizarTransferencia(producto, cantidad, idOrigen, idDestino, esPorTiempo);
-                long fin = System.nanoTime();
-                double tiempo = (fin - inicio) / 1000.0;
-                txtConsolaTransferencia.setText("Tiempo de cálculo de ruta: " + tiempo + " us\n\n" + resultado);
+                txtConsolaTransferencia.setText("Iniciando transferencia simulada...\nCalculando ruta...\n");
+                btnTransferir.setEnabled(false);
+                Thread hiloTransferencia = new Thread(() ->
+                {
+                    boolean productoEliminado = false;
+                    int stockAnterior = productoOrigen.getStock();
+                    try 
+                    {
+                        Pila<Sucursal> pilaRuta = conexiones.encontrarRutaMasCorta(idOrigen, idDestino, esPorTiempo);
+                        if (pilaRuta == null || pilaRuta.estaVacia()) 
+                        {
+                            SwingUtilities.invokeLater(() ->
+                            {
+                                txtConsolaTransferencia.append("Error: No se encontró ruta posible.\n");
+                                btnTransferir.setEnabled(true);
+                            });
+                            return;
+                        }
+
+                        List<Sucursal> ruta = new ArrayList<>();
+                        while (!pilaRuta.estaVacia()) 
+                        {
+                            ruta.add(pilaRuta.pop());
+                        }
+                        int nuevoStock = stockAnterior - cantidad;
+                        if (nuevoStock == 0)
+                        {
+                            origen.getInventarioSucursal().eliminarProducto(productoOrigen.getCodigoBarra());
+                            productoEliminado = true;
+                        }
+                        else
+                        {
+                            productoOrigen.setStock(nuevoStock);
+                        }
+                        Producto productoViajero = new Producto(productoOrigen.getNombre(), productoOrigen.getCodigoBarra(), productoOrigen.getCategoria(), productoOrigen.getFechaCaducidad(), productoOrigen.getMarca(), productoOrigen.getPrecio(), cantidad);
+                        productoViajero.setEstado("En tránsito");
+                        SwingUtilities.invokeLater(() ->
+                        {
+                            txtConsolaTransferencia.append("-------------------------------------------------------\n");
+                            txtConsolaTransferencia.append("Transfiriendo: " + productoViajero.getNombre() + " (Cantidad: " + cantidad + ")\n");
+                            txtConsolaTransferencia.append("Ruta a seguir: ");
+                            for (int i = 0; i < ruta.size(); i++)
+                            {
+                                txtConsolaTransferencia.append(ruta.get(i).getNombre() + (i == ruta.size() - 1 ? "" : " -> "));
+                            }
+                            txtConsolaTransferencia.append("\n-------------------------------------------------------\n");
+                        });
+                        for (int i = 0; i < ruta.size(); i++) 
+                        {
+                            Sucursal sucursalActual = ruta.get(i);
+                            boolean esOrigen = (i == 0);
+                            boolean esDestinoFinal = (i == ruta.size() - 1);
+                            sucursalActual.getColaIngreso().encolar(productoViajero);
+                            final String msjIngreso = sucursalActual.getNombre() + " - Cola de Ingreso: Procesando (esperando " + sucursalActual.getTiempoIngreso() + "s)...\n";
+                            SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append(msjIngreso));
+                            Thread.sleep(sucursalActual.getTiempoIngreso() * 1000L); 
+                            sucursalActual.getColaIngreso().desencolar();
+                            if (esDestinoFinal) 
+                            {
+                                Producto productoDestino = sucursalActual.getInventarioSucursal().buscarPorCodigo(productoViajero.getCodigoBarra());
+                                if (productoDestino != null)
+                                {
+                                    productoDestino.setStock(productoDestino.getStock() + productoViajero.getStock());
+                                    SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append("El producto actualizó su stock en el inventario de " + sucursalActual.getNombre() + "\n"));
+                                }
+                                else
+                                {
+                                    productoViajero.setEstado("Disponible");
+                                    sucursalActual.getInventarioSucursal().agregarProducto(productoViajero);
+                                    SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append("El producto se guardo como nuevo en el inventario de " + sucursalActual.getNombre() + "\n"));
+                                }
+                            } 
+                            else 
+                            {
+                                if (!esOrigen) 
+                                {
+                                    sucursalActual.getColaTraspaso().encolar(productoViajero);
+                                    final String msjTraspaso = sucursalActual.getNombre() + " - Cola de Traspaso: reenviando (esperando " + sucursalActual.getTiempoTraspaso() + "s)...\n";
+                                    SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append(msjTraspaso));
+                                    Thread.sleep(sucursalActual.getTiempoTraspaso() * 1000L);
+                                    sucursalActual.getColaTraspaso().desencolar();
+                                }
+                                sucursalActual.getColaSalida().encolar(productoViajero);
+                                final String msjSalida = sucursalActual.getNombre() + " - Cola de Salida: Enviando producto (esperando " + sucursalActual.getTiempoEntrega() + "s)...\n";
+                                SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append(msjSalida));
+                                Thread.sleep(sucursalActual.getTiempoEntrega() * 1000L);
+                                sucursalActual.getColaSalida().desencolar();
+                                Sucursal siguiente = ruta.get(i + 1);
+                                double tiempoViaje = 0;
+                                for (Arista a : sucursalActual.getAristas())
+                                {
+                                    if (a.getDestino().getId() == siguiente.getId())
+                                    {
+                                        tiempoViaje = esPorTiempo ? a.getTiempo() : a.getCosto();
+                                        break;
+                                    }
+                                }
+                                final double tiempoViajeFinal = tiempoViaje;
+                                SwingUtilities.invokeLater(() -> txtConsolaTransferencia.append("Viajando hacia " + siguiente.getNombre() + " (esperando " + tiempoViajeFinal + "s)...\n"));
+                                Thread.sleep((long)(tiempoViaje * 1000L));
+                            }
+                        }
+                        SwingUtilities.invokeLater(() ->
+                        {
+                            txtConsolaTransferencia.append("¡¡¡TRANSFERENCIA COMPLETADA!!!\n");
+                            btnTransferir.setEnabled(true);
+                        });
+                    } 
+                    catch (InterruptedException ex) 
+                    {
+                        SwingUtilities.invokeLater(() ->
+                        {
+                            txtConsolaTransferencia.append("\nError de concurrencia: Transferencia interrumpida.\n");
+                            btnTransferir.setEnabled(true);
+                        });
+                    }
+                    catch (Exception e)
+                    {
+                        final boolean productoElim = productoEliminado;
+                        SwingUtilities.invokeLater(() ->
+                        {
+                            txtConsolaTransferencia.append("\nERROR DURANTE LA TRANSFERENCIA: " + e.getMessage() + "\n");
+                            if (productoElim)
+                            {
+                                productoOrigen.setStock(stockAnterior);
+                                origen.getInventarioSucursal().agregarProducto(productoOrigen);
+                                txtConsolaTransferencia.append("El producto fue restaurado completamente en la sucursal de origen.\n");
+                            }
+                            else
+                            {
+                                productoOrigen.setStock(stockAnterior);
+                                txtConsolaTransferencia.append("El stock fue devuelto a la sucursal de origen.\n");
+                            }
+                            btnTransferir.setEnabled(true);
+                        });
+                    }
+                });
+                hiloTransferencia.start();
             }
             else if (eleccion == 1) 
             {
-                String resultado = conexiones.iniciarTransferenciaPasoAPaso(producto, cantidad, idOrigen, idDestino, esPorTiempo);
+                String resultado = conexiones.iniciarTransferenciaPasoAPaso(productoOrigen, cantidad, idOrigen, idDestino, esPorTiempo);
                 txtConsolaTransferencia.setText(resultado);
             }
         }
@@ -917,6 +1065,7 @@ public class PestañaInicio extends javax.swing.JFrame
     private void btnVerGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerGrafoActionPerformed
         String archivoDot = "GrafoSucursales.dot";
         String archivoPng = "GrafoSucursales.png";
+        ultimoDotGenerado = archivoDot;
         conexiones.crearGrafico(archivoDot);
         generarImagenGraphviz(archivoDot, archivoPng);
         mostrarGraphviz(archivoPng);
@@ -934,6 +1083,7 @@ public class PestañaInicio extends javax.swing.JFrame
             }
             String archivoDot = "AvlSucursal_" + idSucursal + ".dot";
             String archivoPng = "AvlSucursal_" + idSucursal + ".png";
+            ultimoDotGenerado = archivoDot;
             sucursal.getInventarioSucursal().getArbolAVL().crearGrafico(archivoDot);
             generarImagenGraphviz(archivoDot, archivoPng);
             mostrarGraphviz(archivoPng);
@@ -960,6 +1110,7 @@ public class PestañaInicio extends javax.swing.JFrame
             }
             String archivoDot = "ArbolbSucursal_" + idSucursal + ".dot";
             String archivoPng = "ArbolbSucursal_" + idSucursal + ".png";
+            ultimoDotGenerado = archivoDot;
             sucursal.getInventarioSucursal().getArbolB().crearGrafico(archivoDot);
             generarImagenGraphviz(archivoDot, archivoPng);
             mostrarGraphviz(archivoPng);
@@ -986,6 +1137,7 @@ public class PestañaInicio extends javax.swing.JFrame
             }
             String archivoDot = "ArbolBMasSucursal_" + idSucursal + ".dot";
             String archivoPng = "ArbolBMasSucursal_" + idSucursal + ".png";
+            ultimoDotGenerado = archivoDot;
             sucursal.getInventarioSucursal().getArbolBMas().crearGrafico(archivoDot);
             generarImagenGraphviz(archivoDot, archivoPng);
             mostrarGraphviz(archivoPng);
@@ -1012,7 +1164,7 @@ public class PestañaInicio extends javax.swing.JFrame
             }
             String archivoDot = "TablaHashSucursal_" + idSucursal + ".dot";
             String archivoPng = "TablaHashSucursal_" + idSucursal + ".png";
-            
+            ultimoDotGenerado = archivoDot;
             sucursal.getInventarioSucursal().getTablaHash().crearGrafico(archivoDot);
             generarImagenGraphviz(archivoDot, archivoPng);
             mostrarGraphviz(archivoPng);
@@ -1036,6 +1188,7 @@ public class PestañaInicio extends javax.swing.JFrame
             {
                 String archivoDot = "ColasSucursal_" + idSucursal + ".dot";
                 String archivoPng = "ColasSucursal_" + idSucursal + ".png";
+                ultimoDotGenerado = archivoDot;
                 sucursal.crearGraficoColas(archivoDot);
                 generarImagenGraphviz(archivoDot, archivoPng);
                 mostrarGraphviz(archivoPng);
@@ -1802,6 +1955,37 @@ public class PestañaInicio extends javax.swing.JFrame
         }
     }//GEN-LAST:event_btnCargarSucursalesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (ultimoDotGenerado == null || !new File(ultimoDotGenerado).exists())
+        {
+            JOptionPane.showMessageDialog(this, "Primero se debe generar una vista haciendo clic en algún botón de Ver", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Exportar Gráfico como SVG");
+        chooser.setSelectedFile(new File(ultimoDotGenerado.replace(".dot", ".svg")));
+        if (chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION)
+        {
+            String rutaDestino = chooser.getSelectedFile().getAbsolutePath();
+            if (!rutaDestino.toLowerCase().endsWith(".svg"))
+            {
+                rutaDestino += ".svg";
+            }
+            try
+            {
+                ProcessBuilder pb = new ProcessBuilder("dot", "-Tsvg", ultimoDotGenerado, "-o", rutaDestino);
+                pb.redirectErrorStream(true);
+                Process proceso = pb.start();
+                proceso.waitFor();
+                JOptionPane.showMessageDialog(this, "¡Exportación completada exitosamente!\nRuta: " + rutaDestino, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(this, "Error al exportar SVG mediante Graphviz:\n" + e.getMessage(), "Error de Exportación", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1955,6 +2139,7 @@ public class PestañaInicio extends javax.swing.JFrame
     private javax.swing.JButton btrVerColasSucursal;
     private javax.swing.JComboBox<String> cbxCriterio;
     private javax.swing.JComboBox<String> cbxOrdenProductos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
