@@ -439,7 +439,7 @@ public class Grafo
             while ((linea = br.readLine()) != null)
             {
                 if (linea.trim().isEmpty()) continue;
-                String[] partes = linea.split(",", -1);
+                String[] partes = separarLineaCSV(linea);
                 if (partes.length < 6)
                 {
                     errorLog.write("No se definó correctamente la sucursal: " + linea + "\n");
@@ -479,7 +479,7 @@ public class Grafo
             while ((linea = br.readLine()) != null)
             {
                 if (linea.trim().isEmpty()) continue;
-                String[] partes = linea.split(",", -1);
+                String[] partes = separarLineaCSV(linea);
                 if (partes.length < 4)
                 {
                     errorLog.write("No se definó correctamente la arista: " + linea + "\n");
@@ -515,7 +515,7 @@ public class Grafo
             while ((linea = br.readLine()) != null)
             {
                 if (linea.trim().isEmpty()) continue;
-                String[] partes = linea.split(",", -1);
+                String[] partes = separarLineaCSV(linea);
                 if (partes.length < 8)
                 {
                     errorLog.write("No se definó correctamente el producto: " + linea + "\n");
@@ -553,6 +553,32 @@ public class Grafo
         {
             System.err.println("Error de lectura de CSV de Productos: " + e.getMessage());
         }
+    }
+    
+    private String[] separarLineaCSV(String linea)
+    {
+        List<String> valores = new ArrayList<>();
+        StringBuilder valorActual = new StringBuilder();
+        boolean dentroDeComillas = false;
+        for (int i = 0; i < linea.length(); i++)
+        {
+            char caracter = linea.charAt(i);
+            if (caracter == '"' || caracter == '“' || caracter == '”')
+            {
+                dentroDeComillas = !dentroDeComillas;
+            } 
+            else if (caracter == ',' && !dentroDeComillas)
+            {
+                valores.add(valorActual.toString().trim());
+                valorActual.setLength(0);
+            } 
+            else
+            {
+                valorActual.append(caracter);
+            }
+        }
+        valores.add(valorActual.toString().trim());
+        return valores.toArray(new String[0]);
     }
     
     public void crearGrafico(String nombreArchivo)
