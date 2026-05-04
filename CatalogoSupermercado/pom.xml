@@ -10,4 +10,20 @@
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>com.mycompany.catalogosupermercado.CatalogoSupermercado</exec.mainClass>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.mycompany.catalogosupermercado.CatalogoSupermercado</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
